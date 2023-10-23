@@ -23,14 +23,16 @@ from src.embeddings import get_ada_embedding, \
 
 class ExconManual():
     def __init__(self, log_file = '', input_folder = "./inputs/"):
+
+        # Create a custom log level for the really detailed logs
+        self.DEV_LEVEL = 15
+        logging.addLevelName(self.DEV_LEVEL, 'DEV')        
+
         # Set up basic configuration first
         if log_file == '':
             logging.basicConfig(level=logging.INFO)
         else: 
             logging.basicConfig(filename=log_file, filemode='w', format='%(name)s - %(levelname)s - %(message)s')
-        # Create a custom log level
-        self.DEV_LEVEL = 15
-        logging.addLevelName(self.DEV_LEVEL, 'DEV')        
         
         # Then get the logger
         self.logger = logging.getLogger(__name__)
