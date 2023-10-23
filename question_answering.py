@@ -37,6 +37,7 @@ with st.sidebar:
         else:
             st.success('Proceed to entering your prompt message!', icon='👉')
             os.environ['OPENAI_API_KEY'] = openai_api
+            openai = OpenAI(api_key=openai_api)
     else: 
         openai_api = os.environ['OPENAI_API_KEY'] 
 
