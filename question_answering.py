@@ -29,15 +29,13 @@ with st.sidebar:
     st.title('💬 Chat Parameters')
     
     user_input_api = True
-    print("waiting for API key")
     if user_input_api:
         openai_api = st.text_input('Enter OpenAI API token:', type='password')
         if not (openai_api.startswith('sk-') and len(openai_api)==51):
             st.warning('Please enter your credentials!', icon='⚠️')
         else:
             st.success('Proceed to entering your prompt message!', icon='👉')
-            os.environ['OPENAI_API_KEY'] = openai_api
-            openai = OpenAI(api_key=openai_api)
+            openai.api_key = openai_api
     else: 
         openai_api = os.environ['OPENAI_API_KEY'] 
 
