@@ -28,6 +28,9 @@ class ExconManual():
             logging.basicConfig(level=logging.INFO)
         else: 
             logging.basicConfig(filename=log_file, filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+        # Create a custom log level
+        self.DEV_LEVEL = 15
+        logging.addLevelName(self.DEV_LEVEL, 'DEV')        
         
         # Then get the logger
         self.logger = logging.getLogger(__name__)
@@ -94,67 +97,69 @@ class ExconManual():
             self.messages.append({"role": "assistant", "content": self.assistant_msg_stuck})
             return 
         elif self.system_state == self.system_states[0]: #"rag":
-            self.logger.info("Entering RAG with query: " + user_context)
+            self.logger.info("user: " + user_context)
             df_definitions, df_search_sections = self.similarity_search(user_context, threshold)
             if len(df_definitions) + len(df_search_sections) == 0:
-                self.logger.info("Unable to find any definitions or text related to this query")
+                self.logger.log(self.DEV_LEVEL, "Unable to find any definitions or text related to this query")
                 self.system_state = self.system_states[0] # "rag"
                 self.messages.append({"role": "assistant", "content": self.assistant_msg_no_data})
+                self.logger.info(f"assistant: {self.assistant_msg_no_data}")
                 return
             else:
                 flag, response = self.resource_augmented_query(model_to_use, temperature, max_tokens, df_definitions, df_search_sections,
                                                                testing, manual_responses_for_testing)
                 if flag == self.rag_prefixes[0]: # "ANSWER:"
-                    self.logger.info("-- Question asked and answered")
-                    self.logger.info(f"\nAssistant: {response.strip()}")
+                    self.logger.log(self.DEV_LEVEL, "-- Question asked and answered")
+                    self.logger.log(self.DEV_LEVEL, f"\nAssistant: {response.strip()}")
 
                     self.messages.append({"role": "assistant", "content": response.strip()})
+                    self.logger.info(f"assistant: {response.strip()}")
                     self.system_state = self.system_states[0] # RAG
                     return 
                 elif flag == self.rag_prefixes[1]: # "SECTION:"
-                    self.logger.info("Question asked. Request for more info")
+                    self.logger.log(self.DEV_LEVEL, "Question asked. Request for more info")
                     df_search_sections = self.add_section_to_resource(modified_section_to_add, df_search_sections)
                     if self.system_state == self.system_states[2]: # "requires_additional_sections"
                         # TODO: Do you want to ask the user for help?
-                        self.logger.info("Request to add resources failed")
+                        self.logger.log(self.DEV_LEVEL, "Request to add resources failed")
                         self.system_state = self.system_states[3] # Stuck
                         self.messages.append({"role": "assistant", "content": self.assistant_msg_stuck}) 
-
-                        raise NotImplementedError() # I need to work out out to proceed from here
-                        #TODO: Perhaps separate out the two cases?
-                        message = f"The system has requested an additional section in order to answer your query. \
-                            It requested section {section_to_add} but this is either not a valid index or the index \
-                            does not seem to exist in the data. If you are able to construct a valid index from the \
-                                value {section_to_add} please input it now otherwise please restart the chat."
-                        self.messages.append({"role": "assistant", "content": self.message})                        
+                        self.logger.info(f"assistant: {self.assistant_msg_stuck}")
                         return
                     # try again with new resources
                     flag, response = self.resource_augmented_query(model_to_use, temperature, max_tokens, df_definitions, df_search_sections,
                                                                    testing, manual_responses_for_testing)
                     if flag == self.rag_prefixes[0]: # "ANSWER:"
-                        self.logger.info("Question answered with the additional information")
+                        self.logger.log(self.DEV_LEVEL, "Question answered with the additional information")
                         self.messages.append({"role": "assistant", "content": response.strip()})
                         self.system_state = self.system_states[0] # RAG
+                        self.logger.info(f"assistant: {response.strip()}")
                         return
                     else: 
-                        self.logger.info("Even with the additional information, they system was unable to answer the question. Placing the system in 'stuck' mode")
-                        self.messages.append({"role": "assistant", "content": "A call for additional information to answer the question failed. The system is now stuck. Please restart it"})                        
+                        self.logger.log(self.DEV_LEVEL, "Even with the additional information, they system was unable to answer the question. Placing the system in 'stuck' mode")
+                        msg = "A call for additional information to answer the question failed. The system is now stuck. Please restart it"
+                        self.messages.append({"role": "assistant", "content": msg})                        
                         self.system_state = self.system_states[3] # Stuck
+                        self.logger.info(f"assistant: {msg}")                        
                         return
 
                 elif flag == self.rag_prefixes[2]: # "NONE:"
-                    self.logger.info("The LLM was not able to find anything relevant in the supplied sections")
+                    self.logger.log(self.DEV_LEVEL, "The LLM was not able to find anything relevant in the supplied sections")
                     self.messages.append({"role": "assistant", "content": self.assistant_msg_no_relevant_data})
                     self.system_state = self.system_states[0] # RAG
+                    self.logger.info(f"assistant: {self.assistant_msg_no_relevant_data}")                        
                     return
 
                 else:
                     self.logger.error("RAG returned an unexpected response")
                     self.messages.append({"role": "assistant", "content": self.assistant_msg_llm_not_following_instructions})
                     self.system_state = self.system_states[3] #stuck # We are at a dead end.
+                    self.logger.info(f"assistant: {self.self.assistant_msg_llm_not_following_instructions}")                        
+                    return
         else:
             self.logger.error("The system is in an unknown state")
             self.messages.append({"role": "assistant", "content": self.assistant_msg_unknown_state})
+            return
 
     def add_section_to_resource(self, section_to_add, df_search_sections):
         # Step 1) confirm it is requesting something that passes validation
@@ -254,7 +259,7 @@ class ExconManual():
                 for index, row in df_search_sections.iterrows():
                     system_context = system_context + "\n" + row["raw_text"]
 
-            self.logger.info("#################   RAG       #################")
+            self.logger.log(self.DEV_LEVEL, "#################   RAG       #################")
             self.logger.info("\n" + system_context)
             # Create a temporary message list. We will only add the messages to the chat history if we get well formatted answers
             question_messages = [{"role": "system", "content": system_context}] + self.messages # don't change self.messages and don't add system_context to it
@@ -265,7 +270,7 @@ class ExconManual():
                 model_to_use = "gpt-3.5-turbo-16k"
 
             if testing == True:
-                self.logger.info("Using canned answers rather than making calls to the openai API")
+                self.logger.log(self.DEV_LEVEL, "Using canned answers rather than making calls to the openai API")
                 initial_response = manual_responses_for_testing[0]
             else:       
                 response = openai.ChatCompletion.create(
@@ -291,7 +296,7 @@ class ExconManual():
                                         {"role": "user", "content": despondent_user_context}]
                                         
             if testing == True and len(manual_responses_for_testing) > 1:
-                self.logger.info("Using canned answers rather than making calls to the openai API")
+                self.logger.log(self.DEV_LEVEL, "Using canned answers rather than making calls to the openai API")
                 followup_response_text = manual_responses_for_testing[1]
             else:
                 followup_response = openai.ChatCompletion.create(
@@ -311,40 +316,40 @@ class ExconManual():
 
     def similarity_search(self, user_context, threshold = 0.15):
         question_embedding = get_ada_embedding(user_context)
-        self.logger.info("#################   Similarity Search       #################")
+        self.logger.log(self.DEV_LEVEL, "#################   Similarity Search       #################")
         relevant_definitions = get_closest_nodes(self.df_definitions_all, embedding_column_name = "Embedding", question_embedding = question_embedding, threshold = threshold)
         if len(relevant_definitions) > 0:
-            self.logger.info("--   Relevant Definitions")
+            self.logger.log(self.DEV_LEVEL, "--   Relevant Definitions")
             for index, row in relevant_definitions.iterrows():
-                self.logger.info(f'{row["cosine_distance"]:.4f}: ({row["source"]:>10}): {row["Definition"]}')
+                self.logger.log(self.DEV_LEVEL, f'{row["cosine_distance"]:.4f}: ({row["source"]:>10}): {row["Definition"]}')
         else:
-            self.logger.info("--   No relevant definitions found")
+            self.logger.log(self.DEV_LEVEL, "--   No relevant definitions found")
 
         relevant_sections = get_closest_nodes(self.df_text_all, embedding_column_name = "Embedding", question_embedding = question_embedding, threshold = threshold)
         if len(relevant_sections) > 0:
-            self.logger.info("--   Relevant Sections")
+            self.logger.log(self.DEV_LEVEL, "--   Relevant Sections")
             for index, row in relevant_sections.iterrows():
-                self.logger.info(f'{row["cosine_distance"]:.4f}: {row["section"]:>20}: {row["source"]:>15}: {row["text"]}')
+                self.logger.log(self.DEV_LEVEL, f'{row["cosine_distance"]:.4f}: {row["section"]:>20}: {row["source"]:>15}: {row["text"]}')
 
             filtered_relevant_sections = self._filter_relevant_sections(relevant_sections)
-            self.logger.info("--   Filtered Sections")
+            self.logger.log(self.DEV_LEVEL, "--   Filtered Sections")
             for index, row in filtered_relevant_sections.iterrows():
                 if row["count"] == 1:
-                    self.logger.info(f'{row["cosine_distance"]:.4f}            : {row["reference"]:>20}: {row["count"]:>2}')                
+                    self.logger.log(self.DEV_LEVEL, f'{row["cosine_distance"]:.4f}            : {row["reference"]:>20}: {row["count"]:>2}')                
                 else:
-                    self.logger.info(f'{row["cosine_distance"]:.4f} (*min dist): {row["reference"]:>20}: {row["count"]:>2}')                
+                    self.logger.log(self.DEV_LEVEL, f'{row["cosine_distance"]:.4f} (*min dist): {row["reference"]:>20}: {row["count"]:>2}')                
             filtered_relevant_sections["raw_text"] = filtered_relevant_sections["reference"].apply(self.get_regulation_detail)
             filtered_relevant_sections["token_count"] = filtered_relevant_sections["raw_text"].apply(num_tokens_from_string)
 
             # max out at 5 pieces of data
             if len(filtered_relevant_sections) > 5:
-                self.logger.info("Truncating the number of documents to 5")
+                self.logger.log(self.DEV_LEVEL, "Truncating the number of documents to 5")
 
             sorted_df = filtered_relevant_sections.sort_values(by="cosine_distance", ascending=True).head(5)
 
             return relevant_definitions, sorted_df 
         else:
-            self.logger.info("--   No relevant sections found")
+            self.logger.log(self.DEV_LEVEL, "--   No relevant sections found")
             return relevant_definitions, relevant_sections 
         
 
@@ -358,7 +363,7 @@ class ExconManual():
             cosine_distance = relevant_sections.iloc[0]["cosine_distance"]
             count = len(relevant_sections[relevant_sections['section'] == top_result])
             search_sections.append([top_result, cosine_distance, count])
-            self.logger.info(f'Top result: {top_result} with a cosine distance of {cosine_distance:.4f}')
+            self.logger.log(self.DEV_LEVEL, f'Top result: {top_result} with a cosine distance of {cosine_distance:.4f}')
 
             # 2) The mode
             mode_value_list = relevant_sections['section'].mode()
@@ -371,9 +376,9 @@ class ExconManual():
                     count = len(sub_frame)
                     minimum_cosine_distance = sub_frame['cosine_distance'].min()
                     search_sections.append([mode_value, minimum_cosine_distance, count])
-                    self.logger.info(f"Most common section: {mode_value} with a minimum cosine distance of {minimum_cosine_distance}")
+                    self.logger.log(self.DEV_LEVEL, f"Most common section: {mode_value} with a minimum cosine distance of {minimum_cosine_distance}")
             else:
-                self.logger.info("No unique mode")
+                self.logger.log(self.DEV_LEVEL, "No unique mode")
 
             # 3) References that are found frequently that are not the mode 
             count_dict = Counter(relevant_sections['section'])
@@ -384,19 +389,19 @@ class ExconManual():
             if mode_value in repeated_items:
                 del repeated_items[mode_value]        
             if (len(repeated_items) > 0):
-                self.logger.info("References found that occur multiple times")
+                self.logger.log(self.DEV_LEVEL, "References found that occur multiple times")
                 for reference, count in repeated_items.items():
                     sub_frame = relevant_sections[relevant_sections['section'] == reference]
                     count = len(sub_frame)
                     minimum_cosine_distance =  sub_frame['cosine_distance'].min()
                     search_sections.append([reference, minimum_cosine_distance, count])
-                    self.logger.info(f"Reference: {reference}, Count: {count}, Min Cosine-Distance: {minimum_cosine_distance}")
+                    self.logger.log(self.DEV_LEVEL, f"Reference: {reference}, Count: {count}, Min Cosine-Distance: {minimum_cosine_distance}")
 
         
         if len(search_sections) == 1 and len(relevant_sections) > 1: # the case if each section only appears once in the search
             # remove the top search result from the list
             remaining_relevant_sections = relevant_sections[relevant_sections["section"] != search_sections[0][0]]
-            self.logger.info(f'Only the top result added but more were found. Adding the next most likely answer')
+            self.logger.log(self.DEV_LEVEL, f'Only the top result added but more were found. Adding the next most likely answer')
             if len(remaining_relevant_sections) >= 1:
                 second_result = remaining_relevant_sections.iloc[0]
                 search_sections.append([second_result['section'], second_result['cosine_distance'], 1])
