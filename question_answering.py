@@ -7,6 +7,8 @@ import src.chat_bot
 importlib.reload(src.chat_bot)
 from src.chat_bot import ExconManual
 
+# https://exconmanualchat.streamlit.app/
+
 # App title
 st.set_page_config(page_title="💬 Excon Manual Question Answering")
 
@@ -34,6 +36,7 @@ with st.sidebar:
             st.warning('Please enter your credentials!', icon='⚠️')
         else:
             st.success('Proceed to entering your prompt message!', icon='👉')
+            os.environ['OPENAI_API_KEY'] = openai_api
     else: 
         openai_api = os.environ['OPENAI_API_KEY'] 
 
