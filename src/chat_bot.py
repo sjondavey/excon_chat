@@ -423,7 +423,7 @@ class ExconManual():
         return pd.DataFrame(search_sections, columns=["reference", "cosine_distance", "count"])
 
     def get_regulation_detail(self, node_str):
-        return get_regulation_detail(node_str, self.df_excon, self.index_checker, non_breaking_space = True)
+        return get_regulation_detail(node_str, self.df_excon, self.index_checker)
 
 
 
