@@ -120,13 +120,19 @@ class ExconManual():
                     return 
                 elif flag == self.rag_prefixes[1]: # "SECTION:"
                     self.logger.log(self.DEV_LEVEL, "Question asked. Request for more info")
+                    modified_section_to_add = self.index_checker.extract_valid_reference(response)
+                    if modified_section_to_add is None:
+                        # TODO: Do you want to ask the user for help?
+                        self.logger.info("Request to add resources failed because the reference was not valid")
+                        self.system_state = self.system_states[3] # Stuck
+                        self.messages.append({"role": "assistant", "content": self.assistant_msg_stuck}) 
+                        return                    
                     df_search_sections = self.add_section_to_resource(modified_section_to_add, df_search_sections)
                     if self.system_state == self.system_states[2]: # "requires_additional_sections"
                         # TODO: Do you want to ask the user for help?
-                        self.logger.log(self.DEV_LEVEL, "Request to add resources failed")
+                        self.logger.info("Request to add resources failed")
                         self.system_state = self.system_states[3] # Stuck
                         self.messages.append({"role": "assistant", "content": self.assistant_msg_stuck}) 
-                        self.logger.info(f"assistant: {self.assistant_msg_stuck}")
                         return
                     # try again with new resources
                     flag, response = self.resource_augmented_query(model_to_use, temperature, max_tokens, df_definitions, df_search_sections,
