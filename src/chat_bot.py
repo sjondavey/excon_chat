@@ -22,7 +22,7 @@ from src.embeddings import get_ada_embedding, \
                            get_closest_nodes
 
 class ExconManual():
-    def __init__(self, log_file = '', input_folder = "./inputs/"):
+    def __init__(self, log_file = '', input_folder = "./inputs/", logging_level = 20): # 20 = logging.info
 
         # Create a custom log level for the really detailed logs
         self.DEV_LEVEL = 15
@@ -30,13 +30,13 @@ class ExconManual():
 
         # Set up basic configuration first
         if log_file == '':
-            logging.basicConfig(level=logging.INFO)
+            logging.basicConfig(level=logging_level)
         else: 
-            logging.basicConfig(filename=log_file, filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+            logging.basicConfig(filename=log_file, filemode='w', format='%(name)s - %(levelname)s - %(message)s', level=logging_level)
         
         # Then get the logger
         self.logger = logging.getLogger(__name__)
-        self.logger.setLevel(logging.INFO)  # Set level for the logger
+        self.logger.setLevel(logging_level)
 
         self.index_checker = get_excon_manual_index()
         self.df_excon = pd.read_csv(input_folder + "excon_processed_manual.csv", sep="|", encoding="utf-8", na_filter=False)  
@@ -136,7 +136,7 @@ class ExconManual():
                         return
                     # try again with new resources
                     flag, response = self.resource_augmented_query(model_to_use, temperature, max_tokens, df_definitions, df_search_sections,
-                                                                   testing, manual_responses_for_testing)
+                                                                   testing, manual_responses_for_testing[1:])
                     if flag == self.rag_prefixes[0]: # "ANSWER:"
                         self.logger.log(self.DEV_LEVEL, "Question answered with the additional information")
                         self.messages.append({"role": "assistant", "content": response.strip()})
@@ -162,7 +162,7 @@ class ExconManual():
                     self.logger.error("RAG returned an unexpected response")
                     self.messages.append({"role": "assistant", "content": self.assistant_msg_llm_not_following_instructions})
                     self.system_state = self.system_states[3] #stuck # We are at a dead end.
-                    self.logger.info(f"assistant: {self.self.assistant_msg_llm_not_following_instructions}")                        
+                    self.logger.info(f"assistant: {self.assistant_msg_llm_not_following_instructions}")                        
                     return
         else:
             self.logger.error("The system is in an unknown state")
@@ -335,6 +335,11 @@ class ExconManual():
 
         relevant_sections = get_closest_nodes(self.df_text_all, embedding_column_name = "Embedding", question_embedding = question_embedding, threshold = threshold)
         if len(relevant_sections) > 0:
+            max_search_items = 15
+            if len(relevant_sections) > max_search_items: # sometime the search would return a lot of values and this leads to some issues when looking at sections that get referenced often
+                self.logger.log(self.DEV_LEVEL, f"Found more than {max_search_items} references that are closer than the input threshold of {threshold}. Capping them so there are only {max_search_items}")
+                relevant_sections = relevant_sections.nsmallest(max_search_items, 'cosine_distance')            # 1) The top result
+
             self.logger.log(self.DEV_LEVEL, "--   Relevant Sections")
             for index, row in relevant_sections.iterrows():
                 self.logger.log(self.DEV_LEVEL, f'{row["cosine_distance"]:.4f}: {row["section"]:>20}: {row["source"]:>15}: {row["text"]}')
@@ -365,7 +370,7 @@ class ExconManual():
     def _filter_relevant_sections(self, relevant_sections):
         # Get the top result
         search_sections = []
-        if len(relevant_sections) > 0:                
+        if len(relevant_sections) > 0:     
             # 1) The top result
             top_result = relevant_sections.iloc[0]["section"]
             cosine_distance = relevant_sections.iloc[0]["cosine_distance"]
