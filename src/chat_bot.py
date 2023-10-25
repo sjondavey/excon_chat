@@ -428,7 +428,11 @@ class ExconManual():
         return pd.DataFrame(search_sections, columns=["reference", "cosine_distance", "count"])
 
     def get_regulation_detail(self, node_str):
-        return get_regulation_detail(node_str, self.df_excon, self.index_checker)
+        valid_reference = self.index_checker.extract_valid_reference(node_str)
+        if not valid_reference:
+            return "The input reference did not confirm to this documents standard"
+        else:
+            return get_regulation_detail(valid_reference, self.df_excon, self.index_checker)
 
 
 
