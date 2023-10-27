@@ -175,6 +175,8 @@ def add_full_reference(df, valid_index_checker):
 def get_regulation_detail(node_str, df, valid_index_tracker):
     text = ''
     terminal_text_df = df[df['full_reference'].str.startswith(node_str)]
+    if len(terminal_text_df) == 0:
+        return f"No section could be found with the reference {node_str}"
     terminal_text_index = terminal_text_df.index[0]
     terminal_text_indent = 0 # terminal_text_df.iloc[0]['Indent']
     for index, row in terminal_text_df.iterrows():
