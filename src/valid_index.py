@@ -45,9 +45,12 @@ class ValidIndex():
     # print(extract_valid_reference('B.18 Gold (B)(a)(b)'))  # Output: None because after (B) we need a roman numeral
     # print(extract_valid_reference('A.1'))  # Output: 'A.1'
     def extract_valid_reference(self, input_string):
+        if input_string.strip() in self.exclusion_list:
+            return input_string.strip()
+
         partial_ref = ""
         remaining_str = input_string
-        
+    
         for pattern in self.index_patterns:
             if pattern[0] == "^": # the caret "^" is used in the index pattern because we only want the index at the start of the section but this causes potential issues here so it is removed 
                 pattern = pattern[1:]
@@ -56,9 +59,8 @@ class ValidIndex():
                 partial_ref += match.group()
                 remaining_str = remaining_str[match.end():]
             else:
-                if remaining_str:
+                if remaining_str and "(" in remaining_str: # there is still some text left and because it contains an "(" is "should" be part of the reference
                     return None
-                break
         
         return partial_ref if partial_ref else None
 
@@ -159,9 +161,10 @@ def get_excon_manual_index():
     excon_index_patterns = [
         r'^[A-Z]\.\d{0,2}',
         r'^\([A-Z]\)',
-        r'^\((i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xiii|xiv|xv|xvi|xvii|xviii|xix|xx|xxi|xxii|xxiii)\)',
+        r'^\((i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xiii|xiv|xv|xvi|xvii|xviii|xix|xx|xxi|xxii|xxiii|xxiv|xxv|xxvi|xxvii)\)',
         r'^\([a-z]\)',
         r'^\([a-z]{2}\)',
         r'^\((?:[1-9]|[1-9][0-9])\)',
     ]
     return ValidIndex(regex_list_of_indices=excon_index_patterns, exclusion_list=exclusion_list)
+

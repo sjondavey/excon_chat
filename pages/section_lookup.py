@@ -6,13 +6,28 @@ from src.chat_bot import ExconManual
 
 st.title('Dealer Manual: Section Lookup')
 
-@st.cache_resource(show_spinner=False)
-def load_data():
-    with st.spinner(text="Loading the excon documents and index – hang tight! This should take 30 seconds."):
-        excon = ExconManual("./logs/streamlit_lookup.log")
-        return excon
+# @st.cache_resource(show_spinner=False)
+# def load_data(ad = True):
+#     with st.spinner(text="Loading the excon documents and index – hang tight! This should take 30 seconds."):
+#         if ad:
+#             path_to_manual_as_csv_file = "./inputs/ad_manual.csv"
+#             path_to_definitions_as_parquet_file = "./inputs/ad_definitions.parquet"
+#             path_to_index_as_parquet_file = "./inputs/ad_index.parquet"
+#             chat_for_ad = True
+#             log_file = ''
+#             log_level = 20
+#         else:
+#             path_to_manual_as_csv_file = "./inputs/adla_manual.csv"
+#             path_to_definitions_as_parquet_file = "./inputs/adla_definitions.parquet"
+#             path_to_index_as_parquet_file = "./inputs/adla_index.parquet"
+#             chat_for_ad = False
+#             log_file = ''
+#             log_level = 20
 
-excon = load_data()
+#         excon = ExconManual(path_to_manual_as_csv_file, path_to_definitions_as_parquet_file, path_to_index_as_parquet_file, chat_for_ad = chat_for_ad, log_file=log_file, logging_level=log_level)
+#         return excon
+
+# excon = load_data(ad = True)
 
 with st.sidebar:
     st.title('💬 Dealer Manual section lookup')
@@ -43,11 +58,11 @@ if st.session_state.messages_lookup[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             placeholder = st.empty()
-            prompt = excon.index_checker.extract_valid_reference(prompt)
+            prompt = st.session_state['excon'].index_checker.extract_valid_reference(prompt)
             if not prompt:
                 formatted_response = "I was not able to extract a valid index from the value you input. Please try using the format A.1(A)(i)(a)(aa)."
             else:
-                response = excon.get_regulation_detail(prompt)
+                response = st.session_state['excon'].get_regulation_detail(prompt)
                 formatted_response = response
                 formatted_response = ''
                 lines = response.split('\n')
