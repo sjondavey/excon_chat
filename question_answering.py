@@ -30,7 +30,7 @@ buttons = ['Authorised Dealer (AD)', 'AD with Limited Authority (ADLA)']
 
 @st.cache_data(show_spinner=False)
 def load_data(ad = True):
-    print(f"load data called for {ad}")
+    #print(f"load data called for {ad}")
     with st.spinner(text="Loading the excon documents and index – hang tight! This should take 30 seconds."):
         if ad:
             path_to_manual_as_csv_file = "./inputs/ad_manual.csv"
@@ -55,14 +55,13 @@ if 'manual_to_use' not in st.session_state:
     st.session_state['manual_to_use'] = buttons[0]
 
 if 'excon' not in st.session_state:
-    print("Here")
     st.session_state['excon'] = load_data(ad = True)
 
 
 
 def load_manual():
     st.session_state['manual_to_use'] = st.session_state.manual_type
-    print(f"*** {st.session_state.manual_type}")
+    #print(f"*** {st.session_state.manual_type}")
     if st.session_state['manual_to_use'] == buttons[0]:
         st.session_state['excon'] = load_data(ad = True)
     else:
@@ -100,6 +99,7 @@ if authentication_status:
         else: 
             os.environ['OPENAI_API_KEY'] = st.secrets['openai']['OPENAI_API_KEY']
             openai_api = st.secrets['openai']['OPENAI_API_KEY']
+            openai.api_key = st.secrets['openai']['OPENAI_API_KEY']
 
         #st.subheader('Models and parameters')
         selected_model = st.sidebar.selectbox('Choose a model', ['gpt-3.5-turbo', 'gpt-4'], key='selected_model')
