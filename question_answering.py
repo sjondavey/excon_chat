@@ -98,6 +98,7 @@ if authentication_status:
                 st.success('Proceed to entering your prompt message!', icon='👉')
             st.divider()
         else: 
+            os.environ['OPENAI_API_KEY'] = st.secrets['openai']['OPENAI_API_KEY']
             openai_api = st.secrets['openai']['OPENAI_API_KEY']
 
         #st.subheader('Models and parameters')
