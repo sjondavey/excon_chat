@@ -97,9 +97,8 @@ if authentication_status:
                 st.success('Proceed to entering your prompt message!', icon='👉')
             st.divider()
         else: 
-            os.environ['OPENAI_API_KEY'] = st.secrets['openai']['OPENAI_API_KEY']
             openai_api = st.secrets['openai']['OPENAI_API_KEY']
-            openai.api_key = st.secrets['openai']['OPENAI_API_KEY']
+            openai.api_key = st.secrets['openai']['OPENAI_API_KEY'] # Key for 
 
         #st.subheader('Models and parameters')
         selected_model = st.sidebar.selectbox('Choose a model', ['gpt-3.5-turbo', 'gpt-4'], key='selected_model')

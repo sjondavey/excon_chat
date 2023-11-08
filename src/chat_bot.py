@@ -220,8 +220,8 @@ class ExconManual():
                 count = 1
                 raw_text = self.get_regulation_detail(section)
                 token_count = num_tokens_from_string(raw_text)
-                manual_data.append([section, count, raw_text, token_count])            
-            df_manual_data = pd.DataFrame(manual_data, columns = ["reference", "count", "raw_text", "token_count"])
+                manual_data.append([section, 1.0, count, raw_text, token_count])            
+            df_manual_data = pd.DataFrame(manual_data, columns = ["reference", "cosine_distance", "count", "raw_text", "token_count"])
             return df_manual_data
         else: # Just add the new data and hope the total context is not too long
             section = modified_section_to_add
