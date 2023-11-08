@@ -228,7 +228,7 @@ class ExconManual():
             count = 1
             raw_text = self.get_regulation_detail(section)
             token_count = num_tokens_from_string(raw_text)
-            df_search_sections.loc[len(df_search_sections.index)] = [section, count, raw_text, token_count]
+            df_search_sections.loc[len(df_search_sections.index)] = [section, 1.0, count, raw_text, token_count]
             return df_search_sections
 
 
