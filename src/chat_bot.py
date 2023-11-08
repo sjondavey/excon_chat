@@ -117,6 +117,11 @@ class ExconManual():
     def user_provides_input(self, user_context, threshold, model_to_use, temperature, max_tokens,
                             testing = False, manual_responses_for_testing = []):
         
+        if user_context is None:
+            self.logger.error("The user passed empty question")
+            self.messages.append({"role": "assistant", "content": self.assistant_msg_unknown_state})
+            return
+
         # I'm not sure I really understand how I should work with the Streamlit front end but I seem to need to add the 
         # user message in a step before I call "user_provides_input". This can result in the message being duplicated in the
         # list so here I include a "streamlit ui" check
@@ -308,7 +313,7 @@ class ExconManual():
             if testing == True:
                 self.logger.log(self.DEV_LEVEL, "Using canned answers rather than making calls to the openai API")
                 initial_response = manual_responses_for_testing[0]
-            else:       
+            else:
                 response = openai.ChatCompletion.create(
                                     model=model_to_use,
                                     temperature = temperature,

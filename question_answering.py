@@ -134,13 +134,23 @@ if authentication_status:
     if st.session_state.messages[-1]["role"] != "assistant":
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
-                st.session_state['excon'].user_provides_input(user_context = prompt, 
-                                threshold = 0.15, 
-                                model_to_use = selected_model, 
-                                temperature = temperature, 
-                                max_tokens = max_length)
-                response = st.session_state['excon'].messages[-1]['content']
-                #print(f'##Response: {response}')
+                try:
+                    st.session_state['excon'].user_provides_input(user_context = prompt, 
+                                    threshold = 0.15, 
+                                    model_to_use = selected_model, 
+                                    temperature = temperature, 
+                                    max_tokens = max_length)
+                    response = st.session_state['excon'].messages[-1]['content']
+                except openai.error.APIError as e:
+                    response = "OpenAI API returned an API Error. This is a problem on their side. Check https://status.openai.com/ and restart the conversation when they are back online"
+                    pass
+                # except openai.error.InvalidRequestError as e:
+                #     response = "OpenAI API returned an InvalidRequestError: {e}"
+                #     pass
+                except openai.error.ServiceUnavailableError as e:
+                    response = "OpenAI API returned an ServiceUnavailableError. . This is a problem on their side. Check https://status.openai.com/ and restart the conversation when they are back online"
+                    pass
+
                 placeholder = st.empty()
                 full_response = ''
                 for item in response:
