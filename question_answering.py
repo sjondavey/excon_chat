@@ -30,7 +30,7 @@ buttons = ['Authorised Dealer (AD)', 'AD with Limited Authority (ADLA)']
 
 @st.cache_data(show_spinner=False)
 def load_data(ad = True):
-    #print(f"load data called for {ad}")
+    # print(f"load data called for {ad}")
     with st.spinner(text="Loading the excon documents and index – hang tight! This should take 30 seconds."):
         if ad:
             path_to_manual_as_csv_file = "./inputs/ad_manual.csv"
@@ -61,7 +61,7 @@ if 'excon' not in st.session_state:
 
 def load_manual():
     st.session_state['manual_to_use'] = st.session_state.manual_type
-    #print(f"*** {st.session_state.manual_type}")
+    print(f"*** {st.session_state.manual_type}")
     if st.session_state['manual_to_use'] == buttons[0]:
         st.session_state['excon'] = load_data(ad = True)
     else:
@@ -97,11 +97,11 @@ if authentication_status:
                 st.success('Proceed to entering your prompt message!', icon='👉')
             st.divider()
         else: 
+            openai.api_key = st.secrets['openai']['OPENAI_API_KEY'] #
             openai_api = st.secrets['openai']['OPENAI_API_KEY']
-            openai.api_key = st.secrets['openai']['OPENAI_API_KEY'] # Key for 
 
         #st.subheader('Models and parameters')
-        selected_model = st.sidebar.selectbox('Choose a model', ['gpt-3.5-turbo', 'gpt-4'], key='selected_model')
+        selected_model = st.sidebar.selectbox('Choose a model', ['gpt-3.5-turbo', 'gpt-4-1106-preview', 'gpt-4'], key='selected_model')
         temperature = st.sidebar.slider('temperature', min_value=0.00, max_value=2.0, value=0.0, step=0.01)
         max_length = st.sidebar.slider('max_length', min_value=32, max_value=2048, value=512, step=8)
         st.divider()
@@ -134,23 +134,15 @@ if authentication_status:
     if st.session_state.messages[-1]["role"] != "assistant":
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
-                try:
-                    st.session_state['excon'].user_provides_input(user_context = prompt, 
-                                    threshold = 0.15, 
-                                    model_to_use = selected_model, 
-                                    temperature = temperature, 
-                                    max_tokens = max_length)
-                    response = st.session_state['excon'].messages[-1]['content']
-                except openai.error.APIError as e:
-                    response = "OpenAI API returned an API Error. This is a problem on their side. Check https://status.openai.com/ and restart the conversation when they are back online"
-                    pass
-                # except openai.error.InvalidRequestError as e:
-                #     response = "OpenAI API returned an InvalidRequestError: {e}"
-                #     pass
-                except openai.error.ServiceUnavailableError as e:
-                    response = "OpenAI API returned an ServiceUnavailableError. . This is a problem on their side. Check https://status.openai.com/ and restart the conversation when they are back online"
-                    pass
-
+                #print(f'##### {prompt}')
+                st.session_state['excon'].user_provides_input(user_context = prompt, 
+                                threshold = 0.15, 
+                                model_to_use = selected_model, 
+                                temperature = temperature, 
+                                max_tokens = max_length)
+                #print(f'#### Done with API Call')
+                response = st.session_state['excon'].messages[-1]['content']
+                #print(f'##Response: {response}')
                 placeholder = st.empty()
                 full_response = ''
                 for item in response:

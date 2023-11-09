@@ -47,9 +47,10 @@ class ExconManual():
 
         if chat_for_ad:
             self.user_type = "Authorised Dealer (AD)" 
+            self.manual_name = "\'Currency and Exchange Manual for Authorised Dealers\' (Manual or CEMAD)"
         else:
             self.user_type = "Authorised Dealer with Limited Authority (ADLA)"
-        self.manual_name = f"Exchange Control Manual for an {self.user_type}"
+            self.manual_name = "\'Currency and Exchange Manual for Authorised Dealers in foreign exchange with limited authority\' (Manual or CEMADLA)"
 
         self.index_checker = get_excon_manual_index()
         if os.path.exists(path_to_manual_as_csv_file):
@@ -138,17 +139,14 @@ class ExconManual():
                 self.logger.log(self.DEV_LEVEL, "Unable to find any definitions or text related to this query")
                 self.system_state = self.system_states[0] # "rag"
                 self.messages.append({"role": "assistant", "content": self.assistant_msg_no_data})
-                self.logger.info(f"assistant: {self.assistant_msg_no_data}")
+                self.logger.info(f"assistant:\n {self.assistant_msg_no_data}")
                 return
             else:
                 flag, response = self.resource_augmented_query(model_to_use, temperature, max_tokens, df_definitions, df_search_sections,
                                                                testing, manual_responses_for_testing)
                 if flag == self.rag_prefixes[0]: # "ANSWER:"
-                    self.logger.log(self.DEV_LEVEL, "-- Question asked and answered")
-                    self.logger.log(self.DEV_LEVEL, f"\nAssistant: {response.strip()}")
-
                     self.messages.append({"role": "assistant", "content": response.strip()})
-                    self.logger.info(f"assistant: {response.strip()}")
+                    self.logger.info(f"assistant:\n {response.strip()}")
                     self.system_state = self.system_states[0] # RAG
                     return 
                 elif flag == self.rag_prefixes[1]: # "SECTION:"
@@ -174,28 +172,28 @@ class ExconManual():
                         self.logger.log(self.DEV_LEVEL, "Question answered with the additional information")
                         self.messages.append({"role": "assistant", "content": response.strip()})
                         self.system_state = self.system_states[0] # RAG
-                        self.logger.info(f"assistant: {response.strip()}")
+                        self.logger.info(f"assistant:\n {response.strip()}")
                         return
                     else: 
                         self.logger.log(self.DEV_LEVEL, "Even with the additional information, they system was unable to answer the question. Placing the system in 'stuck' mode")
                         msg = "A call for additional information to answer the question failed. The system is now stuck. Please restart it"
                         self.messages.append({"role": "assistant", "content": msg})                        
                         self.system_state = self.system_states[3] # Stuck
-                        self.logger.info(f"assistant: {msg}")                        
+                        self.logger.info(f"assistant:\n {msg}")                        
                         return
 
                 elif flag == self.rag_prefixes[2]: # "NONE:"
                     self.logger.log(self.DEV_LEVEL, "The LLM was not able to find anything relevant in the supplied sections")
                     self.messages.append({"role": "assistant", "content": self.assistant_msg_no_relevant_data})
                     self.system_state = self.system_states[0] # RAG
-                    self.logger.info(f"assistant: {self.assistant_msg_no_relevant_data}")                        
+                    self.logger.info(f"assistant:\n {self.assistant_msg_no_relevant_data}")                        
                     return
 
                 else:
                     self.logger.error("RAG returned an unexpected response")
                     self.messages.append({"role": "assistant", "content": self.assistant_msg_llm_not_following_instructions})
                     self.system_state = self.system_states[3] #stuck # We are at a dead end.
-                    self.logger.info(f"assistant: {self.assistant_msg_llm_not_following_instructions}")                        
+                    self.logger.info(f"assistant:\n {self.assistant_msg_llm_not_following_instructions}")                        
                     return
         else:
             self.logger.error("The system is in an unknown state")
@@ -266,6 +264,28 @@ class ExconManual():
         else:
             return None
 
+    def _create_system_message(self):
+        return f"You are answering questions for an {self.user_type} based only on the relevant sections from the {self.manual_name} that are provided. You have three options:\n\
+1) Answer the question. Preface an answer with the tag '{self.rag_prefixes[0]}'. If possible, end the answer with the reference to the section or sections you used to answer the question.\n\
+2) Request additional documentation. If, in the body of the sections provided, there is a reference to another section of the Manual that is directly relevant and not already provided, respond with the word '{self.rag_prefixes[1]}' followed by the section reference.\n\
+3) State '{self.rag_prefixes[2]}' and nothing else in all other cases\n\n\
+Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). The first index uses the regex pattern r'[A-Z]\.\d{0,2}'. Thereafter, each sub-index is surrounded by round brackets"
+
+    def _add_rag_data_to_question(self, question, df_definitions, df_search_sections):
+        user_context = f'Question: {question}\n\n'
+        if len(df_definitions) > 0:
+            user_context = user_context + "Definitions from the Manual\n"
+            for index, row in df_definitions.iterrows():
+                user_context = user_context + f"{row['Definition']}\n"
+        if len(df_search_sections) > 0:
+            user_context = user_context + "Sections from the Manual\n"
+            for index, row in df_search_sections.iterrows():
+                user_context = user_context + f"{row['raw_text']}\n"
+        return user_context
+
+    def _extract_question_from_rag_data(self, decorated_question):
+        return decorated_question.split("\n")[0][len("Question: "):]
+
     # Make sure the last entry in self.messages is the user context
     # Note: To test the workflow I need some way to control the responses. I have chosen to do this with the two parameters
     #       testing: a flag. If false the function will run calling the openai api for responses. If false the function will 
@@ -287,26 +307,24 @@ class ExconManual():
         
 
         if len(df_definitions) + len(df_search_sections) > 0: # should always be the case as we check this in the control loop
-            system_context = f"You are attempting to answer questions from an {self.user_type} based only on the relevant documentation provided. You have only three options:\n\
-1) Answer the question. If you do this, your must preface to response with the word '{self.rag_prefixes[0]}'. If possible also provide a reference to the relevant documentation for the user to cross-check. Use this if you are sure about your answer.\n\
-2) Request additional documentation. If, in the body of the relevant documentation, is a reference to another section of the document that is directly relevant, respond with the word '{self.rag_prefixes[1]}' followed by the section reference which looks like A.1(A)(i)(aa). \n\
-3) State '{self.rag_prefixes[2]}' (and nothing else) in all cases where you are not confident about either of the first two options"
-            if len(df_definitions) > 0:
-                system_context = system_context + "\nPotentially relevant definition(s):"
-                for index, row in df_definitions.iterrows():
-                    system_context = system_context + "\n" + row["Definition"]
-            if len(df_search_sections) > 0:
-                system_context = system_context + "\nPotentially relevant document section(s):"
-                for index, row in df_search_sections.iterrows():
-                    system_context = system_context + "\n" + row["raw_text"]
+            self.logger.log(self.DEV_LEVEL, "#################   RAG Prompts   #################")
 
-            self.logger.log(self.DEV_LEVEL, "#################   RAG       #################")
-            self.logger.info("\n" + system_context)
+            system_context = self._create_system_message()
+            self.logger.info("System Prompt:\n" + system_context)
+
+            # Replace the user question with the RAG version of it
+            self.user_question = self.messages[-1]["content"]
+            if self.user_question.startswith("Question:"):
+                self.user_question = self._extract_question_from_rag_data(self.user_question)
+            self.messages[-1]["content"] = self._add_rag_data_to_question(self.user_question, df_definitions, df_search_sections)
+            self.logger.info("User Prompt with RAG:\n" + self.messages[-1]["content"])
+
+
             # Create a temporary message list. We will only add the messages to the chat history if we get well formatted answers
-            question_messages = [{"role": "system", "content": system_context}] + self.messages # don't change self.messages and don't add system_context to it
+            with_system_message = [{"role": "system", "content": system_context}] + self.messages 
 
             total_tokens = num_tokens_from_string(system_context) + num_tokens_from_string(self.messages[-1]['content']) # just check the system and last user message length
-            if total_tokens > 4000 and model_to_use!="gpt-3.5-turbo-16k":
+            if (model_to_use == "gpt-3.5-turbo" or model_to_use == "gpt-4") and total_tokens > 4000 and model_to_use!="gpt-3.5-turbo-16k":
                 self.logger.warning("!!! NOTE !!! You have a very long prompt. Switching to the gpt-3.5-turbo-16k model")
                 model_to_use = "gpt-3.5-turbo-16k"
 
@@ -318,21 +336,24 @@ class ExconManual():
                                     model=model_to_use,
                                     temperature = temperature,
                                     max_tokens = max_tokens,
-                                    messages = question_messages
+                                    messages = with_system_message
                                 )
+                #print(response)
                 initial_response = response['choices'][0]['message']['content']
 
+            # Check the model performed as instructed prefacing its response with one of three words 
             for prefix in self.rag_prefixes:
                 if initial_response.startswith(prefix):
+                    self.messages[-1]["content"] = self.user_question
                     # Split the string into two parts: the prefix and the remaining text
                     return prefix, initial_response[len(prefix):]
 
-            # now we need to recheck our work!
-            self.logger.warning("Initial call did not create a response in the correct format. Retrying")
-            self.logger.warning("The response was:")
-            self.logger.warning(initial_response)
-            despondent_user_context = f"Please check your answer and make sure your answer uses only one of the three permissible forms, {self.rag_prefixes[0]}, {self.rag_prefixes[1]} or {self.rag_prefixes[2]}"
-            despondent_user_messages = question_messages + [
+            # The model did not perform as instructed so we not ask it to check its work
+            self.logger.warning("Initial chat API response did not result in a response with the correct format. Retrying")
+            self.logger.warning(f"The response was:\n{initial_response}")
+
+            despondent_user_context = f"Please check your answer and make sure you preface your response using only one of the three permissible words, {self.rag_prefixes[0]}, {self.rag_prefixes[1]} or {self.rag_prefixes[2]}"
+            despondent_user_messages = with_system_message + [
                                         {"role": "assistant", "content": initial_response},
                                         {"role": "user", "content": despondent_user_context}]
                                         
@@ -349,6 +370,7 @@ class ExconManual():
                 followup_response_text = followup_response['choices'][0]['message']['content']
             for prefix in self.rag_prefixes:
                 if followup_response_text.startswith(prefix):
+                    self.messages[-1]["content"] = self.user_question
                     # Split the string into two parts: the prefix and the remaining text
                     return prefix, followup_response_text[len(prefix):]
 
@@ -356,7 +378,7 @@ class ExconManual():
 
 
     def similarity_search(self, user_context, threshold = 0.15):
-        question_embedding = get_ada_embedding(user_context)
+        question_embedding = get_ada_embedding(user_context)        
         self.logger.log(self.DEV_LEVEL, "#################   Similarity Search       #################")
         relevant_definitions = get_closest_nodes(self.df_definitions_all, embedding_column_name = "Embedding", question_embedding = question_embedding, threshold = threshold)
         if len(relevant_definitions) > 0:
