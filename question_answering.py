@@ -38,14 +38,14 @@ def load_data(ad = True):
             path_to_index_as_parquet_file = "./inputs/ad_index.parquet"
             chat_for_ad = True
             log_file = ''
-            log_level = 20
+            log_level = 15
         else:
             path_to_manual_as_csv_file = "./inputs/adla_manual.csv"
             path_to_definitions_as_parquet_file = "./inputs/adla_definitions.parquet"
             path_to_index_as_parquet_file = "./inputs/adla_index.parquet"
             chat_for_ad = False
             log_file = ''
-            log_level = 20
+            log_level = 15
         return ExconManual(path_to_manual_as_csv_file, path_to_definitions_as_parquet_file, path_to_index_as_parquet_file, chat_for_ad = chat_for_ad, log_file=log_file, logging_level=log_level)
 
 
