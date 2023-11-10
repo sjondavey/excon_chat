@@ -126,7 +126,7 @@ if authentication_status:
             st.write(prompt)
 
     # Generate a new response if last message is not from assistant
-    if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] != "assistant":
+    if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] != "assistant" and prompt is not None:
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 #print(f'##### {prompt}')
