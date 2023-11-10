@@ -145,7 +145,7 @@ if authentication_status:
                         full_response += item
                         placeholder.markdown(full_response)
                     placeholder.markdown(full_response)
-            st.session_state.messages.append({"role": "assistant", "content": full_response})
+                st.session_state.messages.append({"role": "assistant", "content": full_response})
         #st.session_state['excon'].messages
 
 elif authentication_status == False:
