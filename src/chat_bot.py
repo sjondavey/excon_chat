@@ -13,13 +13,14 @@ from src.valid_index import ValidIndex, get_excon_manual_index
 
 import src.file_tools
 importlib.reload(src.file_tools)
-from src.file_tools import get_regulation_detail, \
-                           num_tokens_from_string
+from src.file_tools import get_regulation_detail
+                           
 
 import src.embeddings
 importlib.reload(src.embeddings)
 from src.embeddings import get_ada_embedding, \
-                           get_closest_nodes
+                           get_closest_nodes, \
+                           num_tokens_from_string
 
 class ExconManual():
     #def __init__(self, log_file = '', input_folder = "./inputs/", logging_level = 20): # 20 = logging.info
@@ -88,7 +89,6 @@ class ExconManual():
 
         
         self.messages = []
-        self.reset_conversation_history()
 
         self.rag_prefixes = ["ANSWER:",  # LLM was able to answer the question with the input data
                              "SECTION:", # LLM Requested additional information to answer the question
@@ -104,8 +104,9 @@ class ExconManual():
 
 
     def reset_conversation_history(self):
-        opening_message = f"I am a bot designed to answer questions based on the {self.manual_name}. How can I assist today?"
-        self.messages = [{"role": "assistant", "content": opening_message}]
+        # opening_message = f"I am a bot designed to answer questions based on the {self.manual_name}. How can I assist today?"
+        # self.messages = [{"role": "assistant", "content": opening_message}]
+        self.messages = []
         self.system_state = self.system_states[0]
         
     # Note: To test the workflow I need some way to control the openai API responses. I have chosen to do this with the two parameters
@@ -119,27 +120,31 @@ class ExconManual():
                             testing = False, manual_responses_for_testing = []):
         
         if user_context is None:
-            self.logger.error("The user passed empty question")
+            self.logger.error("The user passed an empty string. This should not have happened and is an indication there is a bug in the frontend. The system will be placed into a 'stuck' status")
             self.messages.append({"role": "assistant", "content": self.assistant_msg_unknown_state})
+            self.system_state == self.system_states[3] #stuck
             return
 
-        # I'm not sure I really understand how I should work with the Streamlit front end but I seem to need to add the 
-        # user message in a step before I call "user_provides_input". This can result in the message being duplicated in the
-        # list so here I include a "streamlit ui" check
-        if not (self.messages[-1]["role"] == "user" and self.messages[-1]["content"] == user_context): 
+        # I use this variable if I ever need to remove the RAG decoration from the user question
+        #self.user_question = user_context
+
+        if len(self.messages) == 0:
             self.messages.append({"role": "user", "content": user_context})
+        elif not (self.messages[-1]["role"] == "user" and self.messages[-1]["content"] == user_context): 
+            self.messages.append({"role": "user", "content": user_context})
+        # else the message is already in the queue
 
         if self.system_state == self.system_states[3]: #stuck
             self.messages.append({"role": "assistant", "content": self.assistant_msg_stuck})
             return 
         elif self.system_state == self.system_states[0]: #"rag":
-            self.logger.info("user: " + user_context)
+            self.logger.info(f"User Question:\n{user_context}")
             df_definitions, df_search_sections = self.similarity_search(user_context, threshold)
-            if len(df_definitions) + len(df_search_sections) == 0:
+            if len(self.messages) < 2 and (len(df_definitions) + len(df_search_sections) == 0):
                 self.logger.log(self.DEV_LEVEL, "Unable to find any definitions or text related to this query")
                 self.system_state = self.system_states[0] # "rag"
                 self.messages.append({"role": "assistant", "content": self.assistant_msg_no_data})
-                self.logger.info(f"assistant:\n {self.assistant_msg_no_data}")
+                self.logger.info(f"Assistant:\n{self.assistant_msg_no_data}")
                 return
             else:
                 flag, response = self.resource_augmented_query(model_to_use, temperature, max_tokens, df_definitions, df_search_sections,
@@ -165,6 +170,11 @@ class ExconManual():
                         self.system_state = self.system_states[3] # Stuck
                         self.messages.append({"role": "assistant", "content": self.assistant_msg_stuck}) 
                         return
+
+                    # Remove the RAG decoration from the user question
+                    if self.messages[-1]["role"] != "user":
+                        raise AttributeError("There is a problem with the logic. The last message on the queue must be from the user")
+                    self.messages[-1]["content"] = user_context
                     # try again with new resources
                     flag, response = self.resource_augmented_query(model_to_use, temperature, max_tokens, df_definitions, df_search_sections,
                                                                    testing, manual_responses_for_testing[1:])
@@ -231,13 +241,17 @@ class ExconManual():
             count = 1
             raw_text = self.get_regulation_detail(section)
             token_count = num_tokens_from_string(raw_text)
-            df_search_sections.loc[len(df_search_sections.index)] = [section, 1.0, count, raw_text, token_count]
+            df_to_add = pd.DataFrame([[section, 1.0, count, raw_text, token_count]], columns = ["reference", "cosine_distance", "count", "raw_text", "token_count"])
+            df_search_sections = pd.concat([df_search_sections, df_to_add]).reset_index(drop=True)
+            #df_search_sections.loc[len(df_search_sections.index)] = [section, 1.0, count, raw_text, token_count]
             return df_search_sections
 
 
     # Note that 'section' is assumed to be valid at this stage
     def _find_reference_that_calls_for(self, valid_section_index, df_search_sections):
         referring_section = []
+        if len(df_search_sections) == 0:
+            return referring_section
         if len(df_search_sections) == 1:
             referring_section.append(df_search_sections.iloc[0]["reference"])
         else:
@@ -306,24 +320,27 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
             return self.system_states[3], self.system_states[3]
         
 
-        if len(df_definitions) + len(df_search_sections) > 0: # should always be the case as we check this in the control loop
+        if len(self.messages) > 1 or len(df_definitions) + len(df_search_sections) > 0: # should always be the case as we check this in the control loop
             self.logger.log(self.DEV_LEVEL, "#################   RAG Prompts   #################")
 
-            system_context = self._create_system_message()
-            self.logger.info("System Prompt:\n" + system_context)
+            system_content = self._create_system_message()
+            self.logger.info("System Prompt:\n" + system_content)
 
             # Replace the user question with the RAG version of it
-            self.user_question = self.messages[-1]["content"]
-            if self.user_question.startswith("Question:"):
-                self.user_question = self._extract_question_from_rag_data(self.user_question)
-            self.messages[-1]["content"] = self._add_rag_data_to_question(self.user_question, df_definitions, df_search_sections)
+            user_question = self.messages[-1]["content"]
+            if user_question.startswith("Question:"):
+                user_question = self._extract_question_from_rag_data(user_question)
+            self.messages[-1]["content"] = self._add_rag_data_to_question(user_question, df_definitions, df_search_sections)
             self.logger.info("User Prompt with RAG:\n" + self.messages[-1]["content"])
 
 
             # Create a temporary message list. We will only add the messages to the chat history if we get well formatted answers
-            with_system_message = [{"role": "system", "content": system_context}] + self.messages 
+            truncated_chat = self._truncate_message_list(self.messages, 2000)
+            if len(self.messages) != len(truncated_chat):
+                self.logger.info(f"Total message queue contains {len(self.messages)} messages but we have truncated these to just the last {len(truncated_chat)}")
+            with_system_message = [{"role": "system", "content": system_content}] + truncated_chat
 
-            total_tokens = num_tokens_from_string(system_context) + num_tokens_from_string(self.messages[-1]['content']) # just check the system and last user message length
+            total_tokens = num_tokens_from_string(system_content) + num_tokens_from_string(self.messages[-1]['content']) # just check the system and last user message length
             if (model_to_use == "gpt-3.5-turbo" or model_to_use == "gpt-4") and total_tokens > 4000 and model_to_use!="gpt-3.5-turbo-16k":
                 self.logger.warning("!!! NOTE !!! You have a very long prompt. Switching to the gpt-3.5-turbo-16k model")
                 model_to_use = "gpt-3.5-turbo-16k"
@@ -344,8 +361,7 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
             # Check the model performed as instructed prefacing its response with one of three words 
             for prefix in self.rag_prefixes:
                 if initial_response.startswith(prefix):
-                    self.messages[-1]["content"] = self.user_question
-                    # Split the string into two parts: the prefix and the remaining text
+                    # self.messages[-1]["content"] = self.user_question
                     return prefix, initial_response[len(prefix):]
 
             # The model did not perform as instructed so we not ask it to check its work
@@ -370,8 +386,7 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
                 followup_response_text = followup_response['choices'][0]['message']['content']
             for prefix in self.rag_prefixes:
                 if followup_response_text.startswith(prefix):
-                    self.messages[-1]["content"] = self.user_question
-                    # Split the string into two parts: the prefix and the remaining text
+                    # self.messages[-1]["content"] = self.user_question
                     return prefix, followup_response_text[len(prefix):]
 
         return self.rag_prefixes[3], "The LLM was not able to return an acceptable answer. "
@@ -418,7 +433,7 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
             return relevant_definitions, sorted_df 
         else:
             self.logger.log(self.DEV_LEVEL, "--   No relevant sections found")
-            return relevant_definitions, relevant_sections 
+            return relevant_definitions, pd.DataFrame([], columns = ["reference", "cosine_distance", "count", "raw_text", "token_count"]) 
         
 
     # Logic to refine the choice of data that will be sent to the LLM
@@ -489,5 +504,21 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
         else:
             return get_regulation_detail(valid_reference, self.df_excon, self.index_checker)
 
+
+    def _truncate_message_list(self, message_list, token_limit = 2000):
+        if len(message_list) < 4: # user message + previous response + previous user message
+            return message_list
+        else:
+            n = 3
+            token_count = num_tokens_from_string(message_list[-1]["content"]) + \
+                          num_tokens_from_string(message_list[-2]["content"]) + \
+                          num_tokens_from_string(message_list[-3]["content"])
+            while token_count < token_limit and len(message_list) > n:
+                token_count += num_tokens_from_string(message_list[-n]["content"])
+                n += 1
+        if n > 3:
+            return message_list[-(n-1):]
+        else:
+            return message_list[-3:]
 
 

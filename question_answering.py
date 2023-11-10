@@ -46,33 +46,28 @@ def load_data(ad = True):
             chat_for_ad = False
             log_file = ''
             log_level = 20
-        #st.session_state['excon'] = ExconManual(path_to_manual_as_csv_file, path_to_definitions_as_parquet_file, path_to_index_as_parquet_file, chat_for_ad = chat_for_ad, log_file=log_file, logging_level=log_level)    
         return ExconManual(path_to_manual_as_csv_file, path_to_definitions_as_parquet_file, path_to_index_as_parquet_file, chat_for_ad = chat_for_ad, log_file=log_file, logging_level=log_level)
 
 
 if 'manual_to_use' not in st.session_state:
-    #st.session_state['manual_to_use'] = ['Authorised Dealer (AD)', 'AD with Limited Authority (ADLA)']
     st.session_state['manual_to_use'] = buttons[0]
 
 if 'excon' not in st.session_state:
     st.session_state['excon'] = load_data(ad = True)
 
-
-
 def load_manual():
     st.session_state['manual_to_use'] = st.session_state.manual_type
-    print(f"*** {st.session_state.manual_type}")
     if st.session_state['manual_to_use'] == buttons[0]:
         st.session_state['excon'] = load_data(ad = True)
     else:
         st.session_state['excon'] = load_data(ad = False)
 
     st.session_state['excon'].reset_conversation_history()
-    st.session_state.messages = st.session_state['excon'].messages 
-
+    st.session_state.messages = [] #st.session_state['excon'].messages 
 
 if authentication_status:
     st.write(f'Welcome *{name}*')
+    st.write(f"I am a bot designed to answer questions based on the {st.session_state['excon'].manual_name}. How can I assist today?")
     # Credentials
     with st.sidebar:
         st.title('💬 Chat Parameters')
@@ -101,7 +96,7 @@ if authentication_status:
             openai_api = st.secrets['openai']['OPENAI_API_KEY']
 
         #st.subheader('Models and parameters')
-        selected_model = st.sidebar.selectbox('Choose a model', ['gpt-3.5-turbo', 'gpt-4-1106-preview', 'gpt-4'], key='selected_model')
+        selected_model = st.sidebar.selectbox('Choose a model', ['gpt-3.5-turbo', 'gpt-4'], key='selected_model')
         temperature = st.sidebar.slider('temperature', min_value=0.00, max_value=2.0, value=0.0, step=0.01)
         max_length = st.sidebar.slider('max_length', min_value=32, max_value=2048, value=512, step=8)
         st.divider()
@@ -110,7 +105,7 @@ if authentication_status:
     # Store LLM generated responses
     if "messages" not in st.session_state.keys():
         st.session_state['excon'].reset_conversation_history()
-        st.session_state.messages = st.session_state['excon'].messages 
+        st.session_state.messages = [] # st.session_state['excon'].messages 
 
     # Display or clear chat messages
     for message in st.session_state.messages:
@@ -119,7 +114,7 @@ if authentication_status:
 
     def clear_chat_history():
         st.session_state['excon'].reset_conversation_history()
-        st.session_state.messages = st.session_state['excon'].messages 
+        st.session_state.messages = [] # st.session_state['excon'].messages 
     st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
     authenticator.logout('Logout', 'sidebar')
 
@@ -131,7 +126,7 @@ if authentication_status:
             st.write(prompt)
 
     # Generate a new response if last message is not from assistant
-    if st.session_state.messages[-1]["role"] != "assistant":
+    if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] != "assistant":
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 #print(f'##### {prompt}')
@@ -149,7 +144,8 @@ if authentication_status:
                     full_response += item
                     placeholder.markdown(full_response)
                 placeholder.markdown(full_response)
-        st.session_state.messages = st.session_state['excon'].messages
+            st.session_state.messages.append({"role": "assistant", "content": full_response})
+        #st.session_state['excon'].messages
 
 elif authentication_status == False:
     st.error('Username/password is incorrect')

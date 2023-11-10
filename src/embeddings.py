@@ -1,9 +1,16 @@
 import openai
-#from ast import literal_eval
+import tiktoken
+
 from json import loads
 from scipy.spatial import distance
 import pandas as pd
 
+def num_tokens_from_string(string: str, encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")) -> int:
+    if pd.isna(string):
+        return 0
+    """Returns the number of tokens in a text string."""
+    num_tokens = len(encoding.encode(string))
+    return num_tokens
 
 def get_ada_embedding(text, model="text-embedding-ada-002"):
    return openai.Embedding.create(input = [text], model=model)['data'][0]['embedding']

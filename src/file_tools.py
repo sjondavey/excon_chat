@@ -1,7 +1,6 @@
 import pandas as pd
 import os
 import re
-import tiktoken
 from src.valid_index import ValidIndex
 
 
@@ -246,9 +245,3 @@ def read_processed_regs_into_dataframe(file_list, valid_index_checker, non_text_
     return df, non_text
 
 
-def num_tokens_from_string(string: str, encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")) -> int:
-    if pd.isna(string):
-        return 0
-    """Returns the number of tokens in a text string."""
-    num_tokens = len(encoding.encode(string))
-    return num_tokens
