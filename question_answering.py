@@ -15,10 +15,9 @@ from yaml.loader import SafeLoader
 
 logger = logging.getLogger(__name__)
 
-# App title - Must be furst Streamlit command
+# App title - Must be first Streamlit command
 st.set_page_config(page_title="💬 Excon Manual Question Answering")
 
-#user_input_api = False
 
 authenticator = stauth.Authenticate(
     dict(st.secrets['credentials']),
@@ -48,7 +47,7 @@ def load_data(ad = True):
             chat_for_ad = False
 
         log_file = ''
-        log_level = 20
+        log_level = 50
         excon = ExconManual(path_to_manual_as_csv_file, path_to_definitions_as_parquet_file, path_to_index_as_parquet_file, chat_for_ad = chat_for_ad, log_file=log_file, logging_level=log_level)
         logger.info(f"Load data called. Loading data for {excon.user_type}")
         return excon
@@ -60,6 +59,16 @@ if 'manual_to_use' not in st.session_state:
 if 'excon' not in st.session_state:
     st.session_state['excon'] = load_data(ad = True)
 
+if "disabled" not in st.session_state:
+    st.session_state["disabled"] = False
+
+def disable_user_prompt():
+    st.session_state["disabled"] = True
+
+def enable_user_prompt():
+    st.session_state["disabled"] = False
+
+
 def load_manual():
     st.session_state['manual_to_use'] = st.session_state.manual_type
     if st.session_state['manual_to_use'] == buttons[0]:
@@ -68,7 +77,7 @@ def load_manual():
         st.session_state['excon'] = load_data(ad = False)
 
     st.session_state['excon'].reset_conversation_history()
-    st.session_state.messages = [] #st.session_state['excon'].messages 
+    st.session_state['messages'] = [] 
 
 if authentication_status:
     st.write(f'Welcome *{name}*')
@@ -98,11 +107,10 @@ if authentication_status:
         max_length = st.sidebar.slider('max_length', min_value=32, max_value=2048, value=512, step=8)
         st.divider()
             
-
     # Store LLM generated responses
     if "messages" not in st.session_state.keys():
         st.session_state['excon'].reset_conversation_history()
-        st.session_state.messages = [] # st.session_state['excon'].messages 
+        st.session_state['messages'] = [] 
 
     # Display or clear chat messages
     for message in st.session_state.messages:
@@ -111,21 +119,23 @@ if authentication_status:
 
     def clear_chat_history():
         st.session_state['excon'].reset_conversation_history()
-        st.session_state.messages = [] # st.session_state['excon'].messages 
+        st.session_state['messages'] = [] 
     st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
     authenticator.logout('Logout', 'sidebar')
 
 
     # User-provided prompt
-    if prompt := st.chat_input(disabled = not openai_api):
+    if prompt := st.chat_input(disabled=st.session_state.disabled):
+        st.session_state["disabled"] = True
         logger.info(f"st.chat_input() called. Value returned is: {prompt}")        
         if prompt is not None and prompt != "":
-            st.session_state.messages.append({"role": "user", "content": prompt})
+            st.session_state['messages'].append({"role": "user", "content": prompt})
             with st.chat_message("user"):
                 st.write(prompt)
+            
 
     # Generate a new response if last message is not from assistant
-    #if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] != "assistant":
+    #if len(st.session_state['messages']) > 0 and st.session_state['messages'][-1]["role"] != "assistant":
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 #print(f'##### {prompt}')
@@ -145,9 +155,13 @@ if authentication_status:
                     full_response += item
                     placeholder.markdown(full_response)
                 placeholder.markdown(full_response)
-            st.session_state.messages.append({"role": "assistant", "content": full_response})
+            st.session_state['messages'].append({"role": "assistant", "content": full_response})
             logger.info("Response added the the queue")
-        #st.session_state['excon'].messages
+        
+            logger.info("Re-enabling the prompt box")
+            st.session_state["disabled"] = False
+            logger.info("Prompt box active")
+            #st.session_state['excon'].messages
 
 elif authentication_status == False:
     st.error('Username/password is incorrect')
