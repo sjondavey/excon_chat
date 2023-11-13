@@ -131,21 +131,22 @@ if authentication_status:
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 #print(f'##### {prompt}')
-                st.session_state['excon'].user_provides_input(user_context = prompt, 
-                                threshold = 0.15, 
-                                model_to_use = selected_model, 
-                                temperature = temperature, 
-                                max_tokens = max_length)
-                #print(f'#### Done with API Call')
-                response = st.session_state['excon'].messages[-1]['content']
-                #print(f'##Response: {response}')
-                placeholder = st.empty()
-                full_response = ''
-                for item in response:
-                    full_response += item
+                if prompt != "":
+                    st.session_state['excon'].user_provides_input(user_context = prompt, 
+                                    threshold = 0.15, 
+                                    model_to_use = selected_model, 
+                                    temperature = temperature, 
+                                    max_tokens = max_length)
+                    #print(f'#### Done with API Call')
+                    response = st.session_state['excon'].messages[-1]['content']
+                    #print(f'##Response: {response}')
+                    placeholder = st.empty()
+                    full_response = ''
+                    for item in response:
+                        full_response += item
+                        placeholder.markdown(full_response)
                     placeholder.markdown(full_response)
-                placeholder.markdown(full_response)
-            st.session_state.messages.append({"role": "assistant", "content": full_response})
+                st.session_state.messages.append({"role": "assistant", "content": full_response})
         #st.session_state['excon'].messages
 
 elif authentication_status == False:
