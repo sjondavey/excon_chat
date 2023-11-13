@@ -14,7 +14,7 @@ from yaml.loader import SafeLoader
 # App title - Must be furst Streamlit command
 st.set_page_config(page_title="💬 Excon Manual Question Answering")
 
-user_input_api = False
+#user_input_api = False
 
 authenticator = stauth.Authenticate(
     dict(st.secrets['credentials']),
@@ -84,16 +84,16 @@ if authentication_status:
         
         st.divider()
 
-        if user_input_api:
-            openai_api = st.text_input('Enter OpenAI API token:', type='password')
-            if not (openai_api.startswith('sk-') and len(openai_api)==51):
-                st.warning('Please enter your credentials!', icon='⚠️')
-            else:
-                st.success('Proceed to entering your prompt message!', icon='👉')
-            st.divider()
-        else: 
-            openai.api_key = st.secrets['openai']['OPENAI_API_KEY'] #
-            openai_api = st.secrets['openai']['OPENAI_API_KEY']
+        # if user_input_api:
+        #     openai_api = st.text_input('Enter OpenAI API token:', type='password')
+        #     if not (openai_api.startswith('sk-') and len(openai_api)==51):
+        #         st.warning('Please enter your credentials!', icon='⚠️')
+        #     else:
+        #         st.success('Proceed to entering your prompt message!', icon='👉')
+        #     st.divider()
+        # else: 
+        openai.api_key = st.secrets['openai']['OPENAI_API_KEY'] #
+        openai_api = st.secrets['openai']['OPENAI_API_KEY']
 
         #st.subheader('Models and parameters')
         selected_model = st.sidebar.selectbox('Choose a model', ['gpt-3.5-turbo', 'gpt-4'], key='selected_model')
@@ -121,9 +121,10 @@ if authentication_status:
 
     # User-provided prompt
     if prompt := st.chat_input(disabled=not openai_api): 
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
-            st.write(prompt)
+        if prompt:
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            with st.chat_message("user"):
+                st.write(prompt)
 
     # Generate a new response if last message is not from assistant
     if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] != "assistant":
