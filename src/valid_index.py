@@ -59,8 +59,9 @@ class ValidIndex():
                 partial_ref += match.group()
                 remaining_str = remaining_str[match.end():]
             else:
-                if remaining_str and "(" in remaining_str: # there is still some text left and because it contains an "(" is "should" be part of the reference
-                    return None
+                if remaining_str and "(" in remaining_str:                     
+                    #return None # there is still some text left and because it contains an "(" is "should" be part of the reference
+                    return partial_ref # this will deal with some cases but may result in undesired behaviour for invalid strings of the form ('B.18 Gold (B)(a)(b)'))
         
         return partial_ref if partial_ref else None
 

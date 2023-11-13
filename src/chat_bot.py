@@ -155,7 +155,7 @@ class ExconManual():
                     self.system_state = self.system_states[0] # RAG
                     return 
                 elif flag == self.rag_prefixes[1]: # "SECTION:"
-                    self.logger.log(self.DEV_LEVEL, "Question asked. Request for more info")
+                    self.logger.log(self.DEV_LEVEL, f"Question asked. Request for more info:\n{response}")
                     modified_section_to_add = self.index_checker.extract_valid_reference(response)
                     if modified_section_to_add is None:
                         # TODO: Do you want to ask the user for help?
@@ -281,7 +281,7 @@ class ExconManual():
     def _create_system_message(self):
         return f"You are answering questions for an {self.user_type} based only on the relevant sections from the {self.manual_name} that are provided. You have three options:\n\
 1) Answer the question. Preface an answer with the tag '{self.rag_prefixes[0]}'. If possible, end the answer with the reference to the section or sections you used to answer the question.\n\
-2) Request additional documentation. If, in the body of the sections provided, there is a reference to another section of the Manual that is directly relevant and not already provided, respond with the word '{self.rag_prefixes[1]}' followed by the section reference.\n\
+2) Request additional documentation. If, in the body of the sections provided, there is a reference to another section of the Manual that is directly relevant and not already provided, respond with the word '{self.rag_prefixes[1]}' followed by the full section reference.\n\
 3) State '{self.rag_prefixes[2]}' and nothing else in all other cases\n\n\
 Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). The first index uses the regex pattern r'[A-Z]\.\d{0,2}'. Thereafter, each sub-index is surrounded by round brackets"
 
