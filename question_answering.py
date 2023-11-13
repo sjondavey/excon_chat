@@ -126,7 +126,7 @@ if authentication_status:
 
     # User-provided prompt
     if prompt := st.chat_input(disabled= not openai_api):
-        logger.info(f"st.chat_input() called. Value returned is {prompt}")        
+        logger.info(f"st.chat_input() called. Value returned is: {prompt}")        
         if prompt is not None and prompt != "":
             st.session_state.messages.append({"role": "user", "content": prompt})
             with st.chat_message("user"):
@@ -137,6 +137,7 @@ if authentication_status:
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 #print(f'##### {prompt}')
+                logger.info(f"Making call to excon manual with prompt: {prompt}")
                 st.session_state['excon'].user_provides_input(user_context = prompt, 
                                 threshold = 0.15, 
                                 model_to_use = selected_model, 
@@ -144,6 +145,7 @@ if authentication_status:
                                 max_tokens = max_length)
                 #print(f'#### Done with API Call')
                 response = st.session_state['excon'].messages[-1]['content']
+                logger.info(f"Text Returned from excon manual chat: {response}")
                 #print(f'##Response: {response}')
                 placeholder = st.empty()
                 full_response = ''
@@ -152,6 +154,7 @@ if authentication_status:
                     placeholder.markdown(full_response)
                 placeholder.markdown(full_response)
             st.session_state.messages.append({"role": "assistant", "content": full_response})
+            logger.info("Response added the the queue")
         #st.session_state['excon'].messages
 
 elif authentication_status == False:
