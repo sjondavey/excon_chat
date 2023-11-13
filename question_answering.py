@@ -146,6 +146,8 @@ if authentication_status:
                         placeholder.markdown(full_response)
                     placeholder.markdown(full_response)
                 st.session_state.messages.append({"role": "assistant", "content": full_response})
+                with st.chat_message("assistant"):
+                    st.write(prompt)
             #st.session_state['excon'].messages
 
 elif authentication_status == False:
