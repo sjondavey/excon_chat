@@ -117,7 +117,7 @@ if authentication_status:
 
 
     # User-provided prompt
-    if prompt := st.chat_input(disabled= not openai_api):
+    if prompt := st.chat_input(disabled = not openai_api):
         logger.info(f"st.chat_input() called. Value returned is: {prompt}")        
         if prompt is not None and prompt != "":
             st.session_state.messages.append({"role": "user", "content": prompt})
@@ -125,7 +125,7 @@ if authentication_status:
                 st.write(prompt)
 
     # Generate a new response if last message is not from assistant
-    if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] != "assistant":
+    #if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] != "assistant":
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 #print(f'##### {prompt}')
