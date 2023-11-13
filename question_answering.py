@@ -89,14 +89,6 @@ if authentication_status:
         
         st.divider()
 
-        # if user_input_api:
-        #     openai_api = st.text_input('Enter OpenAI API token:', type='password')
-        #     if not (openai_api.startswith('sk-') and len(openai_api)==51):
-        #         st.warning('Please enter your credentials!', icon='⚠️')
-        #     else:
-        #         st.success('Proceed to entering your prompt message!', icon='👉')
-        #     st.divider()
-        # else: 
         openai.api_key = st.secrets['openai']['OPENAI_API_KEY'] #
         openai_api = st.secrets['openai']['OPENAI_API_KEY']
 
@@ -133,7 +125,7 @@ if authentication_status:
                 st.write(prompt)
 
     # Generate a new response if last message is not from assistant
-    if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] != "assistant" and prompt is not None and prompt != "":
+    if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] != "assistant":
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 #print(f'##### {prompt}')
