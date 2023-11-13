@@ -120,18 +120,17 @@ if authentication_status:
 
 
     # User-provided prompt
-    if prompt := st.chat_input(): 
-        if prompt and prompt != "":
-            st.session_state.messages.append({"role": "user", "content": prompt})
-            with st.chat_message("user"):
-                st.write(prompt)
+    prompt = st.chat_input()
+    if prompt is not None and prompt != "":
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        with st.chat_message("user"):
+            st.write(prompt)
 
-    # Generate a new response if last message is not from assistant
-    if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] != "assistant":
-        with st.chat_message("assistant"):
-            with st.spinner("Thinking..."):
-                #print(f'##### {prompt}')
-                if prompt != "":
+        # Generate a new response if last message is not from assistant
+        if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] != "assistant":
+            with st.chat_message("assistant"):
+                with st.spinner("Thinking..."):
+                    #print(f'##### {prompt}')
                     st.session_state['excon'].user_provides_input(user_context = prompt, 
                                     threshold = 0.15, 
                                     model_to_use = selected_model, 
@@ -147,7 +146,7 @@ if authentication_status:
                         placeholder.markdown(full_response)
                     placeholder.markdown(full_response)
                 st.session_state.messages.append({"role": "assistant", "content": full_response})
-        #st.session_state['excon'].messages
+            #st.session_state['excon'].messages
 
 elif authentication_status == False:
     st.error('Username/password is incorrect')
