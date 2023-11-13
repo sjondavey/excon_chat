@@ -20,10 +20,10 @@ import src.embeddings
 importlib.reload(src.embeddings)
 from src.embeddings import get_ada_embedding, \
                            get_closest_nodes, \
-                           num_tokens_from_string
+                           num_tokens_from_string,  \
+                           num_tokens_from_messages
 
 class ExconManual():
-    #def __init__(self, log_file = '', input_folder = "./inputs/", logging_level = 20): # 20 = logging.info
     def __init__(self, 
                  path_to_manual_as_csv_file,
                  path_to_definitions_as_parquet_file,
@@ -335,25 +335,26 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
 
 
             # Create a temporary message list. We will only add the messages to the chat history if we get well formatted answers
-            truncated_chat = self._truncate_message_list(self.messages, 2000)
-            if len(self.messages) != len(truncated_chat):
-                self.logger.info(f"Total message queue contains {len(self.messages)} messages but we have truncated these to just the last {len(truncated_chat)}")
-            with_system_message = [{"role": "system", "content": system_content}] + truncated_chat
+            system_message = [{"role": "system", "content": system_content}]
+            truncated_chat = self._truncate_message_list(system_message, self.messages, 2000)
+            # if len(self.messages) != len(truncated_chat):
+            #     self.logger.info(f"Total message queue contains {len(self.messages)} messages but we have truncated these to just the last {len(truncated_chat)}")
 
-            total_tokens = num_tokens_from_string(system_content) + num_tokens_from_string(self.messages[-1]['content']) # just check the system and last user message length
-            if (model_to_use == "gpt-3.5-turbo" or model_to_use == "gpt-4") and total_tokens > 4000 and model_to_use!="gpt-3.5-turbo-16k":
-                self.logger.warning("!!! NOTE !!! You have a very long prompt. Switching to the gpt-3.5-turbo-16k model")
-                model_to_use = "gpt-3.5-turbo-16k"
 
             if testing == True:
                 self.logger.log(self.DEV_LEVEL, "Using canned answers rather than making calls to the openai API")
                 initial_response = manual_responses_for_testing[0]
             else:
+                total_tokens = num_tokens_from_messages(truncated_chat, model_to_use)
+                if (model_to_use == "gpt-3.5-turbo" or model_to_use == "gpt-4") and total_tokens > 3500 and model_to_use!="gpt-3.5-turbo-16k":
+                    self.logger.warning("!!! NOTE !!! You have a very long prompt. Switching to the gpt-3.5-turbo-16k model")
+                    model_to_use = "gpt-3.5-turbo-16k"
+
                 response = openai.ChatCompletion.create(
                                     model=model_to_use,
                                     temperature = temperature,
                                     max_tokens = max_tokens,
-                                    messages = with_system_message
+                                    messages = truncated_chat
                                 )
                 #print(response)
                 initial_response = response['choices'][0]['message']['content']
@@ -369,7 +370,7 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
             self.logger.warning(f"The response was:\n{initial_response}")
 
             despondent_user_context = f"Please check your answer and make sure you preface your response using only one of the three permissible words, {self.rag_prefixes[0]}, {self.rag_prefixes[1]} or {self.rag_prefixes[2]}"
-            despondent_user_messages = with_system_message + [
+            despondent_user_messages = truncated_chat + [
                                         {"role": "assistant", "content": initial_response},
                                         {"role": "user", "content": despondent_user_context}]
                                         
@@ -377,6 +378,11 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
                 self.logger.log(self.DEV_LEVEL, "Using canned answers rather than making calls to the openai API")
                 followup_response_text = manual_responses_for_testing[1]
             else:
+                total_tokens = num_tokens_from_messages(despondent_user_messages, model_to_use)
+                if (model_to_use == "gpt-3.5-turbo" or model_to_use == "gpt-4") and total_tokens > 3500 and model_to_use!="gpt-3.5-turbo-16k":
+                    self.logger.warning("!!! NOTE !!! You have a very long prompt. Switching to the gpt-3.5-turbo-16k model")
+                    model_to_use = "gpt-3.5-turbo-16k"
+
                 followup_response = openai.ChatCompletion.create(
                                     model=model_to_use,
                                     temperature = temperature,
@@ -504,21 +510,36 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
         else:
             return get_regulation_detail(valid_reference, self.df_excon, self.index_checker)
 
+    # will return a minimum message that contains the system message and the last message in the message list even if this is longer than the token_limit
+    def _truncate_message_list(self, system_message, message_list, token_limit = 2000):
+        if len(message_list) == 0:
+            return system_message
+        token_count = num_tokens_from_string(system_message[0]["content"]) + num_tokens_from_string(message_list[-1]["content"])
+        number_of_messages = 1
+        while number_of_messages < len(message_list) and token_count < token_limit:
+            number_of_messages += 1
+            token_count += num_tokens_from_string(message_list[-number_of_messages]["content"])
+        number_of_messages = max(1, number_of_messages - 1)
+        truncated_messages = []
+        truncated_messages.append(system_message[0])
+        for msg in message_list[-number_of_messages:]:
+            truncated_messages.append(msg)
+        return truncated_messages
 
-    def _truncate_message_list(self, message_list, token_limit = 2000):
-        if len(message_list) < 4: # user message + previous response + previous user message
-            return message_list
-        else:
-            n = 3
-            token_count = num_tokens_from_string(message_list[-1]["content"]) + \
-                          num_tokens_from_string(message_list[-2]["content"]) + \
-                          num_tokens_from_string(message_list[-3]["content"])
-            while token_count < token_limit and len(message_list) > n:
-                token_count += num_tokens_from_string(message_list[-n]["content"])
-                n += 1
-        if n > 3:
-            return message_list[-(n-1):]
-        else:
-            return message_list[-3:]
+
+        # if len(message_list) < 4: # user message + previous response + previous user message
+        #     return message_list
+        # else:
+        #     n = 3
+        #     token_count = num_tokens_from_string(message_list[-1]["content"]) + \
+        #                   num_tokens_from_string(message_list[-2]["content"]) + \
+        #                   num_tokens_from_string(message_list[-3]["content"])
+        #     while token_count < token_limit and len(message_list) > n:
+        #         token_count += num_tokens_from_string(message_list[-n]["content"])
+        #         n += 1
+        # if n > 3:
+        #     return message_list[-(n-1):]
+        # else:
+        #     return message_list[-3:]
 
 

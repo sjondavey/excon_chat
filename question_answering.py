@@ -1,3 +1,5 @@
+import logging
+
 import streamlit as st
 import streamlit_authenticator as stauth # https://blog.streamlit.io/streamlit-authenticator-part-1-adding-an-authentication-component-to-your-app/
 import openai
@@ -10,6 +12,8 @@ from src.chat_bot import ExconManual
 
 import yaml
 from yaml.loader import SafeLoader
+
+logger = logging.getLogger(__name__)
 
 # App title - Must be furst Streamlit command
 st.set_page_config(page_title="💬 Excon Manual Question Answering")
@@ -37,16 +41,17 @@ def load_data(ad = True):
             path_to_definitions_as_parquet_file = "./inputs/ad_definitions.parquet"
             path_to_index_as_parquet_file = "./inputs/ad_index.parquet"
             chat_for_ad = True
-            log_file = ''
-            log_level = 20
         else:
             path_to_manual_as_csv_file = "./inputs/adla_manual.csv"
             path_to_definitions_as_parquet_file = "./inputs/adla_definitions.parquet"
             path_to_index_as_parquet_file = "./inputs/adla_index.parquet"
             chat_for_ad = False
-            log_file = ''
-            log_level = 20
-        return ExconManual(path_to_manual_as_csv_file, path_to_definitions_as_parquet_file, path_to_index_as_parquet_file, chat_for_ad = chat_for_ad, log_file=log_file, logging_level=log_level)
+
+        log_file = ''
+        log_level = 20
+        excon = ExconManual(path_to_manual_as_csv_file, path_to_definitions_as_parquet_file, path_to_index_as_parquet_file, chat_for_ad = chat_for_ad, log_file=log_file, logging_level=log_level)
+        logger.info(f"Load data called. Loading data for {excon.user_type}")
+        return excon
 
 
 if 'manual_to_use' not in st.session_state:
@@ -120,35 +125,34 @@ if authentication_status:
 
 
     # User-provided prompt
-    prompt = st.chat_input()
-    if prompt is not None and prompt != "":
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
-            st.write(prompt)
+    if prompt := st.chat_input(disabled= not openai_api):
+        logger.info(f"st.chat_input() called. Value returned is {prompt}")        
+        if prompt is not None and prompt != "":
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            with st.chat_message("user"):
+                st.write(prompt)
 
-        # Generate a new response if last message is not from assistant
-        if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] != "assistant":
-            with st.chat_message("assistant"):
-                with st.spinner("Thinking..."):
-                    #print(f'##### {prompt}')
-                    st.session_state['excon'].user_provides_input(user_context = prompt, 
-                                    threshold = 0.15, 
-                                    model_to_use = selected_model, 
-                                    temperature = temperature, 
-                                    max_tokens = max_length)
-                    #print(f'#### Done with API Call')
-                    response = st.session_state['excon'].messages[-1]['content']
-                    #print(f'##Response: {response}')
-                    placeholder = st.empty()
-                    full_response = ''
-                    for item in response:
-                        full_response += item
-                        placeholder.markdown(full_response)
+    # Generate a new response if last message is not from assistant
+    if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] != "assistant" and prompt is not None and prompt != "":
+        with st.chat_message("assistant"):
+            with st.spinner("Thinking..."):
+                #print(f'##### {prompt}')
+                st.session_state['excon'].user_provides_input(user_context = prompt, 
+                                threshold = 0.15, 
+                                model_to_use = selected_model, 
+                                temperature = temperature, 
+                                max_tokens = max_length)
+                #print(f'#### Done with API Call')
+                response = st.session_state['excon'].messages[-1]['content']
+                #print(f'##Response: {response}')
+                placeholder = st.empty()
+                full_response = ''
+                for item in response:
+                    full_response += item
                     placeholder.markdown(full_response)
-                st.session_state.messages.append({"role": "assistant", "content": full_response})
-                with st.chat_message("assistant"):
-                    st.write(prompt)
-            #st.session_state['excon'].messages
+                placeholder.markdown(full_response)
+            st.session_state.messages.append({"role": "assistant", "content": full_response})
+        #st.session_state['excon'].messages
 
 elif authentication_status == False:
     st.error('Username/password is incorrect')
