@@ -121,7 +121,7 @@ if authentication_status:
 
     # User-provided prompt
     if prompt := st.chat_input(disabled=not openai_api): 
-        if prompt:
+        if prompt and prompt != "":
             st.session_state.messages.append({"role": "user", "content": prompt})
             with st.chat_message("user"):
                 st.write(prompt)
