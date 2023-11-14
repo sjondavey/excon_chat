@@ -135,14 +135,15 @@ if authentication_status:
     # Generate a new response if last message is not from assistant
     #if len(st.session_state['messages']) > 0 and st.session_state['messages'][-1]["role"] != "assistant":
             #with st.chat_message("assistant"):
-                with st.spinner("Thinking..."):
-                    st.session_state["logger"].info(f"Making call to excon manual with prompt: {prompt}")
-                    st.session_state['excon'].user_provides_input(user_context = prompt, 
-                                    threshold = 0.15, 
-                                    model_to_use = selected_model, 
-                                    temperature = temperature, 
-                                    max_tokens = max_length)
-                    response = st.session_state['excon'].messages[-1]['content']
+                #with st.spinner("Thinking..."):
+                st.session_state["logger"].info(f"Making call to excon manual with prompt: {prompt}")
+                st.session_state['excon'].user_provides_input(user_context = prompt, 
+                                threshold = 0.15, 
+                                model_to_use = selected_model, 
+                                temperature = temperature, 
+                                max_tokens = max_length)
+                st.session_state["logger"].info(f"Response received")
+                response = st.session_state['excon'].messages[-1]['content']
                 st.session_state["logger"].info(f"Text Returned from excon manual chat: {response}")
                 #print(f'##Response: {response}')
                 #placeholder = st.empty()
