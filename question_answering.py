@@ -27,6 +27,13 @@ authenticator = stauth.Authenticate(
     st.secrets['preauthorized']
 )
 
+if "logger" not in st.session_state:
+    st.session_state["logger"] = logging.getLogger(__name__)
+    st.session_state["logger"].setLevel(logging.INFO)
+    logging.basicConfig(level=logging.INFO)
+    st.session_state["logger"].info("-----------------------------------")
+    st.session_state["logger"].info("Logger started")
+
 st.title('Dealer Manual: Question Answering')
 name, authentication_status, username = authenticator.login('Login', 'sidebar') # location is 'sidebar' or 'main'
 buttons = ['Authorised Dealer (AD)', 'AD with Limited Authority (ADLA)']
@@ -49,7 +56,7 @@ def load_data(ad = True):
         log_file = ''
         log_level = 50
         excon = ExconManual(path_to_manual_as_csv_file, path_to_definitions_as_parquet_file, path_to_index_as_parquet_file, chat_for_ad = chat_for_ad, log_file=log_file, logging_level=log_level)
-        logger.info(f"Load data called. Loading data for {excon.user_type}")
+        st.session_state["logger"].info(f"Load data called. Loading data for {excon.user_type}")
         return excon
 
 
@@ -58,16 +65,6 @@ if 'manual_to_use' not in st.session_state:
 
 if 'excon' not in st.session_state:
     st.session_state['excon'] = load_data(ad = True)
-
-if "disabled" not in st.session_state:
-    st.session_state["disabled"] = False
-
-def disable_user_prompt():
-    st.session_state["disabled"] = True
-
-def enable_user_prompt():
-    st.session_state["disabled"] = False
-
 
 def load_manual():
     st.session_state['manual_to_use'] = st.session_state.manual_type
@@ -125,46 +122,38 @@ if authentication_status:
 
 
     # User-provided prompt
-    if prompt := st.chat_input(disabled=st.session_state.disabled):
-        st.session_state["disabled"] = True
-        logger.info(f"st.chat_input() called. Value returned is: {prompt}")        
+    if prompt := st.chat_input():
+        st.session_state["logger"].info(f"st.chat_input() called. Value returned is: {prompt}")        
         if prompt is not None and prompt != "":
             st.session_state['messages'].append({"role": "user", "content": prompt})
             with st.chat_message("user"):
                 st.markdown(prompt)
             with st.chat_message("assistant"):
                 placeholder = st.empty()
-                full_response = ""            
 
 
     # Generate a new response if last message is not from assistant
     #if len(st.session_state['messages']) > 0 and st.session_state['messages'][-1]["role"] != "assistant":
             #with st.chat_message("assistant"):
                 with st.spinner("Thinking..."):
-                    #print(f'##### {prompt}')
-                    logger.info(f"Making call to excon manual with prompt: {prompt}")
+                    st.session_state["logger"].info(f"Making call to excon manual with prompt: {prompt}")
                     st.session_state['excon'].user_provides_input(user_context = prompt, 
                                     threshold = 0.15, 
                                     model_to_use = selected_model, 
                                     temperature = temperature, 
                                     max_tokens = max_length)
-                    #print(f'#### Done with API Call')
                     response = st.session_state['excon'].messages[-1]['content']
-                    logger.info(f"Text Returned from excon manual chat: {response}")
-                    #print(f'##Response: {response}')
-                    #placeholder = st.empty()
-                    #full_response = ''
-                    # for item in response:
-                    #     full_response += item
-                        #placeholder.markdown(full_response)
-                    placeholder.markdown(response)
-                st.session_state['messages'].append({"role": "assistant", "content": full_response})
-                logger.info("Response added the the queue")
+                st.session_state["logger"].info(f"Text Returned from excon manual chat: {response}")
+                #print(f'##Response: {response}')
+                #placeholder = st.empty()
+                #full_response = ''
+                # for item in response:
+                #     full_response += item
+                    #placeholder.markdown(full_response)
+                placeholder.markdown(response)
+                st.session_state['messages'].append({"role": "assistant", "content": response})
+                st.session_state["logger"].info("Response added the the queue")
         
-        logger.info("Re-enabling the prompt box")
-        st.session_state["disabled"] = False
-        logger.info("Prompt box active")
-        #st.session_state['excon'].messages
 
 elif authentication_status == False:
     st.error('Username/password is incorrect')
