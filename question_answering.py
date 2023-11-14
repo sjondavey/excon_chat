@@ -137,13 +137,13 @@ if authentication_status:
             #with st.chat_message("assistant"):
                 #with st.spinner("Thinking..."):
                 st.session_state["logger"].info(f"Making call to excon manual with prompt: {prompt}")
-                st.session_state['excon'].user_provides_input(user_context = prompt, 
+                response = st.session_state['excon'].chat_completion(user_context = prompt, 
                                 threshold = 0.15, 
                                 model_to_use = selected_model, 
                                 temperature = temperature, 
                                 max_tokens = max_length)
                 st.session_state["logger"].info(f"Response received")
-                response = st.session_state['excon'].messages[-1]['content']
+                #response = st.session_state['excon'].messages[-1]['content']
                 st.session_state["logger"].info(f"Text Returned from excon manual chat: {response}")
                 #print(f'##Response: {response}')
                 #placeholder = st.empty()
