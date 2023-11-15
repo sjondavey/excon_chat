@@ -113,8 +113,10 @@ with st.sidebar:
 
     #st.subheader('Models and parameters')
     selected_model = st.sidebar.selectbox('Choose a model', ['gpt-3.5-turbo', 'gpt-4'], key='selected_model')
-    temperature = st.sidebar.slider('temperature', min_value=0.00, max_value=2.0, value=0.0, step=0.01)
-    max_length = st.sidebar.slider('max_length', min_value=32, max_value=2048, value=512, step=8)
+    temperature = 0.0
+    max_length = 800
+    # temperature = st.sidebar.slider('temperature', min_value=0.00, max_value=2.0, value=0.0, step=0.01)
+    # max_length = st.sidebar.slider('max_length', min_value=32, max_value=2048, value=512, step=8)
     st.divider()
         
 # Store LLM generated responses
