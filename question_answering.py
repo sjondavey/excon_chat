@@ -95,6 +95,7 @@ with st.sidebar:
     else:
         st.session_state["logger"].info(f'Token is valid')
         st.success('Proceed to entering your prompt message!', icon='👉')
+        openai.api_key = st.session_state['openai_api']
 
     st.divider()
 
