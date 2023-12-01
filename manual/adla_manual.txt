@@ -1,0 +1,987 @@
+Legal context (#Heading)
+Although the Republic of South Africa (South Africa) has had exchange controls since 1939, the foundation thereof is the Currency and Exchanges Act, 1933 (Act No. 9 of 1933) (the Act) and the Exchange Control Regulations (Regulations) promulgated thereunder in terms of section 9(1) of the Act, on 1961-12-01. In terms of these Regulations, the control over South Africa's foreign currency reserves, including accruals thereto and spending thereof is vested in the Treasury, who is authorised to grant permissions or exemptions for certain transactions, subject to certain conditions. Although these permissions or exemptions which were previously referred to as 'Rulings' have no statutory force, they have the effect of law. 'Treasury', is however defined to mean, in relation to any matter contemplated in the Regulations, the Minister of Finance or an officer in the Department of Finance (now the National Treasury) who, by virtue of the division of work in that Department, deals with the matter on the authority of the Minister of Finance.
+The Minister of Finance has in terms of Regulation 22E delegated to the Governor, a Deputy Governor, the Head of the Financial Surveillance Department as well as other officials in the Financial Surveillance Department, the powers, functions and duties assigned to and imposed on the Treasury under the Regulations. The Financial Surveillance Department of the South African Reserve Bank (Financial Surveillance Department) is therefore responsible for the day to day administration of exchange controls in South Africa.
+Section 9(5)(a) of the Act provides for the issuing of Orders and Rules, the current set of which was also promulgated on 1961-12-01. The Orders and Rules contain various orders, rules, exemptions, forms and procedural arrangements.
+The Financial Surveillance Department, as designated supervisory body is in terms of section 45 of the Financial Intelligence Centre Act, 2001 (Act No. 38 of 2001) (the FIC Act) responsible for supervising and enforcing compliance with the FIC Act or any order, determination or directive made in terms of the FIC Act by all Authorised Dealers in foreign exchange with limited authority (ADLAs) regulated or supervised by it.
+ 
+Introduction (#Heading)
+In terms of Regulation 2(2), an Authorised Dealer shall not buy, borrow, receive, sell, lend or deliver any foreign currency or gold except for such purposes or on such conditions as the Treasury, as defined, may determine, subject to the delegation referred to above.
+This Currency and Exchanges Manual for Authorised Dealers in foreign exchange with limited authority (ADLA Manual) contains the permissions and conditions applicable to transactions in foreign exchange that may be undertaken by Authorised Dealers in foreign exchange with limited authority (ADLAs) and/or on behalf of their customers in terms of Regulation 2(2), details of related administrative responsibilities, the FinSurv Reporting requirements as well as the requirements of the FIC Act applicable to ADLAs. This ADLA Manual must be read in conjunction with the Regulations and ADLAs may transact without reference to the Financial Surveillance Department, provided such transactions are permitted in terms of this ADLA Manual.
+The arrangements set out in the ADLA Manual should in no manner be construed as absolving ADLAs, their clients and associated entities from their duties and obligations under any other law, including but not limited to the Prevention of Organised Crime Act, 1998 (Act No. 121 of 1998), the Financial Intelligence Centre Act, 2001 (Act No. 38 of 2001) and the Protection of Constitutional Democracy against Terrorist and Related Activities Act, 2004 (Act No. 33 of 2004).
+The Financial Surveillance Department views contraventions of the Exchange Control Regulations, as well as any actions to circumvent the permissions and conditions contained in the ADLA Manual, in a very serious light.
+The Financial Surveillance Department reserves the right to amend, grant or impose additional permissions or conditions, with new or amended permissions or conditions which will be communicated by the Financial Surveillance Department on its website.
+In instances where an Authorised Dealer is not in a position to buy or sell foreign currency in terms of the permissions and conditions set out in the ADLA Manual, an official application with full details applicable to the request must be submitted to the Financial Surveillance Department.
+For the benefit of the general public, the Currency and Exchanges Guidelines for Individuals and Currency and Exchanges Guidelines for Business Entities have been published by the Financial Surveillance Department. These guidelines set out, in less technical terms, the permissions and conditions relating to cross-border foreign transactions.
+The ADLA Manual, Currency and Exchanges Manual for Authorised Dealers, Currency and Exchanges Guidelines for Individuals, Currency and Exchanges Guidelines for Business Entities and applicable amendments thereto are available on the South African Reserve Bank's website: www.reservebank.co.za.  
+
+A.1 Definitions 
+#Definition 1
+    In the Currency and Exchanges Manual for Authorised Dealers in foreign exchange with limited authority, unless the context indicates otherwise:
+    ADLA means an Authorised Dealer in foreign exchange with limited authority, including Bureaux de Change, independent money transfer operators and value transfer service providers, who are authorised by the Financial Surveillance Department to deal in foreign exchange transactions as determined by the Financial Surveillance Department.
+    ADLA Manual means the Currency and Exchanges Manual for ADLAs issued by the Financial Surveillance Department to ADLAs under the powers delegated by the Minister of Finance. The ADLA Manual contains the permissions, conditions and limits applicable to transactions in foreign exchange that may be undertaken by ADLAs and/or on behalf of their clients, as well as details of related administrative responsibilities.
+    ADLA Money Transfer Operator (MTO) means an ADLA operating as an independent money transfer operator.
+    ADLA Value Transfer Service Provider (VTSP) means an ADLA providing value transfer services to Southern African Development Community member countries.
+    Authorised Dealer means, in relation to any transaction in respect of gold, a person authorised by the Financial Surveillance Department to deal in gold and, in relation to any transaction in respect of foreign exchange, a person authorised by the Financial Surveillance Department to deal in foreign exchange.
+    Authorised Dealer Manual means the Currency and Exchanges Manual for Authorised Dealers issued by the Financial Surveillance Department to Authorised Dealers under the powers delegated by the Minister of Finance. The Authorised Dealer Manual contains the permissions, conditions and limits applicable to transactions in foreign exchange that may be undertaken by Authorised Dealers and/or on behalf of their clients, as well as details of related administrative responsibilities.
+    Beneficial owner has the meaning defined in section 1(1) of the Financial Intelligence Centre Act, 2001 (Act No. 38 of 2001).
+    Business and Technical Specifications document means the document containing all the rules and technical specifications pertaining to the electronic reporting of cross- border foreign exchange transactions.
+    CFC account means a Customer Foreign Currency account conducted by residents in the nostro administration of an Authorised Dealer, in terms of the provisions of the Authorised Dealer Manual or in terms of a specific authority granted by the Financial Surveillance Department. Such an account is held onshore and represents local assets denominated in foreign currency. 
+    CIPC means the Companies and Intellectual Property Commission.
+    Circulars mean circulars issued by the Financial Surveillance Department to Authorised Dealers, ADLAs and other role players, setting out the permissions, conditions and limits applicable to foreign exchange transactions that may be undertaken by Authorised Dealers, ADLAs and/or on behalf of their clients, as well as amendments to related administrative responsibilities.
+    CDD means customer due diligence in terms of Part 1 of Chapter 3 of the FIC Act.
+    CIV means client identification and verification in terms of section 21 of the FIC Act.
+    CMA means the Common Monetary Area, which consists of Lesotho, Namibia, South Africa and eSwatini.
+    Cross-border foreign exchange transaction means the purchase or sale of foreign exchange with or for Rand.
+    Customs means Customs and Excise, a division of the South African Revenue Service.
+    Documentary evidence means the documents specified in the ADLA Manual which are required when doing foreign exchange transactions.
+    EFT means electronic funds transfer, i.e. the transferring of funds from one bank account directly to another without any paper money changing hands.
+    Field agent means a natural person who is employed by an ADLA or employed by a service provider contracted by an ADLA on a full time or on a contractual and/or commission basis to introduce potential clients and/or collect client identification and verification documentation on behalf of the ADLA for the purposes of onboarding a client of the ADLA.
+    Financial Surveillance Department means the Financial Surveillance Department of the South African Reserve Bank (responsible for the administration of exchange control on behalf of the Treasury).
+    Foreign bank account means a foreign currency bank account conducted by residents with a bank outside the CMA in terms of the provisions of the Authorised Dealer Manual or a specific authority granted by the Financial Surveillance Department.
+    Foreign currency means any currency other than currency that is legal tender in South Africa, but excludes the currencies of Lesotho, Namibia and eSwatini. Foreign currency is deemed to include any bill of exchange, letter of credit, money order, postal order, promissory note, travellers' cheque or any other instrument of foreign exchange.
+    Foreign nationals mean natural persons from countries outside the CMA who are temporarily resident in South Africa, excluding those on holiday or business visits. 
+    Immigrants mean natural persons who emigrated from countries outside the CMA with the firm intention of taking up or having taken up permanent residence in South Africa.
+    Integrated form means the electronic or paper format of a contract between an Authorised Dealer or ADLA and its client resulting in a balance-of-payments reporting obligation. It includes a declaration to the effect that the information provided is true and correct.Non-resident means a person (i.e. a natural person or legal entity) whose normal place of residence, domicile or registration is outside the CMA.
+    Non-resident area means all countries other than those included in the CMA.
+    Non-resident Rand means Rand to or from a non-resident account that may be deemed, in certain circumstances permissible elsewhere in the Authorised Dealer Manual, as an acceptable payment mechanism in lieu of foreign currency. It should be noted that non-resident Rand cannot in any manner be defined as foreign currency. It is purely Rand held in a non-resident account or Rand received from a non-resident source.
+    Non-resident Rand account means the Rand account of a non-resident conducted in the books of an Authorised Dealer.
+    Passenger ticket means a ticket issued in respect of travel arrangements, inclusive of electronically issued tickets (e-tickets).
+    Rand means the monetary unit of South Africa as defined in section 15 of the South African Reserve Bank Act, 1989 (Act No. 90 of 1989).
+    Regulations mean the Exchange Control Regulations, 1961 as promulgated by Government Notice R.1111 of 1961-12-01, as amended from time to time.
+    Related party means a party to a transaction that has a direct or indirect interest in the other party and has the ability to control the other party or exercise significant influence over the other party in making financial and operating decisions or both parties are under common control. For the purpose of the ADLA Manual, this includes transactions between parties that belong to the same group of companies such as parent, subsidiary, fellow subsidiary and/or an associate company.
+    Reporting System means the electronic FinSurv Reporting System used to transmit data to the Financial Surveillance Department in an agreed format.
+    Resident means any person (i.e. a natural person or legal entity) who has taken up permanent residence, is domiciled or is registered in South Africa. For the purpose of the ADLA Manual, this excludes any approved offshore investments held by South African residents outside the CMA. However, such entities are still subject to exchange control rules and Regulations.
+    Resident account means the account of a person resident, domiciled or registered in South Africa, including that of a CMA resident. 
+    Resident temporarily abroad means any resident who has departed from South Africa to any country outside the CMA with no intention of taking up permanent residence or who has not been granted permanent residence in another country, excluding those residents who are abroad on holiday or business travel.
+    Restricted Authorised Dealers means a person authorised by the Financial Surveillance Department to deal in foreign exchange utilising a locally issued credit card for permissible cross border transactions.
+    SADC means the Southern African Development Community consisting of Angola, Botswana, Democratic Republic of the Congo, Lesotho, Madagascar, Malawi, Mauritius, Mocambique, Namibia, Seychelles, South Africa, eSwatini, United Republic of Tanzania, Zambia and Zimbabwe.
+    SARS means the South African Revenue Service.
+    SARS Customs Declaration form means the form used by Customs to verify importer's and exporter's self-assessment of goods declared for one or other Customs procedure. The customs procedure is defined by the Procedure Category Code (A to L) in conjunction with the Customs Requested Procedure Code (RPC) on the declaration.
+    Single discretionary allowance means the R1 million allowance available to residents (natural persons) 18 years and older per calendar year.
+    South Africa means the Republic of South Africa.
+    The Act means the Currency and Exchanges Act, 1933 (Act No. 9 of 1933).
+    The FIC Act means the Financial Intelligence Centre Act, 2001 (Act No. 38 of 2001).
+    Treasury means, in relation to any matter contemplated in the Regulations, the Minister of Finance or an officer in National Treasury who, by virtue of the division of work in National Treasury, deals with the matter on the authority of the Minister of Finance.
+#Definition 1 - end 
+ 
+A.2 Authorised entities (#Heading)
+    (A) Authorised Dealers in foreign exchange with limited authority (#Heading)
+    The offices in South Africa of the under-mentioned entities are authorised to act, for the purposes of the Regulations, as ADLAs:
+    #Table 1
+        Name of entity - Authorised Dealer in foreign exchange with limited authority | Category of appointment 
+        Border Forex (Pty) Limited | Two 
+        Forex World (Pty) Limited | Two 
+        Global Foreign Exchange (Pty) Limited | Two 
+        Home Remitt (Pty) Limited | Two 
+        Imali Express (Pty) Limited | Two 
+        Inter Africa Bureau de Change (Pty) Limited | Two 
+        Interchange RSA (Pty) Limited | Two 
+        Master Currency (Pty) Limited | Two 
+        Mukuru Africa (Pty) Limited | Two 
+        NEC Money (Pty) Limited | Two 
+        Sikhona Forex (Pty) Limited | Two 
+        Tourvest Financial Services (Pty) Limited | Two 
+        Travel Forex (Pty) Limited | Two
+        Access Forex (Pty) Limited | Three (MTO) 
+        Clicksendnow (Pty) Limited | Three (MTO) 
+        Ezaga Remit (Pty) Limited | Three (MTO) 
+        Kawena Exchange (Pty) Limited | Three (VTSP) 
+        Sasai Fintech (Pty) Limited | Three (MTO) 
+        SendHome (Pty) Limited | Three (MTO) 
+        Shoprite Money Transfers (Pty) Limited trading as ShopriteSend | Three (MTO) 
+        Shop2Shop Money Transfer (Pty) Limited | Three (MTO) 
+        Terra Payment Services South Africa (RF) (Pty) Limited | Three (MTO) 
+        WorldRemit South Africa (Pty) Limited | Three (MTO) 
+        Hello Paisa (Pty) Limited | Four 
+        Mama Money (Pty) Limited | Four 
+        Southeast Exchange Company (South Africa) (Pty) Limited | Four 
+        Tower Bureau de Change (Pty) Limited | Four
+    #Table 1 - end
+
+    (B) Authorised Dealers (#Heading)
+    The offices in South Africa of the under-mentioned banks are authorised to act, for the purposes of the Regulations, as Authorised Dealers:
+    #Table 2
+        Name of entity - Authorised Dealer 
+        ABSA Bank Limited 
+        Access Bank (South Africa) Limited 
+        Albaraka Bank Limited 
+        Bank of China Johannesburg Branch 
+        Bank of Communications Co. Limited Johannesburg Branch 
+        Bank of Taiwan South Africa Branch 
+        Bidvest Bank Limited 
+        BNP Paribas SA – South Africa Branch 
+        Capitec Bank Limited 
+        China Construction Bank, Johannesburg Branch 
+        Citibank, N.A., South Africa 
+        Deutsche Bank AG, Johannesburg Branch 
+        Discovery Bank Limited 
+        FirstRand Bank Limited 
+        Goldman Sachs International Bank, Johannesburg Branch 
+        Habib Overseas Bank Limited HBZ Bank Limited 
+        HSBC Bank plc – Johannesburg Branch 
+        Investec Bank Limited 
+        JPMorgan Chase Bank (Johannesburg Branch) 
+        Nedbank Limited 
+        Sasfin Bank Limited 
+        Standard Chartered Bank – Johannesburg Branch 
+        State Bank of India 
+        The Standard Bank of South Africa Limited
+    #Table 2 - end
+
+    (C) Restricted Authorised Dealers (#Heading)
+    The office in South Africa of the under-mentioned banks are authorised to act, for the purposes of the Regulations, as a Restricted Authorised Dealers in respect of permissible credit card transactions per the quoted sections of the Currency and Exchanges Manual for Authorised Dealers:
+    #Table 3    
+        Name of entity – Restricted Authorised Dealers 
+        African Bank Limited – Sections B.4(B) and B.16 
+        Bank Zero Mutual Bank – Sections B.4(B) and B.16 
+        Grindrod Bank Limited – Sections B.4(B) and B.16 
+        Tyme Bank Limited – Sections B.4(B) and B.16
+    #Table 3 - end
+     
+A.3 The terms and conditions for submission of an application for authorisation to conduct the business of an Authorised Dealer in foreign exchange with limited authority  (#Heading)
+    (A) Categories of Authorised Dealers in foreign exchange with limited authority  (#Heading)
+    ADLAs are classified into the following four categories:
+        (i) Category One
+        An ADLA who is authorised to operate as a Bureau de Change.
+        (ii) Category Two
+        An ADLA who is authorised to operate as a Bureau de Change, provide specific transactions under the single discretionary allowance limit of R1 million per applicant within the calendar year and offer money remittance services in partnership with external money transfer operators.
+        (iii) Category Three
+        An ADLA who is authorised to operate as an independent money transfer operator and/or value transfer service provider.
+        (iv) Category Four
+        An ADLA who is authorised to:
+            (a) operate as a Bureau de Change;
+            (b) provide specific transactions under the single discretionary allowance limit of R1 million per applicant within the calendar year;
+            (c) offer money remittance services in partnership with external money transfer operators;
+            (d) operate as an independent money transfer operator; and/or
+            (e) operate as a value transfer service provider.
+    (B) Application procedure (#Heading)
+        (i) An application to conduct the business of an ADLA must be submitted to the Financial Surveillance Department.
+        (ii) The completed prescribed 'Application for authorisation to conduct the business of an Authorised Dealer in foreign exchange with limited authority, a copy of which is attached hereto as Annexure A, must be accompanied by the following information:
+            (a) a certified copy of the Notice of Incorporation (Form CoR14.1) issued by the CIPC, as proof of the registration of the limited liability company in South Africa under the Companies Act, 2008 (Act No. 71 of 2008);
+            (b) a certified copy of the Registration Certificate (Form CoR14.3) issued by CIPC, as proof that the company has been registered in terms of section 14 of the Companies Act, 2008 (Act No. 71 of 2008);
+            (c) a certified copy of the Memorandum of Incorporation (Form CoR15.1A) issued by CIPC;
+            (d) details of the proposed place of business which must fully comply with the conditions as provided for in sections B.2(A) and (D) of the ADLA Manual;
+            (e) a detailed business plan which must, inter alia, include full details of the following key aspects:
+                (aa) equity structure, which requires that the full ownership of the unlisted company be disclosed, including the identity of the beneficial owner(s);
+                (bb) proposed organisational structure including, where applicable, a description of the intended use of agents and branches;
+                (cc) details of funding of the ADLA, i.e. own funds, loan funding (if so, name of lender and domicile) and other sources;
+                (dd) a reasonably measurable forecast budget calculation for the first three financial years which demonstrates that the applicant is able to employ appropriate systems, resources and procedures to operate soundly;
+                (ee) a description of the applicant's governance arrangements and internal control mechanisms relating to, inter alia, administrative, risk management and accounting procedures, which demonstrates that these governance arrangements, control mechanisms and procedures are appropriate, sound and adequate;
+            (f) A declaration by shareholders and beneficial owner(s) that:
+                (aa) they hold the shares in their personal capacity and not as agents or nominees for disclosed or undisclosed principals;
+                (bb) there are no silent partners controlling the shareholders of the company; and
+                (cc) approval from the Financial Surveillance Department will be obtained in respect of any subsequent changes in the beneficial ownership of the ADLA;
+            (g) a Risk Management and Compliance Programme of the ADLA as required in terms of section 42 of the FIC Act. The Financial Surveillance Department will indicate whether the Risk Management and Compliance Programme is sufficient to enable the ADLA to comply to its obligations under chapter 3 of the FIC Act. The Risk Management and Compliance Programme should, inter alia, include details in respect of the following:
+                (aa) approval from the board of directors of the ADLA. The board of directors of the ADLA must ensure compliance by the ADLA and its employees with the provisions of the FIC Act and the Risk Management and Compliance Programme;
+                (bb) the compliance function to assist the board of directors of the ADLA in discharging their obligations in (1) above;
+                (cc) the person to be appointed with the necessary competence and seniority responsible to ensure the effectiveness of the compliance function (section 42A(1)(b) of the FIC Act);
+                (dd) how the Risk Management and Compliance Programme enables the ADLA to identify, assess, monitor, mitigate and manage the money laundering and terrorist financing risk of products or services offered by the ADLA;
+                (ee) the manner in which the ADLA determines if a person is:
+                    (1) a prospective client in the process of establishing a business relationship or entering into a single transaction with the ADLA; or
+                    (2) a client who has established a business relationship or entered into a single transaction;
+                (ff) the manner in which the ADLA complies with section 20A of the FIC Act (anonymous clients and clients acting under false or fictitious names);
+                (gg) the manner in which and the processes by which the establishment and verification of the identity of persons 
+                whom the ADLA must identify in terms of Part 1 of Chapter 3 of the FIC Act is performed by the ADLA;
+                (hh) the manner in which the ADLA determines whether future transactions that will be performed in the course of the business relationship are consistent with the ADLA's knowledge of a prospective client;
+                (ii) the manner in which and the processes by which the ADLA conducts additional CDD measures in respect of legal persons, trusts and partnerships;
+                (jj) the manner in which and the processes by which ongoing CDD and account monitoring in respect of business relationships is conducted by the ADLA;
+                (kk) the manner in which the examining of:
+                    (1) complex or unusually large transactions; and
+                    (2) unusual patterns of transactions which have no apparent business or lawful purpose, and keeping of written findings relating thereto, is done by the ADLA;
+                (ll) the manner in which and the processes by which the ADLA will confirm information relating to a client when the ADLA has doubts about the veracity of previously obtained information;
+                (mm) the manner in which and the processes by which the ADLA will perform the CDD requirements in accordance with sections 21, 21A, 21B and 21C of the FIC Act when, during the course of a business relationship, the ADLA suspects that a transaction or activity is suspicious or unusual as contemplated in section 29 of the FIC Act
+                (nn) the manner in which the ADLA will terminate an existing business relationship as contemplated in section 21E of the FIC Act;
+                (oo) the manner in which and the processes by which the ADLA determines whether a prospective client is a foreign prominent public official or a domestic prominent influential person;
+                (pp) the manner in which and the processes by which enhanced CDD is conducted for higher-risk business relationships and when simplified customer CDD might be permitted by the ADLA; 
+                (qq) the manner in which and place at which the records are kept by the ADLA in terms of Part 2 of Chapter 3 of the FIC Act (sections 22, 22A, 23 and 24);
+                (rr) how the ADLA determines when a transaction or activity is reportable to the Financial Intelligence Centre under Part 3 of Chapter 3 of the FIC Act;
+                (ss) the processes for reporting information to the Financial Intelligence Centre under Part 3 of Chapter 3 of the FIC Act including:
+                    (1) dealing with property associated with terrorist and related activities (section 28A);
+                    (2) reporting cash transactions above the R24 999.99 limit (section 28);
+                    (3) reporting suspicious and unusual transactions (section 29) and the  tipping  off  provision  (section 29(3));
+                    (4) protection of persons making reports (section 38); and
+                    (5) access to information (sections 27 and 32);
+                (tt) the manner in which the Risk Management and Compliance Programme is implemented in branches, so as to enable the ADLA to comply with its obligations under the FIC Act;
+                (uu) the processes for the ADLA to implement its Risk Management and Compliance Programme; and
+                (vv) provision for disciplinary steps and corrective action in the event of non-compliance by the ADLA and its staff members (sections 46 to 66).
+        (iii) a duly completed Statement by individuals who are holding, or are proposing to hold, the office of a director and/or, shareholder and by the beneficial owner(s) in an Authorised Dealer in foreign exchange with limited authority, a copy of which is attached hereto as Annexure B, duly signed and supported by the required documentation;
+        (iv) a duly completed consent and declaration form by individuals who are holding, or are proposing to hold, the office of a director and/or, shareholder and by the beneficial owner(s) in an Authorised Dealer in foreign exchange with limited authority, a copy of which is attached hereto as Annexure C, duly signed and supported by the required documentation; 
+        (v) full details of the proposed implementation of the Reporting System. The Divisional Head: System Business Support Division, Financial Surveillance Department, South African Reserve Bank, P O Box 3125, Pretoria, 0001 may be contacted for full details in this regard. Alternatively an email can be sent to FNS-Development@resbank.co.za.
+    (C) Adjudication process (#Heading)
+        (i) The application to conduct the business of an ADLA will be considered on receipt thereof by the Financial Surveillance Department taking into account, inter alia, factors pertaining to the overall national and economic interest of South Africa.
+        (ii) Should the Financial Surveillance Department be satisfied that all the requirements have been met, a conditional written approval will be granted to the applicant to conduct the business of an ADLA.
+        (iii) The ADLA will only be permitted to commence with the approved business once the following conditions have been met:
+            (a) the beneficial owner(s), shareholder(s), director(s), senior exchange control officer and the anti-money laundering compliance officer are deemed as 'fit and proper' by the Financial Surveillance Department;
+            (b) successful testing and certification of the Reporting System;
+            (c) written confirmation from a registered bank is provided that the minimum unimpaired capital requirement of R2 million is in place for a category one ADLA, R3 million for a category two ADLA, R5 million for a category three ADLA and R8 million for a category four ADLA;
+            (d) written confirmation from the company's director(s) is provided that the unimpaired capital will remain unimpaired in the business of the ADLA during the lifetime of its operations (see section B.2(A)(i) of the ADLA Manual for conditions applicable to unimpaired capital);
+            (e) finalisation and approval of the proposed place of business;
+            (f) finalisation of the Risk Management and Compliance Programme for compliance in accordance with the provisions of section 42 of the FIC Act; and
+            (g) finalisation of the appointment of a senior exchange control officer and anti-money laundering compliance officer. Detailed curricula vitae of the proposed candidates must be forwarded to the Financial Surveillance Department, who reserves the right to veto the appointment of parties deemed not suitable for the respective 
+            positions.
+        (iv) It should be noted that the above-mentioned conditions must be met within a period of six months from the date of the conditional approval issued by the Financial Surveillance Department, failing which such approval may be withdrawn.
+        (v) Should the Financial Surveillance Department be satisfied that all the conditions mentioned in (iii) above have been met, it will arrange for the publication of the name of the entity and the authorisation granted in the Government Gazette.
+        (vi) Once the details mentioned have been published in the Government Gazette, the Financial Surveillance Department will issue to the ADLA concerned a formal letter of appointment.
+        (vii) The letter of appointment to conduct the business of an ADLA is neither tradable nor transferable.
+        (viii) A circular will then be issued by the Financial Surveillance Department to notify all the Authorised Dealers, ADLAs and other role players of the appointment of the new ADLA.
+        (ix) Section A.2(A) of the ADLA Manual will be updated by including the name of the new ADLA.
+        (x) It should be noted that Regulation 22, inter alia, provides that any person who makes an incorrect statement in a declaration made or return rendered for the purposes of these Regulations or refuses or neglects to furnish any information which he is required to furnish under these Regulations, shall be guilty of an offence and liable upon conviction to a fine or to imprisonment or to both such fine and imprisonment. This may also result in the authorisation granted being withdrawn.
+        (xi) It should be noted that this section only contains terms and conditions for the submission of an application for authorisation to conduct the business of an ADLA and that compliance therewith should not be construed as an indication that the application will necessarily be approved.
+        (xii) Should the Financial Surveillance Department decline an application for authorisation to conduct the business of an ADLA, a written notice of the decision will be provided to the applicant concerned.
+         
+A.4 Duties and responsibilities of Authorised Dealers in foreign exchange with limited authority (#Heading)
+    (A) Introduction (#Heading)
+        (i) ADLAs should note that when approving requests in terms of the ADLA Manual, they are in terms of the Regulations, not allowed to grant permission to clients and must refrain from using wording that approval/permission is granted in correspondence with their clients. Instead reference should be made to the specific section of the ADLA Manual in terms of which the clients is permitted to transact.
+        (ii) In carrying out the important duties entrusted to them, ADLAs should appreciate that uniformity of policy is essential, and that to ensure this it is necessary that the requirements contained in the Regulations, ADLA Manual, circulars, the FIC Act and Regulations under the FIC Act be applied strictly and impartially by all concerned.
+        (iii) Any deviation from or non-compliance with the directives contained in the above-mentioned documents must be reported to the Financial Surveillance Department and is regarded in a serious light. ADLAs are urged to adhere strictly to the letter and the spirit of these directives.
+        (iv) In the interest of all parties concerned, action may be taken in the event of transgressions of the Regulations, the FIC Act and non-compliance with the requirements outlined in the ADLA Manual. The circulars, other directives and authorities need to be emphasised and adhered to by both the ADLA and its clients.
+        (v) ADLAs must ensure that foreign currency is made available for legitimate purposes only.
+        (vi) Care must be exercised by ADLAs to ensure that no payments to third parties abroad are effected. Transactions of this nature must be referred to the Financial Surveillance Department for prior written approval.
+    (B) Procedures to be followed by Authorised Dealers in foreign exchange with limited authority in administering the Exchange Control Regulations (#Heading)
+        (i) In cases where an ADLA is uncertain and/or cannot approve the purchase or sale of foreign currency or any other transaction in terms of the permissions, conditions and limits set out in this ADLA Manual or the FIC Act, an application should be submitted to the Financial Surveillance Department through the head office of the ADLA concerned.
+        (ii) Should an ADLA have any doubt as to whether or not it may approve a request, an application must be submitted to the Financial Surveillance Department. ADLAs must as a general rule, refrain from their own interpretation of the ADLA Manual. 
+        (iii) An ADLA must, at the time of applying to register a new branch with the Financial Surveillance Department, supply a branch code number not exceeding eight digits. ADLAs are also required to ensure that when submitting applications to the Financial Surveillance Department the branch code number is reflected on the top of the application. The branch code number may replace the name of the branch or may be reflected together with the name of the branch.
+        (iv) When submitting applications for consideration, ADLAs should ensure that the surname and full first names (in the case of an individual) and/or the correct registered name (in the case of a legal entity or juristic person, e.g. companies and partnerships) are furnished. Identification numbers for private individuals and registration numbers in respect of legal entities or juristic persons must also be furnished. The same names must be used in subsequent applications, unless specific attention is drawn to a name change.
+        (v) The Financial Surveillance Department is required to be in possession of full information regarding the transaction, its nature and purpose (clearly specifying the motive and intent), before consulting with the Treasury or exercising the powers, functions and/or duties delegated to it by the Minister of Finance. Any previous application that has any bearing (directly or indirectly) on the current application must be referred to as previous related correspondence.
+        (vi) ADLAs must state whether or not they recommend the application and their reasons for making or withholding their recommendation.
+        (vii) Urgent applications may be submitted through the secure website of the South African Reserve Bank at https://www7.resbank.co.za/iforms.nsf. To access this facility, a user-ID and password are required, which can be obtained from the Financial Surveillance Department by sending an email to FNS-HEADTYPIST@resbank.co.za in this regard.
+        (viii) Any authority granted by the Financial Surveillance Department to an ADLA is not transferable to another ADLA or Authorised Dealer and should be regarded as cancelled if the applicants concerned do not avail thereof within a period of six months from the date of such authority. The six month validity period would not apply to those authorities that were granted for periods longer than six months. The Financial Surveillance Department, however, reserves the right to cancel any authority with immediate effect.
+        (ix) It is essential that all transactions must be concluded on the particular basis as formally sanctioned. Accordingly, any deviation from the arrangements originally approved should be referred to the Financial Surveillance Department. 
+        (x) ADLAs are required to report all cross-border foreign exchange transactions to the Financial Surveillance Department according to the rules and in the format prescribed in the Business and Technical Specifications document.
+        (xi) ADLAs are reminded that the reporting of cross-border foreign exchange transactions, as indicated above, does not exempt them in any way from complying with the requirements contained in the ADLA Manual and the provisions of the Regulations.
+        (xii) The arrangements set out in the ADLA Manual should in no manner be construed as absolving ADLAs, their clients and associated entities from their duties and obligations under any other law, including but not limited to the Prevention of Organised Crime Act, 1998 (Act No. 121 of 1998), the Financial Intelligence Centre Act, 2001 (Act No. 38 of 2001) and the Protection of Constitutional Democracy against Terrorist and Related Activities Act, 2004 (Act No. 33 of 2004).
+        (xiii) Applications submitted to the Financial Surveillance Department must be numbered in a sequential numerical order to ensure that all exchange control applications submitted and replies thereto are duly accounted for. Authorised Dealers in foreign exchange with limited authority must furnish the Financial Surveillance Department on a quarterly basis with a return of missing application sequence numbers. Kindly refer to Section B.2(H)(viii) of the ADLA Manual.
+        Authorised Dealers in foreign exchange with limited authority must reset their application numbering systems to zero at the beginning of each calendar year.
+    (C) Documentary evidence required by an Authorised Dealers in foreign exchange with limited authority (#Heading)
+        (i) As far as documentary evidence as called for in the various sections of the ADLA Manual is concerned, ADLAs must endorse such documentation 'original sighted' or alternatively where such documentation is stored digitally and an audit trail exists, no endorsement is required.
+        (ii) The copies of documents must be retained for a period of five years for inspection purposes and ADLAs must point out to their clients that the original documents must be retained for a period of five years for inspection purposes.
+        (iii) Whenever documentary evidence is called for in any section of the ADLA Manual, ADLAs shall be obliged to ensure that such documentary evidence, which shall be obtained and scrutinised in connection with all transactions involving the purchase or sale of foreign currency in the spot market, shall in terms of accepted trade usage, or established accounting, commercial or legal practice, be the best evidence for purposes of:
+            (a) identifying and verifying the nature, category or class of the relevant transaction;
+            (b) proving and verifying the obligation(s) of each resident who is a party to the relevant transaction to make payment(s) of foreign currency or to place such foreign currency to the credit of any non- resident who is a party to the relevant transaction and/or proving and verifying the right(s) of each resident who is a party to the relevant transaction to receive payment(s) of foreign currency from or have such foreign currency placed to its credit by any non- resident who is a party to the relevant transaction; and
+            (c) proving and verifying the amount(s) and timing of each foreign currency payment or credit referred to in (b) above.
+        (iv) Where the original set of documents are not obtainable, ADLAs may accept those produced by photocopying, faxing or printed copies of electronic documents.
+         
+B.1 Business activities of an Authorised Dealer in foreign exchange with limited authority (#Heading)
+    (A) Category One: Bureaux de Change (#Heading)
+        (i) Business activities (#Heading)
+        The business activities of a Category One ADLA are restricted to:
+            (a) buying of foreign currency, including travellers cheques, on a spot transaction basis for Rand from travellers, Authorised Dealers and businesses directly related to the tourist industry (see subsection (ii)(j) below for further details); and
+            (b) selling of foreign currency, in any approved format, on a spot transaction basis for Rand to travellers and Authorised Dealers.
+        (ii) Permissible transactions (#Heading)
+        The following transactions may be entered into by a Category One ADLA:
+            (a) Resident individuals (#Heading)
+                (aa) A travel allowance within the single discretionary allowance limit of R1 million per calendar year may be availed of by residents (natural persons) who are 18 years and older.
+                (bb) Residents (natural persons) who are under the age of 18 years may avail of a travel allowance not exceeding an amount of R200 000 per calendar year.
+                (cc) The ADLA should at the time of processing the transaction view the client's valid passport, and if travelling by air, the client's passenger ticket. A travel itinerary may not be accepted.
+                (dd) Any traveller who, on departure does not avail of the full travel allowance may be accorded the unused portion while abroad, provided that the overall limit is not exceeded and the allowance is availed of in the same calendar year.
+                (ee) A resident whose visit extends from the current year into the following year may be accorded foreign currency in respect of the next year's facilities without returning to South Africa. 
+            (b) Immigrants (#Heading)
+                (aa) Prospective immigrants and immigrants who have applied for, but who have not been granted permanent residence in South Africa may be granted a travel allowance within the single discretionary allowance limit of R1 million per calendar year.
+                (bb) The ADLA should view documentary evidence to ensure that the funds tendered in payment represent either savings from local earnings or the proceeds of foreign currency introduced to and exchanged in South Africa.
+                (cc) The ADLA should at the time of processing the transaction also view the client's valid passport, and if travelling by air, the client's passenger ticket. A travel itinerary may not be accepted.
+            (c) Foreign nationals temporarily resident in South Africa (#Heading)
+                (aa) Foreign nationals may be granted a travel allowance within the single discretionary allowance limit of R1 million per calendar year.
+                (bb) The ADLA should view documentary evidence to ensure that funds tendered in payment represent either savings from local earnings or the proceeds of foreign currency introduced to and exchanged in South Africa.
+                (cc) The ADLA should at the time of processing the transaction also view the client's valid passport, and if travelling by air, the client's passenger ticket. A travel itinerary may not be accepted.
+            (d) Common Monetary Area residents (#Heading)
+                (aa) Residents of Lesotho, Namibia and eSwatini do not qualify to be accorded a travel allowance in South Africa except for the following:
+                    (1) CMA residents who travel overland to and from other CMA countries through a SADC country up an amount not exceeding R25 000 per calendar year. This allocation does not form part of the permissible travel allowance for residents.
+                    (2) Foreign currency may be sold to foreign diplomats, accredited foreign diplomatic staff as well as students with a valid student card from other CMA member countries while in South Africa. 
+                    (3) Residents of the other CMA countries, in South Africa, may be accorded foreign currency at local international airports to cover unforeseen incidental costs while in transit, subject to viewing a passenger ticket confirming a destination outside the CMA.
+            (e) Residents proceeding temporarily abroad (#Heading)
+                (aa) Residents proceeding abroad temporarily for reasons other than business or holiday travel may be granted a travel allowance within the single discretionary allowance limit of R1 million per calendar year.
+                (bb) The ADLA should at the time of processing the transaction view the client's valid passport, and if travelling by air, the client's passenger ticket. A travel itinerary may not be accepted.
+                (cc) The temporary export of any household and personal effects, jewellery, motor vehicles, caravans, trailers and motorcycles within a limit of R1 million (based on the insurance value) is permitted for individuals travelling temporarily abroad. Clients must be made aware that the prescribed SARS Customs Declaration form should be completed on departure and the onus is on the traveller to ensure that the goods exported or the sale proceeds thereof are returned to South Africa upon their permanent return.
+                (dd) Where the goods exported or the sale proceeds thereof are not to be returned to South Africa, a suitable application must be submitted to the Financial Surveillance Department.
+                (ee) In the case of any jewellery to be exported, travellers should note that:
+                    (1) the articles to be exported must be fully manufactured and not crudely produced; and
+                    (2) the value of jewellery to be carried by travellers must be reasonable in relation to their financial means and standing.
+            (f) Foreign visitors (tourists) (#Heading)
+                (aa) Foreign visitors (tourists) to South Africa may only be granted foreign currency on departure from South Africa if the ADLA has the tourist on record as having sold foreign currency earlier to the ADLA or view documentary proof that the amount being applied for is the unspent portion of the proceeds of foreign currency introduced to and exchanged in South Africa.
+                (bb) Foreign visitors (tourists) persons may export any foreign banknotes imported to South Africa on their arrival. No more than R25 000 may on departure be exported in Rand notes.
+                (cc) ADLAs may apply to the Financial Surveillance Department for an exemption for their branches at local international airports and border posts to exchange Rand notes to foreign currency (without proof of foreign currency introduced) for amounts up to R10 000 per transaction against presentation to the ADLA of the traveller's valid passport and boarding pass. A boarding pass is not required at border posts.
+            (g) Omnibus travel facilities (#Heading)
+                (aa) ADLAs may approve in writing applications by entities for omnibus travel facilities up to R20 million per calendar year for allocation to the entities' representatives for business travel purposes only, at the discretion of the relevant entity.
+                (bb) At the beginning of each calendar year, the entity should apply in writing, on the entity's letterhead, to the ADLA for permission to avail of an omnibus travel facility. The following should be included in the letter:
+                    (1) the total amount that is applied for in the calendar year;
+                    (2) that the amount applied for is reasonable in relation to the business activities of the entity concerned;
+                    (3) the purpose that the travel omnibus facility will be used for;
+                    (4) the envisaged number of trips during the calendar year;
+                    (5) the names, surnames and identity numbers of the administrative employees that are authorised by the entity to deal with the ADLA;
+                    (6) the CDD documentation of the administrative employees that are authorised by the entity to deal with the ADLA; and
+                    (7) the CDD documentation of the entity.
+                (cc) If the ADLA is satisfied that the entity has not applied for an omnibus travel facility with any other Authorised Dealer and the application letter and CDD documentation meet with the minimum requirements, a formal letter must be issued authorising the entity to avail of an omnibus travel facility of up to R20 million (for business travel, land arrangements and subsistence allowances only) during the calendar year.
+                (dd) On each occasion during the calendar year that the representatives of the entity have to travel, the ADLA must view an official letter from the entity concerned authorising the proposed business visit to be undertaken and explaining the purpose of the proposed business trip. The ADLA must also view the passenger ticket and passport of the prospective traveller(s).
+                (ee) The ADLA must maintain a schedule of the visits undertaken by the representative(s), the amount of foreign currency accorded and subsequently resold on each occasion.
+                (ff) The above-mentioned documentation must be retained by the ADLA for a period of five years for inspection purposes.
+                (gg) The omnibus travel facility may only be used for business travel purposes and may not be deposited into any foreign bank account or be used to acquire goods and/or services abroad.
+                (hh) Applications for facilities in excess of R20 million must be submitted to the Financial Surveillance Department for consideration.
+                (ii) Representatives of entities availing of an omnibus travel facility also qualify in their personal capacity for a travel allowance within the single discretionary allowance limit of R1 million per calendar year.
+            (h) Rand notes dispensation to travellers (#Heading)
+            In addition to the travel allowance, R25 000 in Rand notes per person may be taken when proceeding on visits outside the CMA, to meet travellers' immediate needs on return to South Africa.
+            (i) Acceptance of foreign banknotes (#Heading)
+                (aa) ADLAs may buy foreign currency banknotes from travel agents, hotels, restaurants, shops and other persons, whose business is directly related to the tourist industry.
+                (bb) The origin of the foreign currency must be from foreign notes used as payment for goods and/or services by foreign tourists. The aforementioned parties may not exchange currency offered by foreign tourists for Rand without an underlying sale of goods and/or services rendered. 
+                (cc) The foreign currency obtained from visitors must be sold to an ADLA or Authorised Dealer not later than the following business day after acquisition thereof.
+                (dd) Prior to purchasing such foreign currency, the ADLA must view documentary evidence that the party offering the notes for sale has been authorised by an Authorised Dealer or the Financial Surveillance Department to accept foreign banknotes and foreign currency travellers cheques from visitors to South Africa in payment of goods supplied and services rendered. An Authorised Dealer endorsed authorisation letter to this effect must be produced to and retained by the ADLA when buying the foreign currency.
+                (ee) ADLAs may also purchase reasonable amounts of foreign currency banknotes from residents who received the foreign currency banknotes from visitors to South Africa as payment for services rendered (e.g. gratuities, tips or gifts).
+            (j) Conditions applicable to providing a travel allowance (#Heading)
+                (aa) Individuals travelling to countries outside South Africa must in addition to the normal CDD requirements provided for in the RMCP of the individual ADLA provide copies of the passport, and a passenger ticket (travel itinerary may not be accepted) which must be retained by the ADLA for five years for a journey commencing from South Africa.
+                (bb) Overland travellers, passengers on charter flights, persons flying private aircraft and persons sailing on private yachts who do not purchase tickets of the nature mentioned in (aa) above, need only present a valid passport.
+                (cc) Foreign currency may be availed of in any authorised form within the limit mentioned in subsections (a)(aa) and (bb) above.
+                ADLAs may, therefore, accord individuals with foreign currency banknotes and travellers cheques for travel purposes.
+                Credit and/or debit cards may be used to avail up to 100 per cent of the authorised prescribed or remaining travel allowance.
+                The travel allowance may also be transferred abroad to the traveller's own foreign bank account or that of their spouse, but not to the account of a third party. 
+                Minors travelling with parents may have their travel allowances transferred to their parents' bank account abroad.
+                (dd) The single discretionary allowance limit mentioned in subsections (a)(aa) and (bb) above may not be exceeded.
+                (ee) When providing foreign currency, ADLAs must inform their clients that in terms of the provisions of Regulation 2(4), the foreign currency provided may only be used for the purpose for which it was made available.
+                (ff) ADLAs must inform their clients that in terms of the provisions of Regulation 2(5), any unused foreign currency must be resold within 30 days to an Authorised Dealer or ADLA on their return to South Africa. Exemption from Regulation 2(5) is, however, granted to business travellers going abroad on recurring business trips. Where the next business trip is to commence within 90 days after returning from a previous business trip, any unutilised foreign currency may be retained by the traveller for use during subsequent business trips.
+                (gg) ADLAs may effect advance payments in respect of tours, hotel accommodation and vehicle rental at the request of resident travel agents and/or tour operators. In this regard, a facsimile copy of an overseas invoice or email message, plus a covering invoice from the local travel agent, may be accepted. The invoice issued by the local travel agent must contain the name and residential address of the resident traveller, as well as the foreign currency and/or Rand amount.
+                The Third Party attributes is mandatory and must be populated with the resident traveller's details and any such transactions appropriately sequenced, where applicable, when reporting them by way of the FinSurv Reporting System. Where transactions cannot be sequenced, they must be submitted individually.
+                (hh) In addition to advance payments permitted above, ADLAs may also effect advance payments to secure the venues to host travel incentive scheme rewards events where the names of the attendees are not known. In this regard, a facsimile copy of the overseas invoice or email message, plus the covering invoice from the local organising company may be accepted. When doing the final payment, the final invoice from the organiser must contain the name and address of all participants as well as the foreign currency and/or Rand amount. Where the invoice reflects that the costs include the venue hire, accommodation and conference costs, ADLAs may in such instance make the full advance payment covering such costs.
+                (ii) The Third Party attributes is mandatory and must be populated with the resident travellers' details, when the final payment is affected. Such transactions must be appropriately sequenced or submitted individually when reporting the transactions by way of the FinSurv Reporting System, to reflect the actual amounts availed of by each of the respective travellers.
+                (jj) The advance payments mentioned in (gg) and (hh) and (ii) above must be deducted from the permissible travel allowance.
+                (kk) Except as provided for in (gg) and (hh) and (ii) above, a prospective traveller may not be furnished with foreign currency more than 60 days prior to the date of departure.
+                (ll) Prior to making such foreign currency available, ADLAs must record on their integrated forms the following information:
+                    (1) the mode of transport, the reference number issued, the date of departure, and destination, where a passenger ticket is issued; and
+                    (2) the mode of transport, the date of departure, the destination and the name of the border post from where the traveller will exit South Africa, where a passenger ticket is not issued.
+                (mm) ADLAs must also obtain a written undertaking from the prospective traveller that the prospective traveller:
+                    (1) will indeed travel within 60 days from the date of the request to be accorded foreign currency;
+                    (2) will not purchase foreign currency from an Authorised Dealer and/or another ADLA in excess of the applicable limits;
+                    (3) will offer for resale all foreign currency accorded in the event of the trip being cancelled, to an Authorised Dealer and/or an ADLA within 30 days of cancellation; and
+                    (4) will offer for resale to an Authorised Dealer or ADLA any unused foreign currency within 30 days of their return to South Africa. Also see (ff) above.
+                (nn) ADLAs, on the integrated form, must with all transactions, record the clients  names, nationalities, residential addresses and telephone numbers to facilitate communication.
+                (oo) Travel allowances cover a calendar year. Any traveller not availing of the maximum allowance during a first journey may utilise the unused portion of the annual allowance for a subsequent journey at any time during the same calendar year.
+                (pp) While advance payments in terms of (gg) and (hh) and (ii) above may, if needed, be made in a preceding calendar year in respect of a journey commencing in the next calendar year, the amounts involved must be deducted from the travel allowance applicable to the individual concerned in the calendar year in which the journey commences.
+                (qq) A person who has not utilised any part of the travel allowance for a particular calendar year and who leaves on a journey that will extend into the next calendar year may be granted the full travel allowance facilities applicable to the calendar year in which the journey commences. The fact that the journey extends into the subsequent calendar year will not debar the granting of further travel allowance facilities for a separate subsequent journey in such calendar year.
+                (rr) To the extent that foreign currency previously granted have been repurchased, ADLAs may subsequently furnish the equivalent Rand amount in foreign currency to that person for further travel in the same calendar year, together with any balance that may not have been previously availed of up to the single discretionary allowance limit of R1 million per calendar year.
+        (iii) Cross-border foreign exchange transaction reporting categories (#Heading)
+        The table 4 below summarises the cross-border foreign exchange transaction reporting categories applicable to a Category One ADLA:
+        #Table 4
+            Category One Category code (applicable to inward and outward flows unless indicated otherwise) | Description 
+            200 | Adjustments, reversals and refunds 
+            250 | Travel services for non-residents – business travel 
+            251 | Travel services for non-residents – holiday travel 
+            252 (inward) | Foreign exchange accepted by residents from non- residents 
+            255 | Travel services for residents – business travel 
+            256 | Travel services for residents – holiday travel 
+            260 | Proceeds for travel services in respect of third parties – business travel 
+            261 | Proceeds for travel services in respect of third parties – holiday travel 
+            270 01 | Payment for passenger services – road 
+            270 02 | Payment for passenger services – rail
+            270 03 | Payment for passenger services – sea
+            270 04 | Payment for passenger services – air
+        #Table 4 - end
+    (B) Category Two: Bureaux de Change who can also offer money remittance services in partnership with external money transfer operators (#Heading)
+        (i) Business activities (#Heading)
+            (a) The business activities are broadened from the services provided by Category One ADLAs to also include transactions under the single discretionary allowance limit of R1 million per calendar year and the offering of money remittance services via external money transfer operators.
+            (b) For single remittance transactions up to R5 000, only the applicant's proof of identity has to be viewed by the ADLA concerned.
+        (ii) Permissible transactions (#Heading)
+        The following transactions may be entered into by a Category Two ADLA, in addition to the transactions outlined in subsection (A)(ii) above:
+            (a) Monetary gifts (#Heading)
+                (aa) ADLAs may allow resident individuals and foreign nationals that qualify to transfer monetary gifts within the single discretionary allowance limit of R1 million per applicant during a calendar year to non-resident individuals and to resident individuals who are overseas temporarily, excluding those residents who are abroad on holiday or business travel.
+                (bb) In addition to the normal CDD requirements, ADLAs are advised that the resident individual and foreign national must produce a valid green bar-coded South African identity document or Smart identity document card for identification purposes and the identity number will be mandatory when reporting the transaction in terms of the Reporting System.
+            (b) Migrant labourers returning to neighbouring countries (#Heading)
+                (aa) Migrant workers are permitted to send reasonable amounts representing earnings to their home countries.
+                (bb) In addition to the normal CDD requirements provided for in the RMCP of the individual ADLA, ADLAs must view a passport, asylum seeker permit, maroon refugee identity document or any other acceptable form of identification and obtain the residential address information for reporting purposes prior to effecting transfers in this regard.
+            (c) Study allowance (#Heading)
+                (aa) Residents who are 18 years and older and proceeding abroad for study purposes qualify for an allowance within the single discretionary allowance limit of R1 million per calendar year.
+                (bb) Should a spouse accompany a student, an allowance within the single discretionary allowance limit of R1 million per calendar year may also be accorded to the spouse.
+                (cc) Residents who are under the age of 18 years and proceeding abroad for study purposes qualify for an allowance of R200 000 per calendar year.
+                (dd) ADLAs may also authorise the export of any household and personal effects, including jewellery (but excluding motor vehicles), up to a value of R200 000 per student under cover of the prescribed SARS Customs Declaration form.
+                (ee) In addition to the aforegoing, ADLAs may transfer directly to the institution concerned the relative tuition and academic fees for the academic year, against documentary evidence confirming the amount involved.
+                (ff) Any additional foreign exchange requirements must be referred to the Financial Surveillance Department.
+                (gg) Prior to effecting the payment ADLAs must view the following:
+                    (1) documentary evidence from the institutions concerned confirming that the student has been enrolled for a course for the period claimed; 
+                    (2) evidence of the tuition and academic fees in the form of a letter or prospectus from the institution to be attended; and
+                    (3) in addition to the normal CDD requirements, ADLAs are advised that the resident individual must produce a valid green bar-coded South African identity document or Smart identity document card for identification purposes.
+                (hh) The ADLA must retain copies of the documents mentioned in (gg) above for a period of five years for inspection purposes.
+                (ii) Should a student require a continuation of the above- mentioned transfers during a period following the initial academic year, new documentary evidence complying with the requirements of (gg) above must be submitted and further transfers may thereafter be permitted on the basis outlined in (aa) to (cc) above.
+            (d) Foreign nationals temporarily in the Republic of South Africa (#Heading)
+                (aa) ADLAs may permit foreign nationals who are employed in South Africa on a contract basis, including CMA residents working and residing in South Africa, to transfer abroad funds that have been earned in South Africa provided that:
+                    (1) the foreign nationals can substantiate the source from which they have acquired such funds;
+                    (2) the value of such funds is reasonable in relation to their earnings in South Africa; and
+                    (3) in addition to the normal CDD requirements provided for in the RMCP of the individual ADLA, the ADLAs must view a valid passport and temporary residence permit prior to effecting transfers in this regard.
+        (iii) External money transfer operators (#Heading)
+            (a) On application to the Financial Surveillance Department, consideration will be given to allow Category Two ADLAs to also offer money remittance services via external money transfer operators to facilitate cross-border transfers.
+            (b) The following principles must be complied with when a Category Two ADLA offers money remittance services via external money transfer operators to facilitate formal cross-border transfers:
+                (aa) the offering institution must take full responsibility and accountability for its compliance with the requirements of the 
+                FIC Act in relation to the money remittance service which it will be offering;
+                (bb) the offering institution must have adequate resources and systems in place to meet its obligations under the FIC Act in respect of money remittance services it will be offering. More specifically, the offering institution's systems that will facilitate compliance with its obligations in terms of the FIC Act in relation to the remittance service it will be offering must be integrated with the rest of its systems for compliance with these obligations;
+                (cc) both the offering institution and any external money transfer operator with which the institution may enter into an agreement must guarantee that all information captured in relation to the use of the service provider's products and services in South Africa will be held and maintained in South Africa; and
+                (dd) both the external money transfer operator and the offering institution must have adequate client interface procedures as well as capturing and messaging systems in place to include the originator's identification information in the transfer message through which a sending transaction from South Africa is executed, in line with the Financial Action Task Force Recommendations.
+        (iv) Cross-border foreign exchange transaction reporting categories (#Heading)
+        The table 5 below summarises the cross-border foreign exchange transaction reporting categories applicable to a Category Two ADLA:
+        #Table 5
+            Category Two Category code (applicable to inward and outward flows unless indicated otherwise) | Description 
+            200 | Adjustments, reversals and refunds 
+            250 | Travel services for non-residents – business travel 
+            251 | Travel services for non-residents – holiday travel 
+            252 | Foreign exchange accepted by residents from non-residents 
+            255 | Travel services for residents – business travel 
+            256 | Travel services for residents – holiday travel 
+            260 | Proceeds for travel services in respect of third parties – business travel 
+            261 | Proceeds for travel services in respect of third parties – holiday travel 
+            270 01 | Payment for passenger services – road 
+            270 02 | Payment for passenger services – rail 
+            270 03 | Payment for passenger services – sea
+            270 04 | Payment for passenger services - air 
+            285 (outward) | Tuition fees 
+            300 | Adjustments, reversals and refunds
+            303 (inward) | Compensation paid by a non-resident to a resident employee temporarily abroad (excluding remittances) 
+            305 (inward) | Compensation paid by a non-resident to a migrant worker (excluding remittances)
+            305 (outward) | Compensation paid by a resident to a migrant worker/employee (for amounts in excess of R5 000, excluding remittances) 
+            306 (inward) | Compensation paid by a non-resident to a foreign national contract worker employee (excluding remittances)
+            306 (outward) | Compensation paid by a resident to a foreign national contract worker employee (for amounts in excess of R5 000, excluding remittances) 
+            400 | Adjustments, reversals and refunds 
+            401 | Gifts 
+            416 | Migrant worker remittances (for amounts up to R5 000, excluding compensation) 
+            417 | Foreign national contract worker remittances (for amounts up to R5 000, excluding compensation)
+        #Table 5 - end
+
+    (C) Category Three: Independent money transfer operators and/or value transfer service providers (#Heading)
+        (i) Independent money transfer operators (#Heading)
+            (a) Business activities (#Heading)
+            The business activities of a Category Three ADLA (MTO) are restricted to:
+                (aa) Money remittance services, i.e. cross-border person-to- person payments of relatively low value. 
+                (bb) For single remittance transactions up to R5 000 per transaction, only the applicant's proof of identity has to be viewed by the ADLA concerned.
+                (cc) Where a business relationship has been established, transactions are limited to R5 000 per transaction per day within a limit of R25 000 per applicant per calendar month. The ADLA must complete the relevant CDD requirements by establishing and verifying the identity of the applicant in terms of section 21 of the FIC Act and obtaining the applicant's residential address information for reporting purposes.
+            (b) Permissible transactions (#Heading)
+            The following transactions may be entered into by a Category Three ADLA:
+                (aa) Monetary gifts 
+                    (1) ADLAs may allow resident individuals and foreign nationals that qualify to transfer monetary gifts within the limits specified under subsections (a)(bb) and (cc) above to non-resident individuals.
+                (bb) For transfers in terms of (1) above by resident individuals and foreign nationals that qualify, ADLAs are advised that the applicant must produce a valid green bar-coded South African identity document or Smart identity document card for identification purposes in addition to the normal CDD requirements. Migrant labourers returning to neighbouring countries
+                    (1) Funds earned in South Africa by migrant workers are eligible for transfer abroad within the limit specified under subsections (a)(bb) and (cc) above.
+                    (2) For transfers in terms of subsection (a)(cc) above, ADLAs should view either a passport, asylum seeker permit, maroon refugee identity document or any other acceptable form of identification and obtain the residential address information for reporting purposes prior to effecting transfers in this regard.
+                (cc) Foreign nationals temporarily in the Republic of South Africa
+                    (1) Funds earned in South Africa by foreign national contract workers are eligible for transfer abroad within the limit specified under subsections (a)(bb) and (cc) above. 
+                    (2) For transfers in terms of subsection (a)(cc) above, ADLAs should view a passport or any other acceptable form of identification obtain the residential address information for reporting purposes as well as proof of the applicant's earnings prior to effecting transfers in this regard.
+            (c) Cross-border foreign exchange transaction reporting categories (#Heading)
+            The table 6 below summarises the cross-border foreign exchange transaction reporting categories applicable to a Category Three ADLA:
+            #Table 6
+                Category Three – money transfer operator 
+                Category code (applicable to inward and outward flows unless indicated otherwise) | Description 
+                400 | Adjustments, reversals and refunds 
+                401 | Gifts (must have SA green bar-coded ID book or Smart ID) 
+                416 | Migrant worker remittances (excluding compensation) 
+                417 | Foreign national contract worker remittances (excluding compensation)
+            #Table 6 - end
+        (ii) Value transfer service providers (#Heading)
+            (a) Business activities (#Heading)
+            The business activities of a Category Three ADLA (VTSP) are restricted to:
+                (aa) Value transfer services, i.e. the payment of funds in South Africa and the equivalent in value being made available to beneficiaries in SADC member countries.
+                (bb) For single remittance transactions up to R5 000 per transaction, only the applicant's proof of identity has to be viewed by the ADLA concerned.
+                (cc) Where a business relationship has been established transactions are limited to R5 000 per transaction per day within a limit of R25 000 per applicant per calendar month. The ADLA must complete the relevant CDD requirements by establishing and verifying the identity of the applicant in terms of section 21 of the FIC Act and obtaining the applicant's residential address information for reporting purposes. 
+            (b) Permissible transactions (#Heading)
+                (aa) Migrant labourers returning to neighbouring countries
+                    (1) Funds earned in South Africa by migrant workers are eligible for transactions where the equivalent in value is made available to beneficiaries in SADC member countries, within the limit specified under subsections (a)(bb) and (cc) above.
+                    (2) For value transfers in terms of subsection (a)(cc) above, ADLAs should view either a passport, asylum seeker permit, maroon refugee identity document or any other acceptable form of identification and obtain the residential address for reporting purposes prior to effecting transfers in this regard.
+            (c) Cross-border foreign exchange transaction reporting categories (#Heading)
+            The table 7 below outlines the cross-border foreign exchange transaction reporting category applicable to a Category Three ADLA (VTSP):
+            #Table 7
+            Category Three – value transfer service provider 
+            Category code (applicable to inward and outward flows unless indicated otherwise) | Description 
+            418 | Value transfer services
+            #Table 7 - end
+    (D) Category Four: Authorised Dealer in foreign exchange offering authorised services (#Heading)
+        (i) Business activities (#Heading)
+            (a) On application to the Financial Surveillance Department, consideration will be given to existing ADLAs with a proven track record in Category Two or Category Three, for inclusion under Category Four.
+            (b) The business activities could be a combination of the services provided by Category Two and Category Three ADLAs as outlined in subsections (B)(i), (C)(i)(a) and (C)(ii) above.
+            (c) The business activities of a Category Four ADLA are restricted to: 
+                (aa) a Bureau de Change; and
+                (bb) specific transactions under the single discretionary allowance limit of R1 million per calendar year; and
+                (cc) money remittance services in partnership with external money transfer operators; and
+                (dd) an independent money transfer operator; and/or
+                (ee) a value transfer service provider.
+        (ii) Permissible transactions (#Heading)
+            (a) The transactions outlined in subsections (B)(ii), (B)(iii), (C)(i)(b) and (C)(ii)(b) above may be entered into by a Category Four ADLA.
+        (iii) Cross-border foreign exchange transaction reporting categories (#Heading)
+        The table 8 below summarises all the cross-border foreign exchange transaction reporting categories available to a Category Four ADLA, which would be limited to the approval granted:
+        #Table 8
+            Category Four 
+            Category code (applicable to inward and outward flows unless indicated otherwise) | Description 
+            200 Adjustments, reversals and refunds 
+            250 Travel services for non-residents – business travel 
+            251 Travel services for non-residents – holiday travel 
+            252 Foreign exchange accepted by residents from non-residents 
+            255 Travel services for residents – business travel 
+            256 Travel services for residents – holiday travel 
+            260 Proceeds for travel services in respect of third parties – business travel 
+            261 Proceeds for travel services in respect of third parties – holiday travel 
+            270 01 Payment for passenger services – road 
+            270 02 Payment for passenger services – rail 
+            270 03 Payment for passenger services – sea 
+            270 04 Payment for passenger services - air 
+            285 (outward) Tuition fees 
+            300 Adjustments, reversals and refunds 
+            303 (inward) Compensation paid by a non-resident to a resident employee temporarily abroad (excluding remittances) 305 (inward)
+            305 (outward) Compensation paid by a non-resident to a migrant worker (excluding remittances) Compensation paid by a resident to a migrant worker/employee (for amounts in excess of R5 000, excluding remittances) 
+            306 (inward) Compensation paid by a non-resident to a foreign national contract worker employee (excluding remittances) 
+            306 (outward) Compensation paid by a resident to a foreign national contract worker employee (for amounts in excess of R5 000, excluding remittances) 
+            400 Adjustments, reversals and refunds 
+            401 Gifts 
+            416 Migrant worker remittances (for amounts up to R5 000, excluding compensation) 
+            417 Foreign national contract worker remittances (for amounts up to R5 000, excluding compensation) 
+            418 Value transfer services
+        #Table 8 - end
+
+B.2 Operational conditions applicable to conducting the business of an Authorised Dealer in foreign exchange with limited authority (#Heading)
+    (A) Governance (#Heading)
+    The following operational conditions must be adhered to by an ADLA:
+        (i) Capital requirements 
+            (a) An ADLA shall during the lifetime of its operations maintain a minimum unimpaired capital fund in a Rand denominated savings and/or investment type banking account segregated from the ADLAs business and clients' funds as follows:
+                (aa) Category One: R2 million
+                (bb) Category Two: R3 million
+                (cc) Category Three: R5 million
+                (dd) Category Four: R8 million
+            (b) The funds in the savings/investment bank account may not be withdrawn or be transferred to another bank account without the prior written approval of the Financial Surveillance Department.
+            (c) The unimpaired capital must remain unencumbered and may not be ceded, pledged or used as collateral by the ADLA or any of its stakeholders.
+            (d) The ADLA must on a six-monthly basis (during January and July) furnish the Financial Surveillance Department with a copy of the savings/investment bank account statements for the preceding six month period together with written confirmation from the Managing Director/Chief Executive Officer of the ADLA confirming that the unimpaired capital of the ADLA has remained unencumbered and was not ceded, pledged or used as collateral by the entity or any of its stakeholders. Also see subsection (H)(iv) below.
+        (ii) An ADLA shall not change its name or uses as its business name any name that has not been agreed to by the Financial Surveillance Department.
+        (iii) The registered business address of the ADLA may not be changed without prior consultation with the Financial Surveillance Department.
+        (iv) Any changes in the location of the head office and/or the opening of any of the branches must receive the prior written approval of the Financial Surveillance Department. See subsection (D)(v) below. 
+        (v) Only a natural or legal person who is deemed fit and proper  by the Financial Surveillance Department, may, directly or indirectly, have or take up a shareholding or an equity stake in an ADLA. In this regard, see sections A.3(B)(iii) and (iv) and A.3(C)(iii)(a) of the ADLA Manual and Annexures B and C.
+        (vi) Any person who is taking up a directorship in the ADLA will have to be deemed 'fit and proper' by the Financial Surveillance Department. In this regard see sections A.3(B)(iii) and (iv) and A.3(C)(iii)(a) of the ADLA Manual and Annexures B and C.
+        (vii) The beneficial owner(s) of the ADLA will have to be deemed 'fit and proper' by the Financial Surveillance Department. In this regard see section A.3(B)(iii), A.3(C)(iii)(a) of the ADLA Manual and Annexures B and C.
+        (viii) The senior exchange control officer and the anti-money laundering officer will have to be deemed 'fit and proper' by the Financial Surveillance Department. In this regard see section A.3(C)(iii)(a) and A.3(C)(iii)(g) of the ADLA Manual.
+        (ix) Any changes to the beneficial ownership, equity structure, directors, the senior exchange control officer or the anti-money laundering officer of the ADLA must have the prior written approval of the Financial Surveillance Department.
+        (x) An ADLA shall not offer for sale to its clients any new or enhanced foreign exchange products such as mobile, web-based money and card-based services without the specific prior approval of the Financial Surveillance Department.
+        (xi) ADLAs are not permitted to enter into foreign exchange transactions with residents of other CMA countries. If such requests are received, the clients should be referred back to their bankers in the CMA country concerned.
+        (xii) As an exception to (xi) above, ADLAs may accord foreign currency to foreign diplomats, accredited foreign diplomatic staff, students with a valid student card from other CMA countries whilst in South Africa as well as CMA residents working and residing in South Africa, provided the CMA resident can substantiate that the value of such funds is reasonable in relation to their income generating activities in South Africa. Also see sections B.1(A)(ii)(d)(aa)(2), (3) and B.1(B)(ii)(d)(aa) of the ADLA Manual.
+        (xiii) ADLAs who want to deal with local referral agents and travel agents acting on behalf of individual and corporate clients who wish to buy and sell foreign currency from/to the ADLA concerned, must apply to the Financial Surveillance Department for prior approval to enter into a business relationship with the agent(s). Also see subsection (B)(i) below.
+        (xiv) It is the responsibility of the ADLA selling the foreign currency, and not that of the paying away Authorised Dealer, to ensure that the laid down exchange control requirements and requirements in terms of the FIC Act are complied with.
+        (xv) An ADLA may not provide foreign currency to transport companies to pay drivers salaries, buy fuel, do maintenance and purchase spare parts for trucks travelling to other African destinations outside of the CMA. Such business should be referred to an Authorised Dealer.
+        (xvi) An ADLA shall not buy or sell foreign currency which it knows or reasonably ought to have known to be:
+            (a) counterfeit; or
+            (b) not legal tender in the country of issue.
+        (xvii) With the exception of transactions permissible in terms of sections B.1(A)(ii)(j)(gg) and (hh) of the ADLA Manual, an ADLA shall not be involved in transferring funds, whether directly or indirectly, in or out of South Africa in whatever manner, on behalf of entities.
+        (xviii) An ADLA may not accept cash notes or amounts deposited directly into its bank account in settlement of any transaction for residents, immigrants, migrant workers and foreign nationals who apply to enter into transactions in excess of R50 000 abroad, and must ensure that:
+            (a) the funds to be transferred are remitted from the applicant's own local bank account (not the account of a third party) by way of an EFT to the ADLA's client bank account;
+            (b) suitable documentary evidence is provided to the ADLA verifying that the funds were transferred to the ADLA's client bank account from the applicant's own bank account, where after the ADLA may continue to process the transaction;
+            (c) client account statements from other financial institutions (not registered as a bank) may not be accepted by an ADLA as proof of payment made by its clients;
+            (d) payment in respect of settlement of a transaction may also be made by using the applicant's own credit and/or debit card. In instances where a non-personalised card, i.e. where the name of the applicant does not appear on the card, is used, suitable documentary evidence must be provided to the ADLA verifying that the applicant is the owner of the card. ADLAs must ensure that the client s signature on the debit and/or credit card used correspond with the signature of the client on the client's application form; and
+            (e) where direct family members such as the husband, wife and a child each apply for foreign currency within the limit of R50 000 per transaction, but the total amount for the family exceeds the R50 000 limit and the source of the funds is from one person, cash not exceeding R50 000 may be accepted as payment by the ADLA and the balance must be transferred via EFT from the funder's own bank account to the ADLA's client bank account.
+            (f) The documentary evidence referred to in (b) and (c) above must be retained for a period of five years for inspection purposes.
+        (xix) Purchases and sales of foreign currency shall be done at the displayed rates.
+        (xx) An ADLA shall only buy from and sell foreign currency to Authorised Dealers to fund its needs directly related to its approved business. No speculative trading is permissible nor may any hedging or derivative products with foreign exposure be entered into by the ADLA.
+        (xxi) An ADLA may open CFC accounts with an Authorised Dealer for operational purposes, but such CFC accounts may not be overdrawn without the specific prior approval of the Financial Surveillance Department. Credit balances in ADLA CFC accounts must be converted to Rand within 30 days of such funds having being credited to the CFC account. Any abuse of these accounts may result in the withdrawal of this dispensation.
+        (xxii) An ADLA may not maintain a foreign currency float in excess of USD50 000 per branch without prior approval of the Financial Surveillance Department, inclusive of any stockpiled notes held directly or indirectly, as at the close of any business day. Any foreign currency balances in excess of this limit must be sold to an Authorised Dealer the following business day.
+        (xxiii) An ADLA should conduct at least two Rand-denominated bank accounts with an Authorised Dealer in order to ensure that client funds are segregated from the ADLA's business funds.
+        (xxiv) An ADLA must at all times be able to demonstrate that it can reconcile the deposits in its client bank account with a specific client transaction executed.
+        (xxv) All client transactions must be completed within a period of two working days.
+        (xxvi) An ADLA shall be required to inform the Financial Surveillance Department in writing of any subsequent changes to its Risk Management and Compliance Programme (in terms of the FIC Act) supported by a copy of the amended Risk Management and Compliance Programme, prior to implementation.
+        (xxvii) An ADLA shall at least once per calendar year provide exchange control training and training in terms of the FIC Act to all staff members and agents dealing with ADLA foreign exchange clients and/or foreign exchange client documentation and keeping record thereof.
+    (B) Agent requirements (#Heading)
+        (i) Local referral agents and travel agents
+            (a) ADLAs who want to deal with local referral agents and travel agents acting on behalf of individual and corporate clients who want to buy and sell foreign currency from/to the ADLA concerned, must apply to the Financial Surveillance Department for prior approval to enter into a business relationship with the local referral/travel agent(s) and provide, inter alia, the following information:
+                (aa) full name(s) and address of the local referral/travel agent(s) concerned;
+                (bb) copies of the CDD documents of the local referral/travel agent(s) with whom the ADLA is entering/concluding the relative agreement;
+                (cc) copies of the CDD documents of the local referral/travel agent's authorised representatives concerned;
+                (dd) details of the type of business activities that the local referral/travel agent will provide;
+                (ee) the draft agreement entered into between the local referral/travel agent and the ADLA. The draft agreement should make provision for the anti-money laundering and combatting the financing of terrorism roles and responsibilities of the two parties, including a provision that the Financial Surveillance Department may engage with the local referral/travel agent on matters of an anti-money laundering and combatting the financing of terrorism and exchange control nature;
+                (ff) a description of the internal control mechanisms that will be used by the local referral/travel agent in order to comply with their compliance obligations under the FIC Act, the ADLA Manual and the Regulations; and 
+                (gg) details of the exchange control training and training in terms of the FIC Act provided by the ADLA to the local referral/travel agent.
+            (b) Should the relationship with the local referral/travel agent be terminated, the Financial Surveillance Department should be advised by way of an application together with the reason for such termination.
+            (c) Information on directors and persons responsible for management of the local referral/travel agent must be made available to the Financial Surveillance Department on request.
+            (d) The ADLA remains responsible for its compliance obligations in terms of the FIC Act, the ADLA Manual and the Regulations in respect of the use of local referral and travel agents.
+            (e) The ADLA's Risk Management and Compliance Programme must include details of its money laundering and terrorist financing risk assessment on the use of local referral/travel agents and include details pertaining to the management and monitoring of the local referral/travel agents and related transactions.
+        (ii) Field agents (#Heading)
+            (a) ADLAs must apply for prior approval to the Financial Surveillance Department to make use of field agents. The application must provide, inter alia, the following information:
+                (aa) an overview of the services to be provided by the field agents;
+                (bb) whether the field agents will be employed on a contractual basis or permanent basis;
+                (cc) how the transactions will be concluded by clients using the service, including information pertaining to the end-to-end process, starting with the onboarding of clients to the transfer of funds. The role and responsibilities of the field agent in respect of the process should be clearly outlined;
+                (dd) client information collected by field agents may not be retained or reused by field agents. The application should provide a description of internal control mechanisms that will be implemented by the ADLA to ensure that client information collected by field agents is safeguarded against abuse;
+                (ee) confirmation that field agents will not have access to CIV information of clients after the client has been onboarded by the ADLA; 
+                (ff) confirmation that no transactions may be concluded by the field agent on behalf of the client;
+                (gg) confirmation that field agents are not allowed to collect, receive or have access to client funds;
+                (hh) a description of the internal mechanisms that will be implemented by the ADLA to ensure that prospective field agents are deemed to be fit and proper;
+                (ii) details of the exchange control training and training in terms of the FIC Act to be provided by the ADLA to the field agent, including refresher training;
+                (jj) the draft employment agreement (template) to be entered into between the ADLA and the field agent(s). The draft employment agreement should include anti-money laundering and combatting the financing of terrorism roles and responsibilities of the parties, including a provision that the Financial Surveillance Department may engage with the agent on matters of an anti-money laundering and combatting the financing of terrorism and exchange control nature. The Financial Surveillance Department must be informed of any changes to the draft employment agreement by way of an application;
+                (kk) a description of any other internal control mechanisms that will be used by the ADLA in order to comply with the obligations under the FIC Act. This should include the roles and responsibilities of the field agent in relation to anti-money laundering and combatting the financing of terrorism related obligations of the ADLA in terms of the FIC Act and should also include the onboarding of clients, record keeping arrangements, client transaction monitoring, adequate risk management practices in line with the ADLA's risk appetite and risk mitigation practices; and
+                (ll) a description of the measures to be implemented by the ADLA to ascertain whether a specific field agent was involved in a specific transaction or involved in the onboarding of a specific client.
+            (b) Where an ADLA wishes to contract with a service provider to make use of field agents, an application must be submitted to the Financial Surveillance Department for prior approval.
+            (c) The ADLA remains responsible for their compliance obligations in terms of the FIC Act, the ADLA Manual and the Regulations in respect of the use of field agents including field agents employed by a service provider contracted by the ADLA. 
+            (d) The ADLA must maintain an up to date schedule of field agents employed by their institution or field agents employed by a service provider contracted by the ADLA. The schedule must be made available to the Financial Surveillance Department on request and must include full names, the date of employment, the residential address and the identity number or passport number of the field agent. Supporting documentation confirming the aforementioned information should also be available.
+            (e) The ADLA must ensure that all field agents are adequately trained and maintain an up to date training register of field agents which must be made available to the Financial Surveillance Department on request.
+            (f) Copies of the signed employment agreements entered into between the ADLA and the respective field agents must be retained by ADLAs and made available to the Financial Surveillance Department on request.
+            (g) An ADLA's RMCP must include details of the money laundering and terrorist financing risk assessment by the ADLA on the use of field agents and the details pertaining to the management and monitoring of field agents and field agent related transactions.
+            (h) The ADLA must, on a six-monthly basis (during January and July), furnish the Financial Surveillance Department with an up to date schedule of field agents employed by the ADLA by completing the field agents return attached hereto as Annexure D.
+    (C) Partnership agreements (#Heading)
+        (i) When products or services are to be provided in partnership with a third party (such as a pay-in partner, pay-out partner, remittance platform or any other partnership), the ADLA must apply to the Financial Surveillance Department for prior approval to enter into such an agreement and provide, inter alia, the following information:
+            (a) the name and address of the third party;
+            (b) details of the approval/authority required and the business activities to be performed by the third party;
+            (c) a copy of the draft agreement to be entered into between the ADLA and the third party; 
+            (d) an overview/process flow of how transactions will be concluded in respect of the agreement; and
+            (e) where the third party is involved in remittance activities in a foreign jurisdiction, approval by a central bank or relevant regulatory authority in the country of domicile, that the foreign party is authorised as a remittance and/or foreign exchange service provider.
+    (D) Outlet requirements (#Heading)
+        (i) An ADLA shall ensure that its head office and approved branches, where applicable, are accessible to the public during business hours.
+        (ii) An ADLA shall ensure that a certified copy of its letter of appointment is displayed at all of its outlets.
+        (iii) An ADLA shall always display, in a conspicuous place at the premises at which it conducts its business, the following:
+            (a) applicable signage indicating the wording 'Bureau de Change', 'independent money transfer operator' or 'value transfer service provider';
+            (b) its foreign currency buying and selling rates;
+            (c) all commissions and charges associated with these transactions; and
+            (d) a notice informing its clients that they are entitled to be issued with a receipt for any purchase or sale of foreign currency made by them.
+        (iv) An ADLA shall ensure that its head office and all its branches, where applicable, are able to store its foreign currency, including travellers cheques, in a safe that is deemed suitable by the Financial Surveillance Department.
+        (v) An ADLA shall timeously obtain the prior written approval of the Financial Surveillance Department before opening new branches or relocating the head office and/or existing branches, which request should include, as a minimum, the following details:
+            (a) branch code number not exceeding eight digits;
+            (b) postal and physical addresses;
+            (c) telephone and fax numbers; 
+            (d) email address; and
+            (e) suitable curricula vitae of the head of the proposed branch.
+        (vi) Any subsequent changes in (v) above, must receive the prior written approval of the Financial Surveillance Department. All new branches are subject to the conditions as outlined in (i), (ii), (iii) and (iv) above.
+        (vii) An ADLA appointed in South Africa may not expand, invest and/or open branches outside the CMA without the prior written approval of the Financial Surveillance Department. In this regard, also refer to (v) above.
+        (viii) An ADLA may, on application, open a branch for the sole purpose of providing its approved business to corporate clients, which branch will be referred to as a corporate office. The corporate office must strictly comply with the provisions outlined in the ADLA Manual. The 'corporate office' is, however, not subject to the conditions as outlined in (i) and (iii) above.
+        (ix) The Financial Surveillance Department must immediately be notified of the closure of an ADLA branch.
+    (E) Staffing (#Heading)
+        (i) An ADLA must have suitably qualified staff at all times who are 'fit and proper' persons.
+        (ii) ADLA staff must be fully conversant with the relevant requirements contained in the Regulations, the ADLA Manual and the FIC Act.
+        (iii) Written confirmation to this effect by the most senior official in the ADLA must in January of each year be forwarded to the Financial Surveillance Department. Also see subsection (H)(vi) below.
+    (F) Documentation and records (#Heading)
+        (i) An ADLA must maintain proper records of all transactions to enable the ADLA to reconstruct all transactions. The following must be kept:
+            (a) The client tax invoices and supporting documentation which shall, inter alia, reflect the following information:
+                (aa) the serial number of the receipt;
+                (bb) the date of the purchase or sale of foreign currency;
+                (cc) the foreign currency amount purchased or sold;
+                (dd) the rate of exchange; 
+                (ee) the Rand amount paid or received from the client;
+                (ff) the purpose for the purchase or sale of foreign currency;
+                (gg) the full name(s) and surname of the client;
+                (hh) the residential address of the client;
+                (ii) the identity number of the client;
+                (jj) if the client is acting on behalf of another person:
+                    (1) the identity number of the person on whose behalf the client is acting; and
+                    (2) the client's written authority to act on behalf of that other person;
+                (kk) if another person is acting on behalf of the client:
+                    (1) the identity number of that other person; and
+                    (2) that other person's written authority to act on behalf of the client;
+                (ll) the manner in which the identity numbers of the persons as outlined in (ii), (jj) and (kk) above was established;
+                (mm) the name of the person who obtained the information as outlined in (ii), (jj) and (kk) above on behalf of an ADLA;
+                (nn) the nature of that business relationship or transaction;
+                (oo) in the case of a transaction:
+                    (1) the amount involved; and
+                    (2) the parties to that transaction; and
+                (pp) all accounts that are involved in:
+                    (1) multiple transactions concluded by an ADLA in the course of the business relationship; and
+                    (2) single transactions concluded by an ADLA.
+            (b) Any document or certified copy of a document obtained by an ADLA in order to verify the client's identity. 
+            (c) Any document or certified copy of a document obtained by an ADLA in order to verify the client's residential address.
+        (ii) Records in respect of (a) to (c) above may be kept in electronic format together with the date and time of capture.
+        (iii) Records received, as outlined in (a) to (c), above must be designated and not used for purposes other than for an actual purchase or sale of foreign currency.
+        (iv) An ADLA shall issue purchase and sale receipts in respect of all transactions with its clients.
+        (v) An ADLA must incorporate on its purchase receipts two footnotes to read:
+            (a) "ADLA client: please ensure that you retain this receipt for five years as proof of your currency; and
+            (b) the proceeds of any foreign currency obtained through this transaction may not be placed at the disposal of third parties normally resident in South Africa."
+        (vi) An ADLA must keep records as mentioned above that relate to:
+            (a) the establishment of a business relationship, for at least five years from the date on which the business relationship is terminated;
+            (b) a transaction that is concluded, for at least five years from the date on which that transaction is concluded; and
+            (c) a transaction or activity which gave rise to a report contemplated in section 29 of the FIC Act, for at least five years from the date on which the report was submitted to the Financial Intelligence Centre.
+    (G) Reporting requirements for all Authorised Dealers in foreign exchange with limited authority (#Heading)
+        (i) An ADLA must comply with the 'same source' principle for the reporting of all cross-border foreign exchange transactions as outlined in section C.1 of the ADLA Manual, the Business and Technical Specifications document and Operations Manual to be provided to the applicant by the Financial Surveillance Department.
+    (H) Submission of information to the Financial Surveillance Department (#Heading)
+    An ADLA must submit to the Financial Surveillance Department the following:
+        (i) Within three months after the close of its financial year, a copy of its signed audited financial statements together with an independent audit report, i.e. a report from either an internal or external audit function depending on the size and complexity of the institution, for the corresponding period.
+        (ii) On a six-monthly basis (during January and July), a list of the names and the specimen signatures of officials authorised to sign correspondence addressed to the Financial Surveillance Department as well as the email addresses of at least two senior officials to whom urgent correspondence, if necessary, could be referred.
+        (iii) On a six-monthly basis (during January and July) a detailed list of its active branches and corporate offices, which list must include the branch/office name, street address, its branch number, telephone number and the foreign exchange turnover (outflows and inflows) of each branch for the previous six month period.
+        (iv) On a six-monthly basis (during January and July) a copy of the savings/investment bank account statements for the preceding six month period together with written confirmation from the Managing Director/Chief Executive Officer of the ADLA confirming that the unimpaired capital of the ADLA has remained unencumbered and was not ceded, pledged or used as collateral by the entity or any of its stakeholders.
+        (v) A monthly anti-money laundering report containing details of:
+            (a) whether the ADLA's anti-money laundering policy was updated during the month under review;
+            (b) whether the ADLA's Risk Management and Compliance Programme was updated during the month under review;
+            (c) the number of Suspicious Transaction Reports reported to the Financial Intelligence Centre during the month under review;
+            (d) the total Rand amount involved;
+            (e) the highest Rand amount involved;
+            (f) whether all exchange control contraventions have been reported to Financial Surveillance Department;
+            (g) number of training courses completed by the ADLA for the month under review;
+            (h) the number of personnel involved;
+            (i) the percentage of staff still to be trained/received refresher training for the calendar year; 
+            (j) the name of the anti-money laundering compliance officer;
+            (k) contact email address for the anti-money laundering compliance officer; and
+            (l) contact telephone number for the anti-money laundering compliance officer.
+        (vi) In January each year confirmation by the most senior official confirming the staff are suitably qualified, 'fit and proper' persons and fully conversant with the relevant requirements contained in the Regulations, the ADLA Manual and the FIC Act.
+        (vii) In January of each year, a money laundering and terrorist financing risk return accompanied by a managerial letter of comfort, signed by the most senior official, confirming that the money laundering and terrorist financing risks faced by the ADLA have been identified and that appropriate control measures have been implemented and included in the ADLA's Risk Management and Compliance Programme with a view to mitigate such risks. A copy of the money laundering and terrorist financing risk return template to be completed is attached as Annexure E;
+        (viii) On a quarterly basis, a return of missing application sequence numbers covering the preceding quarter containing:
+            (a) a list of application numbers generated but not submitted to the Financial Surveillance Department;
+            (b) a nil return in the event of all applications having been submitted in sequential order; and
+            (c) the range of application numbers generated.
+            Kindly also refer to Section A.4(B)(xiii) of the ADLA Manual.
+    (I) Right of inspection (#Heading)
+        (i) An authorised official from the Financial Surveillance Department may at any time conduct an inspection of an ADLA in the form and manner determined by the Financial Surveillance Department. The inspection will be conducted to establish an ADLA's compliance with the Regulations.
+        (ii) The Financial Surveillance Department is also a supervisory body which performs regulatory or supervisory functions in respect of ADLAs to supervise compliance and the enforcement thereof in terms of Chapter 4 of the FIC Act.
+        (iii) It shall be the duty of every director, official or staff member of an ADLA to produce to the Financial Surveillance Department official conducting an inspection outlined in (i) and (ii) above all such books, accounts and other documents in the ADLA's custody and to furnish that official with such statements or information relating to the affairs of the ADLA as that official may require. In case of suspected non-compliance, malpractice or fraud, the official has the right of seizure of documents and records.
+    (J) Compliance (#Heading)
+        (i) An ADLA shall comply with any other requirements or conditions as may be stipulated in writing from time to time by the Financial Surveillance Department.
+        (ii) Any deviation or non-compliance with any of the requirements contained in the Regulations, ADLA Manual and the FIC Act at a future date may result in measures being taken by the Financial Surveillance Department as administrator of the exchange control system and in its capacity as supervisory body under the FIC Act. These measures may consist of one or more of the following:
+            (a) an official warning from the Financial Surveillance Department setting out the nature of the contravention, and seeking the assurance from the ADLA that the required remedial steps have been undertaken to ensure that the requirements under the Regulations and duties under the FIC Act are performed effectively and diligently in the future;
+                (aa) calling for a complete audit of the ADLA's administration by external auditors, at the ADLA's expense. Such audit would encapsulate:
+                (bb) a full audit of the ADLA's administration and control systems in terms of the Regulations and the FIC Act; and
+                (cc) a joint recommendation by the external auditors and ADLA's management for the improvement of the systems and control procedures;
+            (b) the temporary curtailment of an ADLA's business activities to specific types of transactions;
+            (c) the temporary suspension or withdrawal of an ADLA's appointment to conduct the business of an ADLA or suspension of that authority at one or more branches;
+            (d) the invoking of Regulation 18, when faced with a major breakdown in the systems and/or control procedures of an ADLA relating to its administration and control systems in terms of the Regulations in order to induce early restoration of an effective administration and to ensure future compliance with the provisions of the Regulations; 
+            (e) the remedies provided for under Regulations 22A, 22B and 22C; the permanent withdrawal of an ADLA's appointment to conduct the business of an ADLA or the withdrawal of that authority at one or more branches; and
+            (f) any of the enforcement measures provided in terms of Chapter 4 of the FIC Act and/or a combination of these measures and those stated hereinbefore.
+        (iii) The Financial Surveillance Department would, furthermore, require in writing:
+            (a) a commitment by management and the board of directors of the ADLA to implement the recommended systems and procedures; and
+            (b) a commitment by management to co-operate with the Financial Surveillance Department in monitoring the efficiency of the newly implemented systems and procedures, subject to a periodic external audit.
+             
+C.1 FinSurv Reporting System (#Heading)
+    (A) Introduction (#Heading)
+        (i) The objective of the Reporting System is to ensure accurate and comprehensive reporting of all data by Authorised Dealers and ADLAs on transactions, irrespective of the amount, for compilation of:
+            (a) balance-of-payments statistics by the Economic Research and Statistics Department of the South African Reserve Bank;
+            (b) foreign debt statistics and repayment profiles to support monetary policy decisions; and
+            (c) statistical information relating to the nature, volume and values of the various cross-border flows and to provide the appropriate information for economic and financial management decisions, as well as planning and policy formulation.
+    (B) Business and Technical Specifications document (#Heading)
+        (i) The complete Business and Technical Specifications document can be downloaded from the South African Reserve Bank website: www.reservebank.co.za, by following the links: Home>Regulation and supervision>Financial surveillance and exchange controls>Online services>FinSurv Reporting System.
+        (ii) Once access has been granted, select 'Business and Technical Specifications, Version 3, FinSurv Business and Technical Specifications' to access the document.
+        (iii) Reporting entities must comply with the rules specified in this document, which must be read in conjunction with the ADLA Manual.
+    (C) Operations Manual (#Heading)
+        (i) The complete Operations Manual can be downloaded from the South African Reserve Bank website: www.reservebank.co.za, by following the links: Home>Regulation and supervision>Financial surveillance and exchange controls>Online services>FinSurv Reporting System.
+        (ii) Once access has been granted, select 'Operations Manual, Version 3, FinSurv Operations Manual' to access the document.
+        (iii) Reporting entities must comply with the rules specified in this document, which must be read in conjunction with the ADLA Manual. 
+    (D) Offshoring and cloud computing (#Heading)
+        (i) For the purpose of this subsection, the following key concepts are outlined below:
+        #Definition 2
+            Concept | Description 
+            Business processes | Business processes refer to FinSurv related business processes which include, but are not limited to, on-boarding of customers, exchange control compliance, sanction screenings, releasing of cross- border payments and activities relating to reporting to FinSurv. 
+            Data | Data refers to cross-border transactional data, customer information and digital images of documentation, e.g. documentary evidence obtained in terms of the Authorised Dealer Manual and ADLA Manual. 
+            Customer information | Customer information is data captured in the centralised customer database of reporting entities which, inter alia, includes data captured during on-boarding of a customer, client identification and verification documentation as obtained in terms of the Financial Intelligence Centre Act, 2001 (Act No. 38 of 2001). 
+            Transactional data | Transactional data is cross-border transactional data reported by reporting entities to FinSurv in terms of the provisions outlined in the Authorised Dealer Manual and ADLA Manual. 
+            Digital images of documentation | Digital images of documentation include documentary evidence obtained and/or stored in an electronic format by reporting entities as outlined in the Authorised Dealer Manual, ADLA Manual or specified in terms of certain approvals granted by FinSurv. 
+            Offshoring | Offshoring is the transferring of the business processes (including, but not limited to exchange control compliance), services, systems, data or infrastructure of the reporting entities to a branch or Head Office situated outside the borders of South Africa. 
+            Cloud computing | Cloud computing is defined as a model for enabling convenient, on-demand network access to a shared pool of configurable computing resources (e.g. networks, servers, storage facilities, applications and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction. Forms of cloud computing may include a public cloud, private cloud, community cloud or hybrid cloud. Computers providing capacity can be in different geographical locations which may be subject to different laws, business practices and government oversight. Local outsourcing 
+            Local outsourcing | Local outsourcing is the subcontracting of business processes (including, but not limited to exchange control compliance), functions, services, systems, data or infrastructure of reporting entities, as contemplated in the Authorised Dealer Manual and ADLA Manual, to a third party within South African jurisdiction but not based at the premises of the relevant reporting entities. 
+            International outsourcing | International outsourcing is the subcontracting of business processes (including, but not limited to exchange control compliance), functions, services, systems, data or infrastructure of reporting entities, as contemplated in the Authorised Dealer Manual and ADLA Manual to a third party situated outside the borders of South Africa. 
+            Regulatory access to data | Regulatory access to data refers to FinSurv's access to data and systems. This includes access to transactional systems' front-end and back-end systems as well as folders, servers and databases. 
+            System replication | System replication refers to duplication of transactional systems' front-end and back- end systems as well as folders, servers and databases. This also includes the replication tools used to keep transactional systems' front-end and back-end systems as well as folders, servers and databases synchronised. 
+            Data replication | Data replication refers to the process of copying data from one location to another, including the replication tools used.
+        #Definition 2 - end
+
+        (ii) The Financial Surveillance Department is prepared to consider requests for the following offshoring and cloud computing models relevant to data, infrastructure and systems, as contemplated in the ADLA Manual:  (#Heading)
+            (a) offshoring within a ADLA's international head office and/or group;
+            (b) cloud computing relating to data, infrastructure and systems;
+            (c) local outsourcing of data, infrastructure and systems; and
+            (d) real-time system and data replication to South Africa from an international head office and/or group.
+        (iii) The Financial Surveillance Department is not agreeable to the following offshoring and cloud computing models: (#Heading)
+            (a) offshoring, local and international outsourcing or cloud computing of functions, services and business processes as contemplated in the ADLA Manual; and
+            (b) any form of offshoring and cloud computing models where data is stored in a sanctioned country or in jurisdictions that may inhibit effective access to data.
+        (iv) Requests for utilising offshoring and cloud computing will only be considered, on a case-by-case basis, upon the submission of a formal application to the Financial Surveillance Department. (#Heading)
+        (v) The following requirements must be adhered to: (#Heading)
+            (a) Agreements (#Heading)
+                (aa) A documented legally binding agreements or contracts must be concluded with the ADLA's Head Office or any other third party that forms part of the proposed operating model. These agreements or contracts must state, but not be limited to, the following:
+                    (1) data relevant to the ADLA will be ring-fenced from other activities of the data centre to be used and should stipulate how it will be achieved;
+                    (2) data will be retained for a minimum period of five years, as required by the ADLA Manual; and
+                    (3) data will be accessible immediately, but not later than 48 hours, from the source systems and extractable in the format prescribed in (h)(gg) below.
+                (bb) Any amendments to the above agreements/contracts with regard to a change in the approved operating model requires prior approval of the Financial Surveillance Department.
+            (b) Risk assessment (#Heading)
+                (aa) Prior to undertaking a particular offshoring and cloud computing initiative, an ADLA must perform a risk assessment, which must be documented.
+                (bb) The risk assessment must identify all risks involved and determine whether adequate controls can be implemented to mitigate any potential risks.
+                (cc) An ADLA must have documented processes and procedures in place to, on a continuous basis identify, assess, manage and mitigate risks associated with offshoring and cloud computing.
+                (dd) Risks must be adequately understood and managed prior to entering into an offshoring and cloud computing arrangement. Factors that must be addressed include, inter alia, continuity, data protection, regulatory access to data and regulatory compliance.
+            (c) Business continuity plan (#Heading)
+                (aa) An ADLA must satisfy itself that the data centre hosting the data must have extensive disaster recovery and business continuity processes and procedures in place.
+                (bb) Regular disaster recovery tests must be performed to ensure data can be recovered.
+            (d) Storage of data (#Heading)
+                (aa) All data must be ring-fenced without the ability to be updated by unauthorised persons.
+                (bb) Cross-border transactional data must be stored directly into the source system, i.e. the core accounting system. 
+                (cc) Customer data must be stored directly from the source system, i.e. the centralised customer database.
+                (dd) In an event of the ADLA terminating its operations in South Africa for any reason whatsoever, data for five years preceding the date of termination, must be replicated to South Africa by the ADLA in a format accessible by the Financial Surveillance Department and within an agreed period.
+            (e) Regulatory access to data (#Heading)
+                (aa) Any data required by the Financial Surveillance Department must be made available for access immediately, but not later than 48 hours, by the ADLA and should forthwith be furnished to the Financial Surveillance Department in the format prescribed in paragraph (h)(gg) below.
+                (bb) Information must be made available, upon request, at no cost to the Financial Surveillance Department.
+                (cc) The use of offshoring and cloud computing may not in any way infringe on the Financial Surveillance Department's mandated access to data.
+            (f) Jurisdiction (#Heading)
+                (aa) An ADLA must ensure that data is not stored in a sanctioned country or in jurisdictions that may inhibit effective access to data.
+                (bb) In considering foreign jurisdictions, an ADLA must take into account the wider political and security stability of the particular jurisdiction as well as the legislative requirements in terms of the foreign jurisdiction concerned. This should include consideration of the legal enforcement provisions within a jurisdiction.
+            (g) Procedure to update data back to source (#Heading)
+                (aa) From time to time an ADLA may be required to amend certain data, e.g. balance of payments categories or cancel the reporting of a transaction. This might have an impact on the same source reporting principle, as all changes must be updated back to the source, i.e. transactional or accounting system.
+            (h) System requirements (#Heading)
+                (aa) Data in any offshore data centre must at the least be encrypted through modern encryption technology. 
+                (bb) All cryptographic keys used in a storage encryption solution must be secured and managed properly to support the security of the solution.
+                (cc) To prevent the non-recovery of encrypted data, extensive planning of key management processes, procedures, and technologies should be performed before implementing storage encryption technologies. This planning should include all aspects of key management, including key generation, use, storage, recovery and destruction.
+                (dd) Only authorised personnel and systems must be able to retrieve, decrypt and process data through any network or cloud.
+                (ee) The foreign service provider should have very strong, documented and tested cyber controls to protect data against cybercrime.
+                (ff) An ADLA must verify adherence to the agreed information security requirements, i.e. through third party assurance audits and/or any other security testing requirements such as vulnerability scanning and penetration testing.
+                (gg) Data requested by the Financial Surveillance Department should be provided in a standard report format, as prescribed in the ADLA Manual, such as a semi-colon delimited file (e.g.CSV).
+            (i) Other regulatory bodies and legislative requirements (#Heading)
+                (aa) An ADLA must consider the offshoring and cloud computing models in the context of its overarching regulatory obligations, which may include obligations to the Financial Intelligence Centre and the Prudential Authority who have different statutory objectives and may, therefore, have different requirements.
+                (bb) An ADLA must acquaint itself with the relevant provisions of the applicable legislation, e.g. the Protection of Personal Information Act, 2013 (Act No. 4 of 2013) and the FIC Act.
+        (vi) Applications to the Financial Surveillance Department should, inter alia, include the following: (#Heading)
+            (a) confirmation that the ADLA complies with the requirements and assurance set out in (v) above and (vii) below; and
+            (b) a copy of the business case which should outline, inter alia, the following: 
+                (aa) proposed offshoring and cloud computing operating model;
+                (bb) details of all relevant offshoring and cloud computing third parties or service providers;
+                (cc) benefits and risks involved;
+                (dd) confirmation that the management and mitigation of risks is done in order to maximise the benefits through effective end- to-end governance practices;
+                (ee) jurisdictions where data will be stored;
+                (ff) service, deployment and security models of offshoring and cloud computing applicable to the different classifications of data;
+                (gg) how data loss and breaches will be dealt with;
+                (hh) procedure to ensure that the reporting requirements stated in the ADLA Manual are adhered to;
+                (ii) procedures to be implemented to accommodate requests to update data from the source systems; and
+                (jj) strategy to be implemented in the event that offshoring and cloud computing operations are required to be moved from one provider to another.
+        (vii) Assurances (#Heading)
+            (a) The compliance with all the requirements listed in (v) above, must be contained in the Managerial Letter of Comfort to be provided to the Financial Surveillance Department on an annual basis.
+        (viii) Remedies (#Heading)
+            (a) Any failure by an ADLA to comply with the above mentioned requirements may result in the suspension of authorities provided by the Financial Surveillance Department or may cause the Financial Surveillance Department to invoke remedies available to it in terms of the Exchange Control Regulations.
+    (E) Inward payments (#Heading)
+        (i) General (#Heading)
+            (a) ADLAs must ensure the correct reporting of all cross-border foreign exchange transactions irrespective of the amounts and currencies involved. 
+            (b) Data pertaining to transactions must be submitted to the Financial Surveillance Department in the various formats outlined in the Business and Technical Specifications document within five business days from the value date of the transaction.
+            (c) Rejections by the Financial Surveillance Department must be corrected and re-submitted in the agreed format within one business day from the date of the rejection.
+            (d) Warning messages by the Financial Surveillance Department must be thoroughly investigated and actioned within one business day from the date of the warning message and, where required, the appropriate remedial actions must be taken.
+        (ii) Integrated form (#Heading)
+            (a) The integrated form is applicable to all transactions reported under the BOPCUS module.
+            (b) Transactions reported by ADLAs under the 'NON REPORTABLE' and 'INTERBANK' modules do not require an integrated form.
+            (c) ADLAs must make use of an integrated form in respect of all inward payments either in hard copy or electronic format to obtain data required for the processing and reporting of all BOPCUS cross- border foreign exchange transactions to the Financial Surveillance Department.
+            (d) When the client is physically present at the ADLA, the integrated form must be completed and signed by the client in respect of all inward payments.
+            (e) When the client is not physically present to complete and sign the integrated form, the ADLA may complete and sign the integrated form either physically or electronically, provided that the ADLA has been authorised or mandated to do so by means of a letter, a facsimile message, an email message or by a recorded telephonic message to act on the client's behalf.
+            (f) The client's communication must be retained by the ADLA for a period of five years for inspection purposes.
+        (iii) Declaration (#Heading)
+        The following declaration must be included in the integrated form:
+        "I, the undersigned……………………………………., hereby declare that: 
+        1. I have read this document and know and understand the contents thereof;
+        2. the information furnished above is in all respects both true and correct;
+        3. the currency or transfer of value applied for will only be used for the specific purpose stated herein;
+        4. the documentation presented in support of this application is in all respects authentic;
+        5. I have been informed of the limit applicable to the above transaction and confirm that this limit will not be exceeded as a result of the conclusion of this transaction; and
+        6. I consent to this information being provided to the South African Revenue Service and/or the Financial Intelligence Centre."
+    (F) Balance-of-payments categories applicable to BOPCUS – inward payments (#Heading)
+    A balance-of-payment category consists of a category, while in some cases a category and a sub-category are also applicable.
+        (i) Service related items (#Heading)
+        Transaction adjustments 
+        200 Adjustments / Reversals / Refunds applicable to service related items
+        
+        Travel services for non-residents 
+        250 Travel services for non-residents – business travel 
+        251 Travel services for non-residents – holiday travel 
+        252 Foreign exchange accepted by residents from non- residents
+        
+        Travel services for residents 
+        255 Travel services for residents – business travel 
+        256 Travel services for residents – holiday travel
+        
+        Travel services in respect of third parties 
+        260 Proceeds for travel services in respect of third parties – business travel 
+        261 Proceeds for travel services in respect of third parties – holiday travel
+        
+        (ii) Transactions relating to income  (#Heading)
+        Transaction adjustments 
+        300 Adjustments / Reversals / Refunds related to income and yields on financial assets
+        
+        Income receipts 
+        303 Compensation paid by a non-resident to a resident employee (excluding remittances) 
+        305 Compensation paid by a non-resident to a migrant worker employee (excluding remittances) 
+        306 Compensation paid by a non-resident to a foreign national contract worker employee (excluding remittances)
+
+        (iii) Transfers of a current nature (#Heading)
+        Transaction adjustments 
+        400 Adjustments / Reversals / Refunds related to transfers of a current nature
+        
+        Current payments 
+        401 Gifts 
+        416 Migrant worker remittances (excluding compensation) 
+        417 Foreign national contract worker remittances (excluding compensation) 
+        418 Value Transfer Service (Authorised providers - for statistical purposes only) 
+        419 Not allocated
+
+    (G) Outward payments (#Heading)
+        (i) General (#Heading)
+            (a) ADLAs must ensure correct reporting of all cross-border foreign exchange transactions irrespective of the amounts and currencies involved.
+            (b) Data pertaining to transactions must be submitted to the Financial Surveillance Department in the various formats outlined in the Business and Technical Specifications document within five business days from the value date of the transaction.
+            (c) Rejections by the Financial Surveillance Department must be corrected and re-submitted in the agreed format within one business day from the date of the rejection.
+        (ii) Integrated form (#Heading)
+            (a) The integrated form is applicable to all transactions reported under the BOPCUS module. 
+            (b) Transactions reported by ADLAs under the NON REPORTABLE and 'INTERBANK' modules do not require an integrated form.
+            (c) ADLAs must make use of an integrated form in respect of all outward payments either in hard copy or electronic format to obtain data required for the processing and reporting of all BOPCUS cross- border foreign exchange transactions to the Financial Surveillance Department.
+            (d) When the client is physically present at the ADLA, the integrated form must be completed and signed by the client in respect of all outward payments.
+            (e) When the client is not physically present to complete and sign the integrated form, the ADLA may complete and sign the integrated form, either physically or electronically, provided that the ADLA has been authorised or mandated to do so by means of a letter, a facsimile message, an email message or by a recorded telephonic message to act on the client's behalf. The client's communication must be retained by the ADLA for a period of five years for inspection purposes.
+            (f) In cases where the client transacts with the ADLA via an electronic interface, the ADLA must ensure that the underlying agreements legally bind the client in terms of the correctness of the information provided via the electronic medium.
+        (iii) Declaration (#Heading)
+        The following declaration must be included in the integrated form:
+        "I, the undersigned……………………………………., hereby declare that:
+        1. I have read this document and know and understand the contents thereof; 2. the information furnished above is in all respects both true and correct;
+        3. the currency or transfer of value applied for will only be used for the specific purpose stated herein;
+        4. the documentation presented in support of this application is in all respects authentic;
+        5. I have been informed of the limit applicable to the above transaction and confirm that this limit will not be exceeded as a result of the conclusion of this transaction; and
+        6. I consent to this information being provided to the South African Revenue Service and/or the Financial Intelligence Centre." 
+    (H) Balance-of-payments categories applicable to BOPCUS – outward payments (#Heading)
+    A Balance-of-Payment category consists of a category and in some cases a category and a sub-category is also applicable. 
+    
+        (i) Service related payments (#Heading)
+        Transaction adjustments 
+        200 Adjustments / Reversals / Refunds applicable to service related items
+
+        Travel services for non-residents 
+        250 Travel services for non-residents – business travel 
+        251 Travel services for non-residents – holiday travel
+
+        Travel services for residents 
+        255 Travel services for residents – business travel 
+        256 Travel services for residents – holiday travel
+
+        Travel services in respect of third parties 
+        260 Payment for travel services in respect of third parties – business travel 
+        261 Payment for travel services in respect of third parties – holiday travel
+
+        Transportation services 
+        270 01 Payment for passenger services – road 
+        270 02 Payment for passenger services – rail 
+        270 03 Payment for passenger services – sea 
+        270 04 Payment for passenger services – air
+
+        Study related services 
+        285
+        Tuition fees
+
+        (ii) Transactions relating to income (#Heading)
+        Transaction adjustments 
+        300 Adjustments / Reversals / Refunds related to income
+
+        Income payments 
+        305 Compensation paid by a resident to a migrant worker employee (excluding remittances) 
+        306 Compensation paid by a resident to a foreign national contract worker employee (excluding remittances)
+        
+        (iii) Transfers of a current nature  (#Heading)
+        Transaction adjustments 
+        400 Adjustments / Reversals / Refunds related to transfers of a current nature
+        
+        Current payments 
+        401 Gifts 
+        416 Migrant worker remittances (excluding compensation) 
+        417 Foreign national contract worker remittances (excluding compensation) 
+        418 Value Transfer Service (Authorised providers - for statistical purposes only) 
+        419 Not allocated
+
+    (I) Reconciliation module (#Heading)
+        (i) ADLAs must make use of a straight-through processing system, in electronic format, which must daily account for all reportable and non- reportable transactions, including interbank transactions, reconciling all such transactions at the ADLA and also reconciling the transactions submitted to and confirmed by the South African Reserve Bank.
+        (ii) In amplification of the above, the purpose is to ensure that there is reconciliation between the data on the general ledger/accounting system, the system used to submit data to the South African Reserve Bank, as well as confirmation, from the South African Reserve Bank, that the data submitted was successfully received and stored.
+        (iii) The reconciliation module must be able to perform the following functions:
+            (a) compile the following daily reports from the general ledger/accounting system:
+                (aa) reportable transactions;
+                (bb) non-reportable transactions; and
+                (cc) interbank transactions;
+            (b) compile a daily report of all reportable transactions reported to the South African Reserve Bank from the system used to transmit data to the South African Reserve Bank;
+            (c) electronically match the reportable transactions from the daily report referred to in (a) above with the actual transactions reported to the South African Reserve Bank referred to in (b) above;
+            (d) compile a daily report of transactions not matched between the general ledger/accounting system of the reporting ADLA and the 
+            system used to transmit data to the South African Reserve Bank; and
+            (e) the reconciliation module must be able to create the daily report referred to in (a), (b) and (d) above in Excel or text format (semicolon delimited), and must be forwarded to the South African Reserve Bank upon request.
+        (iv) The data required in (e) above, must contain the following information:
+            (a) flow (IN or OUT);
+            (b) transaction reference number;
+            (c) branch code;
+            (d) value date;
+            (e) Rand amount;
+            (f) foreign amount; and
+            (g) foreign currency code.
+            (f) In cases where the ADLAs change the status of transactions between 'reportable' and 'non-reportable', the reconciliation module must be updated to ensure that this manual intervention does not distort the reconciliation process.
+    (J) Systems governance (#Heading)
+        (i) Inspection manual
+        The minimum information that should be contained in an inspection manual includes:
+            (a) a comprehensive flow diagram clearly depicting the flow of transactions through various systems (on-boarding, transactional, accounting and FinSurv Reporting System, including the Reconciliation Module) from capturing to submission of the transactions to the Financial Surveillance Department;
+            (b) an up to date list of definitions, contact details of the dedicated person(s) responsible for the reporting to Financial Surveillance Department, error handling and the Reconciliation Module; and
+            (c) suitable back-up procedures (i.e. how often, where, when, by whom, the duration of storage that should be minimum five years and recovery testing). Refer to the inspection manual specimen which is available from the website: www.resbank.co.za by following the links: Home>Financial Surveillance>Authorised Dealers>FinSurv Reporting System>FinSurv Reporting System documents>System Governance Templates or Home>Financial Surveillance>ADLAs>FinSurv Reporting System >FinSurv Reporting System documents>System Governance Templates.
+        (ii) Pre and post certification managerial letter of comfort
+            (a) Pre certification managerial letter of comfort must be submitted to the Financial Surveillance Department prior to the inspectors conducting a systems certification of the on-boarding, transactional, accounting and FinSurv Reporting System, including the Reconciliation Module. The pre certification managerial letter of comfort provides assurance that the reporting entity's FinSurv Reporting System complies with the Financial Surveillance Department's reporting requirements. In addition, risks and controls around the systems are properly mitigated to ensure that correct, accurate and comprehensive data is submitted as well as that the respective system is ready for deployment into the production environment.
+            (b) Post certification managerial letter of comfort must be submitted to the Financial Surveillance Department after the on-boarding, transactional, accounting and FinSurv Reporting System, including the Reconciliation Module have been deployed in a live environment successfully for at least one month.
+            (c) These pre and post managerial letters of comfort should be completed by the dedicated person responsible for regulatory compliance in consultation with various governance structures within the reporting entity. Refer to the pre and post certification managerial letter of comfort specimens that are available as outlined in (i)(c) above.
+        (iii) Annual managerial letter of comfort
+            (a) The reporting entity must submit an annual managerial letter of comfort indicating that it is comfortable with the governance structures and functionality of the FinSurv Reporting System. The letter must be submitted to the Financial Surveillance Department annually within three months after the financial year end of the reporting entity.
+            (b) The dedicated person responsible for regulatory compliance must be accountable for completing the annual managerial letter of comfort and obtaining confirmation from assurance providers that the independent assurance review of the on-boarding, transactional, accounting and FinSurv Reporting System, including the Reconciliation Module will form part of its ongoing reviews. In this regard, the nature of the assurance procedure must be outlined. Refer to the annual managerial letter of comfort specimen that is available as outlined in (i)(c) above.

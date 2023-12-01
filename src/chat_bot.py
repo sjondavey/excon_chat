@@ -109,11 +109,6 @@ class ExconManual():
         self.messages = []
         self.system_state = self.system_states[0]
         
-    def chat_completion(self, user_context, threshold, model_to_use, temperature, max_tokens,
-                            testing = False, manual_responses_for_testing = []):
-        self.user_provides_input(user_context, threshold, model_to_use, temperature, max_tokens, testing, manual_responses_for_testing)                        
-        return self.messages[-1]["content"]
-
     # Note: To test the workflow I need some way to control the openai API responses. I have chosen to do this with the two parameters
     #       testing: a flag. If false the function will run calling the openai api for responses. If false the function will 
     #                        select the response from the list of responses manual_responses_for_testing
@@ -401,7 +396,7 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
                     return prefix, followup_response_text[len(prefix):]
 
         return self.rag_prefixes[3], "The LLM was not able to return an acceptable answer. "
-
+        
 
     def similarity_search(self, user_context, threshold = 0.15):
         question_embedding = get_ada_embedding(user_context)        
@@ -491,7 +486,6 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
                     search_sections.append([reference, minimum_cosine_distance, count])
                     self.logger.log(self.DEV_LEVEL, f"Reference: {reference}, Count: {count}, Min Cosine-Distance: {minimum_cosine_distance}")
 
-        
         if len(search_sections) == 1 and len(relevant_sections) > 1: # the case if each section only appears once in the search
             # remove the top search result from the list
             remaining_relevant_sections = relevant_sections[relevant_sections["section"] != search_sections[0][0]]
@@ -503,10 +497,9 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
                 third_result = remaining_relevant_sections.iloc[1]
                 search_sections.append([third_result['section'], third_result['cosine_distance'], 1])
 
-
-
         # Note the order of the search_section is preserved        
         return pd.DataFrame(search_sections, columns=["reference", "cosine_distance", "count"])
+
 
     def get_regulation_detail(self, node_str):
         valid_reference = self.index_checker.extract_valid_reference(node_str)
