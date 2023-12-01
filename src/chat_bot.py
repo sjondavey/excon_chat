@@ -109,6 +109,11 @@ class ExconManual():
         self.messages = []
         self.system_state = self.system_states[0]
         
+    def chat_completion(self, user_context, threshold, model_to_use, temperature, max_tokens,
+                            testing = False, manual_responses_for_testing = []):
+        self.user_provides_input(user_context, threshold, model_to_use, temperature, max_tokens, testing, manual_responses_for_testing)                        
+        return self.messages[-1]["content"]
+        
     # Note: To test the workflow I need some way to control the openai API responses. I have chosen to do this with the two parameters
     #       testing: a flag. If false the function will run calling the openai api for responses. If false the function will 
     #                        select the response from the list of responses manual_responses_for_testing

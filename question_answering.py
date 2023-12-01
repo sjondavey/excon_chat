@@ -74,6 +74,10 @@ def load_manual():
     st.session_state['excon'].reset_conversation_history()
     st.session_state['messages'] = [] 
 
+if 'selected_model' not in st.session_state.keys():
+    st.session_state['model_options'] = ['gpt-3.5-turbo', 'gpt-4']
+    st.session_state['selected_model'] = 'gpt-3.5-turbo'
+    st.session_state['selected_model_index'] = st.session_state['model_options'].index(st.session_state['selected_model'])
 
 
 st.write(f"I am a bot designed to answer questions based on the {st.session_state['excon'].manual_name}. How can I assist today?")
@@ -112,7 +116,9 @@ with st.sidebar:
     st.divider()
 
     #st.subheader('Models and parameters')
-    selected_model = st.sidebar.selectbox('Choose a model', ['gpt-3.5-turbo', 'gpt-4'], key='selected_model')
+        
+    st.session_state['selected_model'] = st.sidebar.selectbox('Choose a model', st.session_state['model_options'], key='user_selected_model', index = st.session_state['selected_model_index'])
+    st.session_state['selected_model_index'] = st.session_state['model_options'].index(st.session_state['selected_model'])
     temperature = 0.0
     max_length = 800
     # temperature = st.sidebar.slider('temperature', min_value=0.00, max_value=2.0, value=0.0, step=0.01)
@@ -151,7 +157,7 @@ if prompt := st.chat_input(disabled=not st.session_state['openai_api']):
                 st.session_state["logger"].info(f"Making call to excon manual with prompt: {prompt}")
                 response = st.session_state['excon'].chat_completion(user_context = prompt, 
                                 threshold = 0.15, 
-                                model_to_use = selected_model, 
+                                model_to_use = st.session_state['selected_model'], 
                                 temperature = temperature, 
                                 max_tokens = max_length)
                 st.session_state["logger"].info(f"Response received")
