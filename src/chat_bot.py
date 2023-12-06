@@ -30,7 +30,8 @@ class ExconManual():
                  path_to_index_as_parquet_file,
                  chat_for_ad = True, # False == chat with ADLA
                  log_file = '', 
-                 logging_level = 20): # 20 = logging.info This will exclude my DEV_LEVEL labeled logs
+                 logging_level = 20, # 20 = logging.info This will exclude my DEV_LEVEL labeled logs
+                 **kwargs): 
 
         # Create a custom log level for the really detailed logs
         self.DEV_LEVEL = 15
@@ -101,6 +102,29 @@ class ExconManual():
         self.assistant_msg_unknown_state = "The system is in an unknown state and cannot proceed. Please restart the chat"
         self.assistant_msg_llm_not_following_instructions = "The call to the LLM resulted in a response that did not fit parameters, even after retrying it. Please restart the chat and try phrasing the question differently"
 
+        for key, value in kwargs.items():
+            if key.lower() == 'index':
+                if os.path.exists(value):
+                    df_text_all_tmp = pd.read_parquet(value, engine='pyarrow')
+                    self.df_text_all = pd.concat([self.df_text_all, df_text_all_tmp], ignore_index = True)
+                else:
+                    msg = f"Could not find the file {value}"
+                    logging.error(msg)
+                    raise FileNotFoundError(msg)
+            elif key.lower() == 'manual':
+                if os.path.exists(value):
+                    df_excon_tmp = pd.read_csv(value, sep="|", encoding="utf-8", na_filter=False)  
+                    if df_excon_tmp.isna().any().any():
+                        msg = f'Encountered NaN values while loading {value}. This will cause ugly issues with the get_regulation_detail method'
+                        logging.error(msg)
+                        raise ValueError(msg)
+                    self.df_excon = pd.concat([self.df_excon, df_excon_tmp], ignore_index = True)
+                else:
+                    msg = f"Could not find the file {value}"
+                    logging.error(msg)
+                    raise FileNotFoundError(msg)
+
+            
 
 
     def reset_conversation_history(self):

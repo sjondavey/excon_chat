@@ -3,69 +3,127 @@ import logging
 import streamlit as st
 import openai
 import os
+import bcrypt
+
 
 import importlib
 import src.chat_bot
 importlib.reload(src.chat_bot)
 from src.chat_bot import ExconManual
 
-import yaml
-from yaml.loader import SafeLoader
 
 logger = logging.getLogger(__name__)
+if "logger" not in st.session_state:
+    st.session_state["logger"] = logging.getLogger(__name__)
+    log_level = logging.INFO
+    st.session_state["logger"].setLevel(log_level)
+    logging.basicConfig(level=log_level)
+    st.session_state["logger"].debug("-----------------------------------")
+    st.session_state["logger"].debug("Logger started")
+
+### Password
+def check_password():
+    """Returns `True` if the user had a correct password."""
+
+    def login_form():
+        """Form with widgets to collect user information"""
+        with st.form("Credentials"):
+            st.text_input("Username", key="username")
+            st.text_input("Password", type="password", key="password")
+            st.form_submit_button("Log in", on_click=password_entered)
+
+    def password_entered():
+        """Checks whether a password entered by the user is correct."""
+        pwd_raw = st.session_state['password']
+        if st.session_state["username"] in st.secrets[
+            "passwords"
+        ] and bcrypt.checkpw(
+            pwd_raw.encode(),
+            st.secrets.passwords[st.session_state["username"]].encode(),
+        ):
+            st.session_state["password_correct"] = True
+            st.session_state["logger"].info(f"New questions From: {st.session_state['username']}")
+            del st.session_state["password"]  # Don't store the username or password.
+            del pwd_raw
+            del st.session_state["username"]
+        else:
+            st.session_state["password_correct"] = False
+
+    # Return True if the username + password is validated.
+    if st.session_state.get("password_correct", False):
+        return True
+
+    # Show inputs for username + password.
+    login_form()
+    if "password_correct" in st.session_state:
+        st.error("😕 User not known or password incorrect")
+    return False
+
+if not check_password():
+    st.stop()
+
 
 # App title - Must be first Streamlit command
 st.set_page_config(page_title="💬 Excon Manual Question Answering")
-
-
-if "logger" not in st.session_state:
-    st.session_state["logger"] = logging.getLogger(__name__)
-    log_level = logging.WARNING
-    st.session_state["logger"].setLevel(log_level)
-    logging.basicConfig(level=log_level)
-    st.session_state["logger"].info("-----------------------------------")
-    st.session_state["logger"].info("Logger started")
 
 st.title('Dealer Manual: Question Answering')
 buttons = ['Authorised Dealer (AD)', 'AD with Limited Authority (ADLA)']
 
 @st.cache_resource(show_spinner=False)
 def load_data(ad = True):
-    st.session_state["logger"].info(f'--> cache_resource called again to reload data')
+    st.session_state["logger"].debug(f'--> cache_resource called again to reload data')
     with st.spinner(text="Loading the excon documents and index – hang tight! This should take 5 seconds."):
         if ad:
             path_to_manual_as_csv_file = "./inputs/ad_manual.csv"
             path_to_definitions_as_parquet_file = "./inputs/ad_definitions.parquet"
             path_to_index_as_parquet_file = "./inputs/ad_index.parquet"
             chat_for_ad = True
+            log_file = ''
+            log_level = 20
+
+            path_to_manual_plus = "./inputs/ad_manual_plus.csv"
+            path_to_index_plus = "./inputs/ad_index_plus.parquet"
+
+            excon = ExconManual(path_to_manual_as_csv_file, 
+                                path_to_definitions_as_parquet_file, 
+                                path_to_index_as_parquet_file, 
+                                chat_for_ad = chat_for_ad, 
+                                log_file=log_file, 
+                                logging_level=log_level, 
+                                manual = path_to_manual_plus, # **kwargs
+                                index = path_to_index_plus) 
+
         else:
             path_to_manual_as_csv_file = "./inputs/adla_manual.csv"
             path_to_definitions_as_parquet_file = "./inputs/adla_definitions.parquet"
             path_to_index_as_parquet_file = "./inputs/adla_index.parquet"
             chat_for_ad = False
 
-        log_file = ''
-        log_level = 20
-        excon = ExconManual(path_to_manual_as_csv_file, path_to_definitions_as_parquet_file, path_to_index_as_parquet_file, chat_for_ad = chat_for_ad, log_file=log_file, logging_level=log_level)
+            log_file = ''
+            log_level = 20
+            excon = ExconManual(path_to_manual_as_csv_file, path_to_definitions_as_parquet_file, path_to_index_as_parquet_file, chat_for_ad = chat_for_ad, log_file=log_file, logging_level=log_level)
+
         st.session_state["logger"].info(f"Load data called. Loading data for {excon.user_type}")
         return excon
 
 
 if 'manual_to_use' not in st.session_state:
-    st.session_state["logger"].info("Adding \'manual_to_use\' to keys")
+    st.session_state["logger"].debug("Adding \'manual_to_use\' to keys")
     st.session_state['manual_to_use'] = buttons[0]
 
 if 'excon' not in st.session_state:
-    st.session_state["logger"].info('Adding \'Excon\' to keys')
+    st.session_state["logger"].debug('Adding \'Excon\' to keys')
     st.session_state['excon'] = load_data(ad = True)
 
 if 'openai_api' not in st.session_state:
-    st.session_state['openai_api'] = None
+    st.session_state['openai_api'] = st.secrets['openai']['OPENAI_API_KEY'] #
+    openai.api_key = st.secrets['openai']['OPENAI_API_KEY'] #
+    #openai_api = st.secrets['openai']['OPENAI_API_KEY']
 
 
 def load_manual():
     st.session_state['manual_to_use'] = st.session_state.manual_type
-    st.session_state["logger"].info(f'Loading new manual: {st.session_state.manual_type}')
+    st.session_state["logger"].debug(f'Loading new manual: {st.session_state.manual_type}')
     if st.session_state['manual_to_use'] == buttons[0]:
         st.session_state['excon'] = load_data(ad = True)
     else:
@@ -83,25 +141,6 @@ if 'selected_model' not in st.session_state.keys():
 st.write(f"I am a bot designed to answer questions based on the {st.session_state['excon'].manual_name}. How can I assist today?")
 # Credentials
 with st.sidebar:
-    if not st.session_state['openai_api']:
-        st.session_state["logger"].info(f'No token saved in session_state')
-        st.session_state['openai_api'] = st.text_input('Enter API token:', type='password')
-    else:
-        st.session_state["logger"].info(f'Existing token in session_state. Using it to repopulate the field')
-        st.session_state['openai_api'] = st.text_input('Enter API token:', value = st.session_state['openai_api'],type='password')
-
-    if not (st.session_state['openai_api'].startswith('sk-') and len(st.session_state['openai_api'])==51):
-        st.session_state["logger"].info(f'Token NOT valid')
-        st.session_state["logger"].info(f"Startswith sk-: {st.session_state['openai_api'].startswith('sk-')}")
-        st.session_state["logger"].info(f"Token Length: {len(st.session_state['openai_api'])}")
-        st.warning('Please enter your credentials!', icon='⚠️')
-        st.session_state['openai_api'] = None
-    else:
-        st.session_state["logger"].info(f'Token is valid')
-        st.success('Proceed to entering your prompt message!', icon='👉')
-        openai.api_key = st.session_state['openai_api']
-
-    st.divider()
 
     if st.session_state['manual_to_use'] == buttons[0]:
         index = 0
@@ -127,7 +166,7 @@ with st.sidebar:
         
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state["logger"].info("Adding \'messages\' to keys")
+    st.session_state["logger"].debug("Adding \'messages\' to keys")
     st.session_state['excon'].reset_conversation_history()
     st.session_state['messages'] = [] 
 
@@ -137,7 +176,7 @@ for message in st.session_state.messages:
         st.write(message["content"])
 
 def clear_chat_history():
-    st.session_state["logger"].info("Clearing \'messages\'")
+    st.session_state["logger"].debug("Clearing \'messages\'")
     st.session_state['excon'].reset_conversation_history()
     st.session_state['messages'] = [] 
 st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
@@ -145,7 +184,7 @@ st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
 
 # User-provided prompt
 if prompt := st.chat_input(disabled=not st.session_state['openai_api']):
-    st.session_state["logger"].info(f"st.chat_input() called. Value returned is: {prompt}")        
+    st.session_state["logger"].debug(f"st.chat_input() called. Value returned is: {prompt}")        
     if prompt is not None and prompt != "":
         st.session_state['messages'].append({"role": "user", "content": prompt})
         with st.chat_message("user"):
@@ -154,15 +193,15 @@ if prompt := st.chat_input(disabled=not st.session_state['openai_api']):
             placeholder = st.empty()
 
             with st.spinner("Thinking..."):
-                st.session_state["logger"].info(f"Making call to excon manual with prompt: {prompt}")
+                st.session_state["logger"].debug(f"Making call to excon manual with prompt: {prompt}")
                 response = st.session_state['excon'].chat_completion(user_context = prompt, 
                                 threshold = 0.15, 
                                 model_to_use = st.session_state['selected_model'], 
                                 temperature = temperature, 
                                 max_tokens = max_length)
-                st.session_state["logger"].info(f"Response received")
-                st.session_state["logger"].info(f"Text Returned from excon manual chat: {response}")
+                st.session_state["logger"].debug(f"Response received")
+                st.session_state["logger"].debug(f"Text Returned from excon manual chat: {response}")
                 placeholder.markdown(response)
             st.session_state['messages'].append({"role": "assistant", "content": response})
-            st.session_state["logger"].info("Response added the the queue")
+            st.session_state["logger"].debug("Response added the the queue")
     

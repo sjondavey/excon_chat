@@ -26,7 +26,7 @@ st.sidebar.button('Clear Lookup History', on_click=clear_chat_history)
 
 
 # User-provided prompt
-if prompt := st.chat_input(): 
+if prompt := st.chat_input(disabled= ('password_correct' not in st.session_state or not st.session_state["password_correct"])): 
     st.session_state.messages_lookup.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.write(prompt)

@@ -1,0 +1,12 @@
+Indent|Reference|Text|Document|Page|Heading|full_reference|word_count|sections_referenced
+0|Z.1|References|||True|Z.1|1
+1|(A)|Commodities|||True|Z.1(A)|1
+2|(i)|"It is important to note that there are explicit regulations for gold and that these references are only intended for non-gold commodities.
+        B.2(B)(i)(r): Private individuals resident in South Africa are not allowed to use South African credit, debit, or virtual cards to fund foreign currency accounts or international trading accounts, including trading commodities.
+        B.2(I)(iii): Commodities are included in the definition of foreign exposure for macro-prudential limit purposes.
+        D.1(G)(v)(b)(aa): Commodity futures and commodity option contracts with resident clients can be entered into if they are quoted and traded on the JSE Limited.
+        D.1(G)(v)(b)(bb): authorized dealers can arrange forward cover or hedging transactions with residents for price risk related to metals, by entering into commodity futures or options contracts.
+        E.(B)(i)(b)(bb): Special CFC accounts can be opened for local entities involved in the import and export of rough diamonds, crude oil, wrought gold, and/or steel to facilitate local settlement in foreign currency, with strict adherence to specified provisions regarding participation, registration, destination, transaction type, hedging, and regulatory compliance.
+        E.(B)(ii)(a)(gg)(4): Transfers between local entities in settlement of transactions in commodities like rough diamonds, crude oil, wrought gold and steel should be indicated as 'TRF 4 COMMODITIES' in Field 72.
+        G.(D)(viii)(c)(aa)(4): The prior written approval of the Financial Surveillance Department is required for the local issue, listing, or purchase of debt securities linked to commodity prices.
+        H.(E)(i)(c): Current commodity derivatives like White Maize are listed and traded on a South African exchange in Rand."|||False|Z.1(A)(i)|0|B.2(B)(i)(r), B.2(I)(iii), D.1(G)(v)(b)(aa), D.1(G)(v)(b)(bb), E.(B)(i)(b)(bb), E.(B)(ii)(a)(gg)(4), G.(D)(viii)(c)(aa)(4), H.(E)(i)(c)
