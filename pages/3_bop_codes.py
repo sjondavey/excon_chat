@@ -47,7 +47,7 @@ if prompt := st.chat_input(disabled= ('password_correct' not in st.session_state
 if st.session_state['bop_lookup'][-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            question_embedding = get_ada_embedding(prompt)
+            question_embedding = get_ada_embedding(st.session_state['openai_client'], prompt)
             closest_nodes = get_closest_nodes(st.session_state['bop_codes'], "Embedding", question_embedding, threshold = 0.25)
 
     df = closest_nodes[["Category", "Sub-category", "Category Description", "Inward or Outward"]]

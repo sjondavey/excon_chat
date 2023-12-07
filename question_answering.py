@@ -86,7 +86,7 @@ def load_data(ad = True):
             path_to_manual_plus = "./inputs/ad_manual_plus.csv"
             path_to_index_plus = "./inputs/ad_index_plus.parquet"
 
-            excon = ExconManual(openai_client,
+            excon = ExconManual(st.session_state['openai_client'],
                                 path_to_manual_as_csv_file, 
                                 path_to_definitions_as_parquet_file, 
                                 path_to_index_as_parquet_file, 
@@ -120,6 +120,7 @@ if 'excon' not in st.session_state:
 
 if 'openai_api' not in st.session_state:
     st.session_state['openai_api'] = st.secrets['openai']['OPENAI_API_KEY'] #
+    st.session_state['openai_client'] = OpenAI(api_key = st.secrets['openai']['OPENAI_API_KEY'])
     # openai.api_key = st.secrets['openai']['OPENAI_API_KEY'] #
     #openai_api = st.secrets['openai']['OPENAI_API_KEY']
 
