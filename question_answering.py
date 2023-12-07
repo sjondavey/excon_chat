@@ -70,6 +70,13 @@ st.set_page_config(page_title="💬 Excon Manual Question Answering")
 st.title('Dealer Manual: Question Answering')
 buttons = ['Authorised Dealer (AD)', 'AD with Limited Authority (ADLA)']
 
+if 'openai_api' not in st.session_state:
+    st.session_state['openai_api'] = st.secrets['openai']['OPENAI_API_KEY'] #
+    st.session_state['openai_client'] = OpenAI(api_key = st.secrets['openai']['OPENAI_API_KEY'])
+    # openai.api_key = st.secrets['openai']['OPENAI_API_KEY'] #
+    #openai_api = st.secrets['openai']['OPENAI_API_KEY']
+
+
 @st.cache_resource(show_spinner=False)
 def load_data(ad = True):
     st.session_state["logger"].debug(f'--> cache_resource called again to reload data')
@@ -118,11 +125,6 @@ if 'excon' not in st.session_state:
     st.session_state["logger"].debug('Adding \'Excon\' to keys')
     st.session_state['excon'] = load_data(ad = True)
 
-if 'openai_api' not in st.session_state:
-    st.session_state['openai_api'] = st.secrets['openai']['OPENAI_API_KEY'] #
-    st.session_state['openai_client'] = OpenAI(api_key = st.secrets['openai']['OPENAI_API_KEY'])
-    # openai.api_key = st.secrets['openai']['OPENAI_API_KEY'] #
-    #openai_api = st.secrets['openai']['OPENAI_API_KEY']
 
 
 def load_manual():
