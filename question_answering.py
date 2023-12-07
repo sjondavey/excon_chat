@@ -4,6 +4,7 @@ import streamlit as st
 import openai
 import os
 import bcrypt
+from openai import OpenAI
 
 
 import importlib
@@ -73,6 +74,7 @@ buttons = ['Authorised Dealer (AD)', 'AD with Limited Authority (ADLA)']
 def load_data(ad = True):
     st.session_state["logger"].debug(f'--> cache_resource called again to reload data')
     with st.spinner(text="Loading the excon documents and index – hang tight! This should take 5 seconds."):
+        openai_client = OpenAI(api_key = st.secrets['openai']['OPENAI_API_KEY'])
         if ad:
             path_to_manual_as_csv_file = "./inputs/ad_manual.csv"
             path_to_definitions_as_parquet_file = "./inputs/ad_definitions.parquet"
@@ -84,7 +86,8 @@ def load_data(ad = True):
             path_to_manual_plus = "./inputs/ad_manual_plus.csv"
             path_to_index_plus = "./inputs/ad_index_plus.parquet"
 
-            excon = ExconManual(path_to_manual_as_csv_file, 
+            excon = ExconManual(openai_client,
+                                path_to_manual_as_csv_file, 
                                 path_to_definitions_as_parquet_file, 
                                 path_to_index_as_parquet_file, 
                                 chat_for_ad = chat_for_ad, 
@@ -117,7 +120,7 @@ if 'excon' not in st.session_state:
 
 if 'openai_api' not in st.session_state:
     st.session_state['openai_api'] = st.secrets['openai']['OPENAI_API_KEY'] #
-    openai.api_key = st.secrets['openai']['OPENAI_API_KEY'] #
+    # openai.api_key = st.secrets['openai']['OPENAI_API_KEY'] #
     #openai_api = st.secrets['openai']['OPENAI_API_KEY']
 
 

@@ -1,6 +1,6 @@
 import logging
 import pandas as pd
-import openai
+from openai import OpenAI
 from collections import Counter
 import os
 import fnmatch
@@ -25,6 +25,7 @@ from src.embeddings import get_ada_embedding, \
 
 class ExconManual():
     def __init__(self, 
+                 openai_client, 
                  path_to_manual_as_csv_file,
                  path_to_definitions_as_parquet_file,
                  path_to_index_as_parquet_file,
@@ -33,6 +34,7 @@ class ExconManual():
                  logging_level = 20, # 20 = logging.info This will exclude my DEV_LEVEL labeled logs
                  **kwargs): 
 
+        self.openai_client = openai_client
         # Create a custom log level for the really detailed logs
         self.DEV_LEVEL = 15
         logging.addLevelName(self.DEV_LEVEL, 'DEV')        
@@ -379,14 +381,14 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
                     self.logger.warning("!!! NOTE !!! You have a very long prompt. Switching to the gpt-3.5-turbo-16k model")
                     model_to_use = "gpt-3.5-turbo-16k"
 
-                response = openai.ChatCompletion.create(
+                response = self.openai_client.chat.completions.create(
                                     model=model_to_use,
                                     temperature = temperature,
                                     max_tokens = max_tokens,
                                     messages = truncated_chat
                                 )
                 #print(response)
-                initial_response = response['choices'][0]['message']['content']
+                initial_response = response.choices[0].message.content
 
             # Check the model performed as instructed prefacing its response with one of three words 
             for prefix in self.rag_prefixes:
@@ -412,13 +414,13 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
                     self.logger.warning("!!! NOTE !!! You have a very long prompt. Switching to the gpt-3.5-turbo-16k model")
                     model_to_use = "gpt-3.5-turbo-16k"
 
-                followup_response = openai.ChatCompletion.create(
+                followup_response = self.openai_client.chat.completions.create(
                                     model=model_to_use,
                                     temperature = temperature,
                                     max_tokens = max_tokens,
                                     messages = despondent_user_messages
                                 )
-                followup_response_text = followup_response['choices'][0]['message']['content']
+                followup_response_text = followup_response.choices[0].message.content
             for prefix in self.rag_prefixes:
                 if followup_response_text.startswith(prefix):
                     # self.messages[-1]["content"] = self.user_question
@@ -428,7 +430,7 @@ Note: In the manual sections are numbered like A.1(A) or C.(C)(iii)(c)(cc)(3). T
         
 
     def similarity_search(self, user_context, threshold = 0.15):
-        question_embedding = get_ada_embedding(user_context)        
+        question_embedding = get_ada_embedding(self.openai_client, user_context)        
         self.logger.log(self.DEV_LEVEL, "#################   Similarity Search       #################")
         relevant_definitions = get_closest_nodes(self.df_definitions_all, embedding_column_name = "Embedding", question_embedding = question_embedding, threshold = threshold)
         if len(relevant_definitions) > 0:

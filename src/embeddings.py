@@ -1,4 +1,4 @@
-import openai
+#import openai
 import tiktoken
 
 from json import loads
@@ -54,8 +54,11 @@ def num_tokens_from_messages(messages, model="gpt-3.5"):
     return num_tokens
 
 
-def get_ada_embedding(text, model="text-embedding-ada-002"):
-   return openai.Embedding.create(input = [text], model=model)['data'][0]['embedding']
+def get_ada_embedding(openai_client, text, model="text-embedding-ada-002"):
+   return openai_client.embeddings.create(input = [text], model=model).data[0].embedding
+
+# def get_ada_embedding_old(text, model="text-embedding-ada-002"):
+#    return openai.embeddings.create(input = [text], model=model).data[0].embedding
 
 def get_closest_nodes(df, embedding_column_name, question_embedding, threshold = 0.15):
       df['cosine_distance'] = df[embedding_column_name].apply(lambda x: distance.cosine(x, question_embedding))
